@@ -3,6 +3,7 @@ package sample.controller;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,8 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
@@ -38,16 +39,20 @@ public class WebViewController implements Initializable {
     private Button dokandar;
 
     @FXML
-    private WebView webview;
+    private Button backButton;
 
     @FXML
-    private Button history;
+    private WebView webview;
+
 
     @FXML
     private ToolBar toolbar;
 
     @FXML
     private Text barText;
+
+    @FXML
+    private Text copyRight;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,6 +61,10 @@ public class WebViewController implements Initializable {
     }
 
     private void drawerAction() {
+
+        copyRight.setText("  \u00a9 Datasoft Systems Bangladest Ltd.\n\t\tAll Rights Reserved");
+        copyRight.setTranslateY(430);
+        copyRight.setFill(Color.WHITE);
 
 
         TranslateTransition openNav = new TranslateTransition(new Duration(350), drawer);
@@ -68,7 +77,7 @@ public class WebViewController implements Initializable {
 
 
                 webview.getEngine().load("https://dokaandar.com/");
-                barText.setText("DokanDar");
+                barText.setText("Dokan-Dar");
             }
         });
 
@@ -78,19 +87,24 @@ public class WebViewController implements Initializable {
 
 
                 webview.getEngine().load("https://teledocbd.org/");
-                barText.setText("Tele Doctor");
+                barText.setText("Tele-Daktar");
             }
         });
 
-        history.setOnAction(new EventHandler<ActionEvent>() {
+        backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                WebEngine engine = webview.getEngine();
-                WebHistory history = engine.getHistory();
-                ObservableList<WebHistory.Entry> url = history.getEntries();
-                if (url != null) {
-                    webview.getEngine().load(url.get(url.size() - 2).toString());
-                }
+                final WebHistory history = webview.getEngine().getHistory();
+                ObservableList<WebHistory.Entry> entryList = history.getEntries();
+                int currentIndex = history.getCurrentIndex();
+
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                       if (entryList.size()>1){
+                           history.go(-1);
+                       }
+                    }
+                });
             }
         });
 

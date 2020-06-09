@@ -1,3 +1,12 @@
+#backButton:hover {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-text-fill: -fx-text-base-color;
+
+}
+
+
+
 .button {
     -fx-background-color:
             #3c7fb1,
@@ -32,7 +41,17 @@
     -fx-text-fill: black;
     -fx-font-size: 14px;
 }
-.button:hover{
+#dokandar:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#teledaktar:hover{
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
@@ -49,5 +68,9 @@
     -fx-pref-height: 28px;
     -fx-pref-width: 200px;
 }
+#copyRight{
+    -fx-font-weight: 100;
+}
+
 
 

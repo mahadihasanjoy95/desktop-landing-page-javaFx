@@ -1,12 +1,10 @@
 package sample.controller;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -280,14 +278,38 @@ public class SplashScreenController implements Initializable {
         fadeTransition.setFromValue(1.0f);
         fadeTransition.setToValue(0f);
         fadeTransition.setCycleCount(1);
-
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(5));
         scaleTransition.setByX(20f);
         scaleTransition.setByY(16f);
         scaleTransition.setCycleCount(1);
-
         ParallelTransition parallelTransition = new ParallelTransition(scaleRectangle, fadeTransition, scaleTransition);
         parallelTransition.play();
+
+        Image logo = null;
+        try {
+            logo = new Image(new FileInputStream("src/resources/imgs/logo1.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ImageView imageView = new ImageView(logo);
+        imageView.setX(300);
+        imageView.setY(200);
+        imageView.setFitHeight(8);
+        imageView.setFitWidth(8);
+        FadeTransition fadeTransitionImage = new FadeTransition(Duration.seconds(5));
+        fadeTransitionImage.setFromValue(1.0f);
+        fadeTransitionImage.setToValue(0f);
+        fadeTransitionImage.setCycleCount(1);
+        ScaleTransition scaleTransitionImage = new ScaleTransition(Duration.seconds(5));
+        scaleTransitionImage.setByX(20f);
+        scaleTransitionImage.setByY(16f);
+        scaleTransitionImage.setCycleCount(1);
+        RotateTransition rotateTransitionImage = new RotateTransition(Duration.seconds(3));
+        rotateTransitionImage.setByAngle(360);
+        rotateTransitionImage.setCycleCount(1);
+        rotateTransitionImage.setAutoReverse(true);
+        ParallelTransition parallelTransitionImage = new ParallelTransition(imageView, fadeTransitionImage, scaleTransitionImage, rotateTransitionImage);
+        parallelTransitionImage.play();
 
 
         pane.getChildren().add(rectangle);
@@ -309,6 +331,7 @@ public class SplashScreenController implements Initializable {
         pane.getChildren().add(rectangle16);
         pane.getChildren().add(rectangle17);
         pane.getChildren().add(scaleRectangle);
+        pane.getChildren().add(imageView);
 
 
     }
