@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FXMLController">
+   <children>
+      <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <JFXHamburger fx:id="hamburger" prefHeight="25.0" prefWidth="171.0" />
+            <Text fx:id="barText" strokeType="OUTSIDE" strokeWidth="0.0" text="Super App" textAlignment="CENTER" wrappingWidth="216.64633178710938">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </items>
+      </ToolBar>
+      <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <WebView fx:id="webview" prefHeight="465.0" prefWidth="439.0" />
+            <VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="180.0" style="-fx-background-color: #0D1824; -fx-border-color: white;">
+               <children>
+                  <Button fx:id="dokandar" mnemonicParsing="false" prefHeight="49.0" prefWidth="181.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Dokaandar" textFill="#fef9f9" />
+                  <Button fx:id="teledaktar" mnemonicParsing="false" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Tele Daktar" textFill="#fff3f3" />
+                  <Button fx:id="history" mnemonicParsing="false" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Last Tab" textFill="#fff3f3" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
