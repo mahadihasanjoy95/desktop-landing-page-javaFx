@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class SplashScreenController implements Initializable {
 
     Color color1 = Color.web("#4A88AD", 1.0);
     Color color2 = Color.web("#0F75BD", 1.0);
@@ -36,7 +36,7 @@ public class Controller implements Initializable {
 
 //    @FXML
 //    private void nextButton(ActionEvent actionEvent) throws IOException {
-//        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+//        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
 //        Scene scene2 = new Scene(root1);
 //        scene2.getStylesheets().add("/styles/Styles.css");
 //        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -316,7 +316,7 @@ public class Controller implements Initializable {
 
 //    @FXML
 //    private void nextButton(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
 //        Scene scene = new Scene(root);
 //        scene.getStylesheets().add("/styles/Styles.css");
 //        Stage primaryStage = new Stage();

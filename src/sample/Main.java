@@ -13,10 +13,14 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
         Scene scene = new Scene(root, 1276, 650);
         scene.getStylesheets().add("/styles/Styles.css");
         primaryStage.setTitle("Transition");
@@ -34,14 +38,9 @@ public class Main extends Application {
     }
 
     public void loadSecond(Stage pro) throws IOException {
-        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
         Scene scene2 = new Scene(root1);
         scene2.getStylesheets().add("/styles/Styles.css");
         pro.setScene(scene2);
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

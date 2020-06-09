@@ -10,7 +10,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MenuController implements Initializable {
+public class LandingPageController implements Initializable {
 
     @FXML
     private Pane menuPane;
@@ -32,7 +32,6 @@ public class MenuController implements Initializable {
         transition.setByY(10);
         transition.setNode(dokanDarButton);
         transition.play();
-
 
 
         menuPane.getChildren().add(dokanDarButton);

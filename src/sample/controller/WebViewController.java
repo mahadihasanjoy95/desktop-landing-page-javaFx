@@ -21,8 +21,8 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FXMLController implements Initializable {
-    
+public class WebViewController implements Initializable {
+
     @FXML
     private Button menu;
     @FXML
@@ -48,16 +48,14 @@ public class FXMLController implements Initializable {
 
     @FXML
     private Text barText;
-    
+
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
+    public void initialize(URL url, ResourceBundle rb) {
 
         drawerAction();
-    }  
-    
-    private void drawerAction() {
+    }
 
+    private void drawerAction() {
 
 
         TranslateTransition openNav = new TranslateTransition(new Duration(350), drawer);
@@ -90,9 +88,8 @@ public class FXMLController implements Initializable {
                 WebEngine engine = webview.getEngine();
                 WebHistory history = engine.getHistory();
                 ObservableList<WebHistory.Entry> url = history.getEntries();
-                if (url!=null)
-                {
-                    webview.getEngine().load(url.get(url.size()-2).toString());
+                if (url != null) {
+                    webview.getEngine().load(url.get(url.size() - 2).toString());
                 }
             }
         });
