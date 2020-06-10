@@ -23,9 +23,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WebViewController implements Initializable {
-
-    @FXML
-    private Button menu;
     @FXML
     private VBox drawer;
 
@@ -44,9 +41,6 @@ public class WebViewController implements Initializable {
     @FXML
     private WebView webview;
 
-
-    @FXML
-    private ToolBar toolbar;
 
     @FXML
     private Text barText;

@@ -27,21 +27,8 @@ public class SplashScreenController implements Initializable {
     Color color7 = Color.web("#4E989B", 1.0);
     Color color8 = Color.web("#4689A4", 1.0);
     Color color9 = Color.web("#3DA0E7", 1.0);
-    Color color10 = Color.web("#5CB772", 1.0);
-    Color color11 = Color.web("#5CB772", 1.0);
     @FXML
     private Pane pane;
-
-//    @FXML
-//    private void nextButton(ActionEvent actionEvent) throws IOException {
-//        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
-//        Scene scene2 = new Scene(root1);
-//        scene2.getStylesheets().add("/styles/Styles.css");
-//        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//        window.setScene(scene2);
-//        window.show();
-//
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -336,17 +323,16 @@ public class SplashScreenController implements Initializable {
 
     }
 
+}
+
 
 //    @FXML
-//    private void nextButton(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
-//        Scene scene = new Scene(root);
-//        scene.getStylesheets().add("/styles/Styles.css");
-//        Stage primaryStage = new Stage();
-//        primaryStage.setTitle("JavaFX and Maven");
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
+//    private void nextButton(ActionEvent actionEvent) throws IOException {
+//        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/webview_nav.fxml"));
+//        Scene scene2 = new Scene(root1);
+//        scene2.getStylesheets().add("/styles/Styles.css");
+//        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        window.setScene(scene2);
+//        window.show();
 //
 //    }
-
-}
