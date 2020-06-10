@@ -20,7 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen_2.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
         Scene scene = new Scene(root, 1276, 650);
         scene.getStylesheets().add("/styles/landing_page.css");
         primaryStage.setTitle("Transition");
