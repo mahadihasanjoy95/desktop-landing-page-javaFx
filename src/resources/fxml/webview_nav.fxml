@@ -66,6 +66,15 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
+                  <Button fx:id="pay365" mnemonicParsing="false" prefHeight="49.0" prefWidth="231.0" style="-fx-border-color: white; -fx-background-color: transparent;" text="Pay  -  365 " textFill="#E7E8ED">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/logos/Digital-Passbook.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Text fx:id="copyRight" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="222.13669967651367" />
                     </children>
                 </VBox>

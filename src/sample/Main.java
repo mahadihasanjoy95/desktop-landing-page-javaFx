@@ -20,21 +20,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/fxml/landing_page.fxml"));
         Scene scene = new Scene(root, 1276, 650);
         scene.getStylesheets().add("/styles/landing_page.css");
-        primaryStage.setTitle("Transition");
+        primaryStage.setTitle("Super Application");
         primaryStage.setScene(scene);
         primaryStage.show();
-        PauseTransition delay = new PauseTransition(Duration.seconds(7));
-        delay.setOnFinished(event -> {
-            try {
-                loadSecond(primaryStage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        delay.play();
+//        PauseTransition delay = new PauseTransition(Duration.seconds(7));
+//        delay.setOnFinished(event -> {
+//            try {
+//                loadSecond(primaryStage);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        delay.play();
     }
 
     public void loadSecond(Stage pro) throws IOException {

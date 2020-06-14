@@ -10,7 +10,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -23,6 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WebViewController implements Initializable {
+
     @FXML
     private VBox drawer;
 
@@ -31,6 +31,9 @@ public class WebViewController implements Initializable {
 
     @FXML
     private Button teledaktar;
+
+    @FXML
+    private Button pay365;
 
     @FXML
     private Button dokandar;
@@ -64,6 +67,28 @@ public class WebViewController implements Initializable {
         TranslateTransition openNav = new TranslateTransition(new Duration(350), drawer);
         openNav.setToX(0);
         TranslateTransition closeNav = new TranslateTransition(new Duration(350), drawer);
+        if (StaticValues.w == 1) {
+            webview.getEngine().load("https://dokaandar.com/");
+            barText.setText("Dokan-Dar");
+        }
+        if (StaticValues.w == 2) {
+            webview.getEngine().load("https://teledocbd.org/");
+            barText.setText("Tele-Daktar");
+        }
+        if (StaticValues.w == 3) {
+
+            webview.getEngine().load("http://datasoft-bd.com/pay-365/");
+            barText.setText("Pay 365");
+
+        }
+        if (StaticValues.w == 4) {
+            webview.getEngine().load("http://datasoft-bd.com/microfin-360/");
+            barText.setText("Microfin 360");
+        }
+        if (StaticValues.w == 5) {
+            webview.getEngine().load("https://teledocbd.org/");
+            barText.setText("Tele-Daktar");
+        }
 
         dokandar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -85,6 +110,16 @@ public class WebViewController implements Initializable {
             }
         });
 
+        pay365.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+
+                webview.getEngine().load("http://datasoft-bd.com/pay-365/");
+                barText.setText("Pay - 365");
+            }
+        });
+
         backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -94,9 +129,9 @@ public class WebViewController implements Initializable {
 
                 Platform.runLater(new Runnable() {
                     public void run() {
-                       if (entryList.size()>1){
-                           history.go(-1);
-                       }
+                        if (entryList.size() > 1) {
+                            history.go(-1);
+                        }
                     }
                 });
             }
@@ -114,7 +149,6 @@ public class WebViewController implements Initializable {
                 closeNav.setToX(-(drawer.getWidth()));
                 closeNav.play();
             }
-
         });
 
     }
