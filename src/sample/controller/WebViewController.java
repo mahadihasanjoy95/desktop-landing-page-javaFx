@@ -64,6 +64,7 @@ public class WebViewController implements Initializable {
         copyRight.setFill(Color.WHITE);
 
 
+
         TranslateTransition openNav = new TranslateTransition(new Duration(350), drawer);
         openNav.setToX(0);
         TranslateTransition closeNav = new TranslateTransition(new Duration(350), drawer);

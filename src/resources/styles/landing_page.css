@@ -1,7 +1,7 @@
 .animated-option-button {
 
     -fx-pref-width: 90px;
-    -fx-background-radius: 90px;
+    -fx-background-radius: 10px;
     -fx-pref-height: 90px ;
     -fx-text-fill: #e8f5fc;
     -fx-border-radius: 90px;
@@ -14,9 +14,9 @@
 
 .animated-option-button:hover{
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 3px, 3px, 2px, 1px;
-    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em; /* 4 8 4 8 */
+    -fx-background-radius: 1px, 1px, 1px, 1px;
+    -fx-padding: 0em 0em 0em 0em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
-    -fx-content-display: TOP;
+    -fx-content-display: RIGHT;
 }
