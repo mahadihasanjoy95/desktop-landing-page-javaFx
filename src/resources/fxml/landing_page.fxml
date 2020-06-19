@@ -10,33 +10,37 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-
-<GridPane alignment="center" hgap="10" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/glow4.jpg');" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LandingPageController">
+<GridPane alignment="center" hgap="10" prefHeight="650.0" prefWidth="1276.0"
+          style="-fx-background-image: url('imgs/flash_screen/Group_501.png');" vgap="10" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LandingPageController">
     <columnConstraints>
-        <ColumnConstraints />
+        <ColumnConstraints/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints />
+        <RowConstraints/>
     </rowConstraints>
     <children>
 
         <AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1150.0">
-            <ToolBar fx:id="toolbar" prefHeight="65.0" prefWidth="1276.0" style="-fx-background-color: #2A37A2">
-            <items>
-               <TextField prefHeight="40.0" prefWidth="1163.0"  text="Search" style="-fx-background-color: white;" translateX="30.0">
-                  <font>
-                     <Font name="Calibri Bold" size="14.0" />
-                  </font></TextField>
-               <Button fx:id="searchButton" graphicTextGap="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="58.0" style="-fx-background-color: transparent;" translateX="20.0">
-                  <graphic>
-                     <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../imgs/search_icon.png" />
-                        </image>
-                     </ImageView>
-                  </graphic>
-               </Button>
-            </items>
+            <ToolBar fx:id="toolbar" prefHeight="65.0" prefWidth="1276.0" style="-fx-background-color: #C9952B">
+                <items>
+                    <TextField prefHeight="40.0" prefWidth="1163.0" text="Search" style="-fx-background-color: white;"
+                               translateX="30.0">
+                        <font>
+                            <Font name="Calibri Bold" size="14.0"/>
+                        </font>
+                    </TextField>
+                    <Button fx:id="searchButton" graphicTextGap="5.0" mnemonicParsing="false" prefHeight="40.0"
+                            prefWidth="58.0" style="-fx-background-color: transparent;" translateX="20.0">
+                        <graphic>
+                            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imgs/search_icon.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </items>
             </ToolBar>
         </AnchorPane>
 

@@ -46,7 +46,7 @@ public class LandingPageController implements Initializable {
 
         Image logo1 = null;
         try {
-            logo1 = new Image(new FileInputStream("src/resources/imgs/logos/Chatbot.png"));
+            logo1 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_495@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class LandingPageController implements Initializable {
 
         Image logo2 = null;
         try {
-            logo2 = new Image(new FileInputStream("src/resources/imgs/logos/Advance-Dashboard.png"));
+            logo2 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_499@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -108,7 +108,7 @@ public class LandingPageController implements Initializable {
 
         Image logo3 = null;
         try {
-            logo3 = new Image(new FileInputStream("src/resources/imgs/logos/Digital-Passbook.png"));
+            logo3 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_362@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -140,7 +140,7 @@ public class LandingPageController implements Initializable {
 
         Image logo4 = null;
         try {
-            logo4 = new Image(new FileInputStream("src/resources/imgs/logos/Message-Center.png"));
+            logo4 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_371@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -172,7 +172,7 @@ public class LandingPageController implements Initializable {
 
         Image logo5 = null;
         try {
-            logo5 = new Image(new FileInputStream("src/resources/imgs/logos/Issue-Tracing-System.png"));
+            logo5 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_500@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -205,7 +205,7 @@ public class LandingPageController implements Initializable {
 
         Image logo6 = null;
         try {
-            logo6 = new Image(new FileInputStream("src/resources/imgs/logos/SDG1.png"));
+            logo6 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_398@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -238,7 +238,7 @@ public class LandingPageController implements Initializable {
 
         Image logo7 = null;
         try {
-            logo7 = new Image(new FileInputStream("src/resources/imgs/logos/SDG2.png"));
+            logo7 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_407@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -270,7 +270,7 @@ public class LandingPageController implements Initializable {
 
         Image logo8 = null;
         try {
-            logo8 = new Image(new FileInputStream("src/resources/imgs/logos/SDG3.png"));
+            logo8 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_434@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -302,7 +302,7 @@ public class LandingPageController implements Initializable {
 
         Image logo9 = null;
         try {
-            logo9 = new Image(new FileInputStream("src/resources/imgs/logos/SDG4.png"));
+            logo9 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_498@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -334,7 +334,7 @@ public class LandingPageController implements Initializable {
 
         Image logo10 = null;
         try {
-            logo10 = new Image(new FileInputStream("src/resources/imgs/logos/SDG5.png"));
+            logo10 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_461@2x.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

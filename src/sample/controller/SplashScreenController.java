@@ -24,7 +24,8 @@ import java.util.ResourceBundle;
 
 public class SplashScreenController implements Initializable {
 
-    Color color1 = Color.web("#2E00C7", 1.0);
+    Color color1 = Color.web("#8F8D90", 1.0);
+    Color color2 = Color.web("#E6B315",1.0);
 
     @FXML
     private Pane pane;
@@ -51,15 +52,15 @@ public class SplashScreenController implements Initializable {
 
         Image logo = null;
         try {
-            logo = new Image(new FileInputStream("src/resources/imgs/logo1.png"));
+            logo = new Image(new FileInputStream("src/resources/imgs/flash_screen/Group_502.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         ImageView imageView = new ImageView(logo);
-        imageView.setX(400);
+        imageView.setX(370);
         imageView.setY(200);
         imageView.setFitHeight(8);
-        imageView.setFitWidth(8);
+        imageView.setFitWidth(11);
         ScaleTransition scaleTransitionImage2 = new ScaleTransition(Duration.seconds(5));
         scaleTransitionImage2.setByX(30f);
         scaleTransitionImage2.setByY(30f);
@@ -78,8 +79,9 @@ public class SplashScreenController implements Initializable {
         copyRight.setText("  \u00a9 Datasoft Systems Bangladest Ltd.\n\t\tAll Rights Reserved");
         copyRight.setX(300);
         copyRight.setY(400);
-        copyRight.setFill(Color.BLACK);
-        copyRight.setFont(Font.font ("cursive", FontWeight.BOLD, 10));;
+        copyRight.setFill(color2);
+        copyRight.setFont(Font.font("cursive", FontWeight.BOLD, 10));
+        ;
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(8));
         fadeTransition.setFromValue(.3f);
         fadeTransition.setToValue(1.5f);
