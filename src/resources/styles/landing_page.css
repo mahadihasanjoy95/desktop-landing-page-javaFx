@@ -1,3 +1,12 @@
+.text-field{
+    -fx-background-radius: 2em,2em;
+    -fx-border-radius: 2em,2em;
+}
+.combo-box {
+    -fx-background-radius: 2em,2em;
+    -fx-border-radius: 2em,2em;
+    -fx-border-color: black;
+}
 .animated-option-button {
 
     -fx-pref-width: 90px;
@@ -32,3 +41,17 @@
     -fx-border-radius: 8em,8em;
     -fx-border-width: 3;
 }
+#signUpVBox{
+    -fx-background-radius: 1em,1em;
+}
+
+#logInVBox{
+    -fx-background-radius: 1em,1em;
+}
+#logInHBox{
+    -fx-background-radius: 1em,1em;
+}
+#signUpHBox{
+    -fx-background-radius: 1em,1em;
+}
+

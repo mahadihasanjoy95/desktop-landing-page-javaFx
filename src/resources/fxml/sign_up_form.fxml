@@ -15,6 +15,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/flash_screen/Group_501.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SignUpController">
    <children>
@@ -35,14 +37,14 @@
                   <Insets left="50.0" top="5.0" />
                </StackPane.margin>
             </HBox>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="348.0" style="-fx-background-color: white;" StackPane.alignment="CENTER">
+            <VBox fx:id="signUpVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="348.0" style="-fx-background-color: white;" StackPane.alignment="CENTER">
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <HBox minHeight="55.0" prefHeight="57.0" prefWidth="357.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="signUpHBox" minHeight="55.0" prefHeight="57.0" prefWidth="357.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="login" mnemonicParsing="false" prefHeight="59.0" prefWidth="174.0" style="-fx-background-color: white;" text="LOGIN" wrapText="true">
+                        <Button fx:id="login" mnemonicParsing="false" prefHeight="63.0" prefWidth="171.0" style="-fx-background-color: #D8D8D8;" text="LOGIN" wrapText="true">
                            <textFill>
                               <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
                                  <stops>
@@ -51,8 +53,37 @@
                                  </stops>
                               </LinearGradient>
                            </textFill>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
                         </Button>
-                        <Label alignment="CENTER" contentDisplay="CENTER" opacity="0.41" prefHeight="63.0" prefWidth="170.0" style="-fx-background-color: #D8D8D8;" text="SIGNUP" wrapText="true" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="179.0" style="-fx-background-color: WHITE;" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <VBox prefHeight="72.0" prefWidth="174.0">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="177.0" text="SIGNUP" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#341c94" height="10.0" stroke="BLACK" strokeType="INSIDE" width="86.0">
+                                       <VBox.margin>
+                                          <Insets bottom="3.5" left="40.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                 </children>
+                              </VBox>
+                           </graphic>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -60,7 +91,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <TextField fx:id="txtEmailAddress111" prefHeight="46.0" prefWidth="245.0" promptText="First Name" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="txtEmailAddress111" prefHeight="27.0" prefWidth="263.0" promptText="First Name" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -82,7 +113,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -97,7 +128,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -112,7 +143,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -120,7 +151,7 @@
                         <Insets />
                      </opaqueInsets>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                      <children>
                         <PasswordField fx:id="txtPassword" prefHeight="48.0" prefWidth="244.0" promptText="Password" HBox.hgrow="ALWAYS" />
@@ -138,7 +169,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -146,10 +177,10 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <ComboBox fx:id="countryList" prefHeight="28.0" prefWidth="261.0" promptText="Country" />
+                        <ComboBox fx:id="countryList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="Country" style="-fx-background-color: white;" />
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -157,15 +188,15 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <ComboBox fx:id="stateList" prefHeight="28.0" prefWidth="261.0" promptText="State">
+                        <ComboBox fx:id="stateList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="State" style="-fx-background-color: white;">
                            <HBox.margin>
-                              <Insets right="5.0" />
+                              <Insets right="7.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="cityList" prefHeight="28.0" prefWidth="261.0" promptText="City" />
+                        <ComboBox fx:id="cityList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="City" style="-fx-background-color: white;" />
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -180,7 +211,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets left="50.0" top="5.0" />
+                        <Insets left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
@@ -195,7 +226,7 @@
                         </TextField>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="70.0" left="50.0" top="5.0" />
+                        <Insets bottom="50.0" left="50.0" top="7.0" />
                      </VBox.margin>
                   </HBox>
                </children>
@@ -205,9 +236,6 @@
                <StackPane.margin>
                   <Insets top="100.0" />
                </StackPane.margin>
-               <padding>
-                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-               </padding>
             </VBox>
          </children>
       </StackPane>
