@@ -193,7 +193,7 @@ public class LogInController implements Initializable {
                     e.printStackTrace();
                 }
                 Scene scene2 = new Scene(root1);
-                scene2.getStylesheets().add("/styles/landing_page.css");
+                scene2.getStylesheets().add("/styles/login_signin.css");
                 Node node = (Node) event.getSource();
                 final Stage stage = (Stage) node.getScene().getWindow();
                 stage.setScene(scene2);

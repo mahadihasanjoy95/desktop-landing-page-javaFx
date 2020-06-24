@@ -62,9 +62,9 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#341c94" height="10.0" stroke="BLACK" strokeType="INSIDE" width="86.0">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#341c94" height="5.0" stroke="BLACK" strokeType="INSIDE" width="75.0">
                                        <VBox.margin>
-                                          <Insets bottom="3.5" left="40.0" />
+                                          <Insets bottom="3.5" left="50.0" />
                                        </VBox.margin>
                                     </Rectangle>
                                  </children>

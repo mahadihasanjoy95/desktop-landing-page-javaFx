@@ -20,27 +20,27 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane root = FXMLLoader.load(getClass().getResource("/fxml/log_in_form.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
         Scene scene = new Scene(root, 1276, 650);
-        scene.getStylesheets().add("/styles/landing_page.css");
+        scene.getStylesheets().add("/styles/styles.css");
         primaryStage.setTitle("Super Application");
         primaryStage.setScene(scene);
         primaryStage.show();
-//        PauseTransition delay = new PauseTransition(Duration.seconds(7));
-//        delay.setOnFinished(event -> {
-//            try {
-//                loadSecond(primaryStage);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        delay.play();
+        PauseTransition delay = new PauseTransition(Duration.seconds(7));
+        delay.setOnFinished(event -> {
+            try {
+                loadSecond(primaryStage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        delay.play();
     }
 
     public void loadSecond(Stage pro) throws IOException {
         Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/log_in_form.fxml"));
         Scene scene2 = new Scene(root1);
-        scene2.getStylesheets().add("/styles/landing_page.css");
+        scene2.getStylesheets().add("/styles/login_signin.css");
         pro.setScene(scene2);
     }
 }

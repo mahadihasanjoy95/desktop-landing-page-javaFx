@@ -1,0 +1,57 @@
+.text-field{
+    -fx-background-radius: 2em,2em;
+    -fx-border-radius: 2em,2em;
+}
+.combo-box {
+    -fx-background-radius: 2em,2em;
+    -fx-border-radius: 2em,2em;
+    -fx-border-color: black;
+}
+.animated-option-button {
+
+    -fx-pref-width: 90px;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 90px;
+    -fx-text-fill: #e8f5fc;
+    -fx-border-radius: 90px;
+    -fx-border-width: 10px;
+}
+
+.animated-option-sub-button {
+    -fx-background-color: #43609C;
+}
+
+.animated-option-button:hover {
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 1px, 1px, 1px, 1px;
+    -fx-padding: 0em 0em 0em 0em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: RIGHT;
+}
+
+#submitButton {
+    -fx-background-color: #C9952B;
+}
+
+.sub-button {
+    -fx-background-radius:40;
+    -fx-background-color: #341C94;
+    -fx-border-color: white;
+    -fx-border-radius: 60;
+    -fx-border-width: 3;
+}
+#signUpVBox{
+    -fx-background-radius: 1em,1em;
+}
+
+#logInVBox{
+    -fx-background-radius: 1em,1em;
+}
+#logInHBox{
+    -fx-background-radius: 1em,1em;
+}
+#signUpHBox{
+    -fx-background-radius: 1em,1em;
+}
+
