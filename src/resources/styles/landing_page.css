@@ -20,11 +20,15 @@
     -fx-alignment: CENTER;
     -fx-content-display: RIGHT;
 }
-.label {
-
-    -fx-text-fill: #C9952B ;
-}
 
 #submitButton {
     -fx-background-color: #C9952B;
+}
+
+.sub-button {
+    -fx-background-radius: 7em,7em;
+    -fx-background-color: #341C94;
+    -fx-border-color: white;
+    -fx-border-radius: 8em,8em;
+    -fx-border-width: 3;
 }

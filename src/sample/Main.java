@@ -22,7 +22,7 @@ public class Main extends Application {
 
         Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
         Scene scene = new Scene(root, 1276, 650);
-        scene.getStylesheets().add("/styles/Styles.css");
+        scene.getStylesheets().add("/styles/styles.css");
         primaryStage.setTitle("Super Application");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -38,7 +38,7 @@ public class Main extends Application {
     }
 
     public void loadSecond(Stage pro) throws IOException {
-        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/registration_form.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/log_in_form.fxml"));
         Scene scene2 = new Scene(root1);
         scene2.getStylesheets().add("/styles/landing_page.css");
         pro.setScene(scene2);
