@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -52,6 +53,8 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     private VBox signInVBox;
     @FXML
     private ToolBar toolbar;
+    @FXML
+    private BorderPane borderPane;
     private ProgressIndicator pi;
 
     @Override
@@ -63,6 +66,10 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
         pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
+        stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
+        stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        borderPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+
 //        parentVbox.setStyle(
 //                "-fx-background-image: url(" +
 //                        "'imgs/background_login.png'" +

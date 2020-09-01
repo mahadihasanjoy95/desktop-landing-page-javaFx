@@ -107,11 +107,11 @@
                   </BorderPane>
                </items>
             </ToolBar>
-            <StackPane fx:id="stackPane" prefHeight="588.0" prefWidth="1276.0">
+            <StackPane fx:id="stackPane">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="1276.0">
+                  <VBox alignment="TOP_CENTER" StackPane.alignment="CENTER">
                      <children>
-                        <ScrollPane fx:id="scrollPane" prefHeight="487.0" prefWidth="1276.0">
+                        <ScrollPane fx:id="scrollPane">
                            <content>
                               <GridPane fx:id="gridpane" alignment="CENTER" style="-fx-border-color: transparent;">
             </GridPane>

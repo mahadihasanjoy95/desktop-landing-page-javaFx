@@ -109,6 +109,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         anchorpane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
         toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
         borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 15);
+        scrollPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 300);
 
         gridpane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()));
 
