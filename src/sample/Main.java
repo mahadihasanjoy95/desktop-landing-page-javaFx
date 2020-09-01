@@ -6,12 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.utils.Constants;
 
 import java.io.IOException;
 
 public class Main extends Application {
+
+
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,13 +26,29 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane root = FXMLLoader.load(getClass().getResource("/fxml/splash_screen.fxml"));
-        Scene scene = new Scene(root, 1276, 650);
-        scene.getStylesheets().add("/styles/styles.css");
+
+        Pane root = FXMLLoader.load(getClass().getResource(Constants.FxmlUrl.SPLASH_SCREEN_URL));
+
+        //grab your root here
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        //move around here
+        root.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getScreenX() - xOffset);
+            primaryStage.setY(event.getScreenY() - yOffset);
+        });
+        Scene scene = new Scene(root, ((int) Screen.getPrimary().getBounds().getWidth()) - 10, ((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        scene.getStylesheets().add(Constants.FxmlUrl.SPLASH_SCREEN_CSS);
         primaryStage.setTitle("Super Application");
         primaryStage.setScene(scene);
         primaryStage.show();
-        PauseTransition delay = new PauseTransition(Duration.seconds(7));
+        primaryStage.setMinWidth(1270);
+        primaryStage.setMinHeight(650);
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             try {
                 loadSecond(primaryStage);
@@ -38,9 +60,9 @@ public class Main extends Application {
     }
 
     public void loadSecond(Stage pro) throws IOException {
-        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/log_in_form.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource(Constants.FxmlUrl.LOGIN_URL));
         Scene scene2 = new Scene(root1);
-        scene2.getStylesheets().add("/styles/login_signin.css");
+        scene2.getStylesheets().add(Constants.FxmlUrl.LOGIN_CSS);
         pro.setScene(scene2);
     }
 }

@@ -6,238 +6,460 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/flash_screen/Group_501.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SignUpController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.SignUpView">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-         <effect>
-            <DropShadow />
-         </effect>
+      <VBox alignment="TOP_CENTER" layoutX="-9.0" layoutY="-29.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox maxWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="97.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/flash_screen/Group_502.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <StackPane.margin>
-                  <Insets left="50.0" top="5.0" />
-               </StackPane.margin>
-            </HBox>
-            <VBox fx:id="signUpVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="470.0" prefWidth="348.0" style="-fx-background-color: white;" StackPane.alignment="CENTER">
+            <ToolBar fx:id="toolbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
+               <items>
+                  <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
+               </items>
+            </ToolBar>
+            <StackPane fx:id="stackPane">
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <HBox fx:id="signUpHBox" minHeight="55.0" prefHeight="57.0" prefWidth="357.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER" prefHeight="657.0" prefWidth="1276.0">
                      <children>
-                        <Button fx:id="login" mnemonicParsing="false" prefHeight="63.0" prefWidth="171.0" style="-fx-background-color: #D8D8D8;" text="LOGIN" wrapText="true">
-                           <textFill>
-                              <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop color="BLACK" />
-                                    <Stop color="#030303" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="179.0" style="-fx-background-color: WHITE;" wrapText="true">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                           <graphic>
-                              <VBox prefHeight="72.0" prefWidth="174.0">
+                        <VBox fx:id="signInVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1317.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="177.0" text="SIGNUP" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                       <opaqueInsets>
+                                    <Label prefHeight="45.0" prefWidth="719.0" text="Sign Up" textFill="#172c78">
+                                       <HBox.margin>
                                           <Insets />
-                                       </opaqueInsets>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
                                     </Label>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#341c94" height="5.0" stroke="BLACK" strokeType="INSIDE" width="75.0">
-                                       <VBox.margin>
-                                          <Insets bottom="3.5" left="50.0" />
-                                       </VBox.margin>
-                                    </Rectangle>
                                  </children>
-                              </VBox>
-                           </graphic>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtEmailAddress111" prefHeight="27.0" prefWidth="263.0" promptText="First Name" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" layoutX="70.0" layoutY="115.0" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="18.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="First Name" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="Phone Number" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="60.0" right="60.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <HBox fx:id="fNameHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtFirstName" prefHeight="42.0" prefWidth="565.0" promptText="Type name" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="phoneHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtPhoneNumber" prefHeight="42.0" prefWidth="565.0" promptText="Type Phone Number" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox prefHeight="18.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="BOTTOM_LEFT" prefHeight="7.0" prefWidth="336.0" text="Last Name" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="417.0">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox fx:id="lNameHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtLastName" prefHeight="42.0" prefWidth="565.0" promptText="Type Name" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="countryHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <ComboBox fx:id="countryList" opacity="0.7" prefHeight="55.0" prefWidth="465.0" promptText="Country" style="-fx-background-color: tranparent;" visibleRowCount="5" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox prefHeight="18.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="User Name" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <HBox prefHeight="23.0" prefWidth="428.0">
+                                             <children>
+                                                <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="State" />
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="City" />
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox fx:id="uNameHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtUserName" prefHeight="42.0" prefWidth="565.0" promptText="Type User Name" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0">
+                                       <children>
+                                          <HBox fx:id="stateHbox" style="-fx-border-color: #DDE3F3;">
+                                             <children>
+                                                <TextField fx:id="txtState" prefHeight="42.0" prefWidth="565.0" promptText="Type State" style="-fx-background-color: transparent;">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" right="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox fx:id="cityHbox" style="-fx-border-color: #DDE3F3;">
+                                             <children>
+                                                <TextField fx:id="txtCity" prefHeight="42.0" prefWidth="565.0" promptText="Type City" style="-fx-background-color: transparent;">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="40.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="10.0" right="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox prefHeight="18.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="Email Address" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefHeight="23.0" prefWidth="462.0" text="Address" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox fx:id="emailHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtEmailAddress" prefHeight="42.0" prefWidth="565.0" promptText="Type Email " style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="addressHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtAddress" prefHeight="42.0" prefWidth="565.0" promptText="Type Address" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox prefHeight="18.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="Password" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="Zip Code" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox fx:id="passHbox" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <children>
+                                          <PasswordField fx:id="txtPassword" prefHeight="39.0" prefWidth="647.0" promptText="Type Password" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </PasswordField>
+                                          <TextField fx:id="txtPassword1" prefHeight="39.0" prefWidth="229.0" promptText="Type Password" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnShowPass" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imgs/eye_slash.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="zipHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0" style="-fx-border-color: #DDE3F3;">
+                                       <children>
+                                          <TextField fx:id="txtZipCode" prefHeight="42.0" prefWidth="565.0" promptText="Type Zip Code" style="-fx-background-color: transparent;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <HBox fx:id="emailHbox14" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0">
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <children>
+                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="50.0" prefWidth="217.0" text="Already have an account?" textAlignment="RIGHT" />
+                                          <Button fx:id="login" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Log In" textFill="#4463ca">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="emailHbox141" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="470.0">
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Button fx:id="register" mnemonicParsing="false" prefHeight="50.0" prefWidth="497.0" style="-fx-background-color: #4463CA;" text="NEXT" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="60.0" right="60.0" top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
                               <Insets />
-                           </HBox.margin>
-                        </TextField>
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="90.0" top="40.0" />
+                           </VBox.margin>
+                        </VBox>
                      </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="20.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
+                     <StackPane.margin>
                         <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtEmailAddress11" prefHeight="46.0" prefWidth="245.0" promptText="Last Name" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtUserName" prefHeight="46.0" prefWidth="245.0" promptText="User Name" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtEmailAddress" prefHeight="46.0" prefWidth="245.0" promptText="Email Address" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                     <children>
-                        <PasswordField fx:id="txtPassword" prefHeight="48.0" prefWidth="244.0" promptText="Password" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtPhoneNumber" prefHeight="46.0" prefWidth="245.0" promptText="Phone Number" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <ComboBox fx:id="countryList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="Country" style="-fx-background-color: white;" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <ComboBox fx:id="stateList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="State" style="-fx-background-color: white;">
-                           <HBox.margin>
-                              <Insets right="7.0" />
-                           </HBox.margin>
-                        </ComboBox>
-                        <ComboBox fx:id="cityList" opacity="0.31" prefHeight="28.0" prefWidth="261.0" promptText="City" style="-fx-background-color: white;" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtPhoneNumber1" prefHeight="46.0" prefWidth="245.0" promptText="Address" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox maxWidth="-Infinity" prefHeight="40.0" prefWidth="243.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <children>
-                        <TextField fx:id="txtPhoneNumber2" prefHeight="46.0" prefWidth="245.0" promptText="Zip Code" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="50.0" left="50.0" top="7.0" />
-                     </VBox.margin>
-                  </HBox>
+                     </StackPane.margin>
+                  </VBox>
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <StackPane.margin>
-                  <Insets top="100.0" />
-               </StackPane.margin>
-            </VBox>
+            </StackPane>
          </children>
-      </StackPane>
+      </VBox>
    </children>
 </AnchorPane>
