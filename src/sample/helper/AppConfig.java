@@ -6,6 +6,6 @@ public class AppConfig {
 
     public static String getBaseServerUrl() {
 //        return "http://182.163.112.215:8082/";
-        return "http://localhost:5000/";
+        return "http://192.168.1.114:5002/";
     }
 }

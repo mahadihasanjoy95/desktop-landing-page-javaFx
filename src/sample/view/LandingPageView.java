@@ -253,8 +253,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             }
             imageView1.setCache(true);
-            imageView1.setFitHeight(40);
-            imageView1.setFitWidth(40);
+            imageView1.setFitHeight(30);
+            imageView1.setFitWidth(30);
             imageView1.setPreserveRatio(true);
             favButton.setGraphic(imageView1);
             favButton.setId("favButton");
@@ -280,8 +280,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     }
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
-                    imageView3.setFitHeight(40);
-                    imageView3.setFitWidth(40);
+                    imageView3.setFitHeight(30);
+                    imageView3.setFitWidth(30);
                     imageView3.setPreserveRatio(true);
                     favButton.setGraphic(imageView3);
                     setBookMarks(applicationInfo);
@@ -430,11 +430,17 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
     public void setProfilePic() {
         if (!userDetails.getPhoto().equals("")) {
-            Image image = new Image(userDetails.getPhoto());
-            if (Objects.nonNull(image)) {
-                cir.setFill(new ImagePattern(image));
-                cir.setCache(true);
+            try{
+                Image image = new Image(userDetails.getPhoto());
+                if (Objects.nonNull(image)) {
+                    cir.setFill(new ImagePattern(image));
+                    cir.setCache(true);
+                }
+            }catch (Exception ex)
+            {
+                System.err.println("Pro Pic Error");
             }
+
         }
         cir.setCache(true);
         profileView.setStyle("-fx-background-color: transparent;");
