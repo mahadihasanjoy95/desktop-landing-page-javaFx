@@ -117,9 +117,9 @@
             </GridPane>
                            </content>
                         </ScrollPane>
-                        <HBox fx:id="miniHbox" style="-fx-background-color: #12286F;">
+                        <HBox fx:id="miniHbox" alignment="CENTER" style="-fx-background-color: #12286F;">
                            <children>
-                              <ScrollPane fx:id="gScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="81.0" prefWidth="337.0" style="-fx-background-color: transparent;">
+                              <ScrollPane fx:id="gScrollPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
                                  <content>
                                     <GridPane fx:id="gridpane1" alignment="CENTER" hgap="10.0" vgap="10.0">
                                        <padding>
@@ -130,6 +130,9 @@
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
                               </ScrollPane>
                            </children>
                            <VBox.margin>
