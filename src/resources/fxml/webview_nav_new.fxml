@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.WebPageView">
+   <children>
+      <VBox fx:id="rootVBox" alignment="TOP_CENTER" layoutX="2.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <ToolBar fx:id="toolbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="72.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
+               <items>
+                  <BorderPane fx:id="borderPane" prefHeight="70.0" prefWidth="1259.0">
+                     <left>
+                        <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/logo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <JFXHamburger fx:id="hamburger" prefHeight="72.0" prefWidth="55.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </JFXHamburger>
+                           </children>
+                        </HBox>
+                     </left>
+                     <center>
+                        <HBox fx:id="hBox4" alignment="CENTER" prefHeight="72.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Text fx:id="barText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Super App" textAlignment="CENTER" wrappingWidth="390.89017739892006">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </center>
+                     <right>
+                        <HBox fx:id="hBox3" alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Circle fx:id="cir" fill="DODGERBLUE" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Circle>
+                              <MenuButton fx:id="profileView" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="17.0" style="-fx-background-color: transparent;">
+                                 <items>
+                                    <MenuItem fx:id="btnProfile" mnemonicParsing="false" text="Profile" />
+                                    <MenuItem fx:id="btnSettings" mnemonicParsing="false" text="Change Password" />
+                                    <MenuItem fx:id="btnLogout" mnemonicParsing="false" text="Logout" />
+                                 </items>
+                                 <padding>
+                                    <Insets left="-20.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
+                        </HBox>
+                     </right>
+                  </BorderPane>
+               </items>
+            </ToolBar>
+              <StackPane fx:id="stackPane" alignment="CENTER_LEFT" prefHeight="569.0" prefWidth="1276.0" VBox.vgrow="ALWAYS">
+                  <children>
+                  <GridPane fx:id="gridPane">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                            <WebView fx:id="webview" prefHeight="-1.0" prefWidth="1189.0" />
+                     </children>
+                  </GridPane>
+                  <ScrollPane fx:id="scrollPane" maxWidth="316.0" prefWidth="303.0">
+                     <content>
+                            <VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="316.0" style="-fx-border-color: transparent;" />
+                     </content>
+                     <StackPane.margin>
+                        <Insets bottom="1.0" />
+                     </StackPane.margin>
+                  </ScrollPane>
+                  </children>
+              </StackPane>
+          </children>
+      </VBox>
+   </children>
+</AnchorPane>

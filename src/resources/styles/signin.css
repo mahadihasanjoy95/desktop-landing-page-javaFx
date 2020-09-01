@@ -1,0 +1,101 @@
+.button:hover {
+    -fx-cursor: hand;
+    -fx-fill: black;
+}
+
+#emailHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#passwordHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#signInVBox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+.button {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#forgetPassUpVBox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#fNameHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#phoneHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#lNameHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#countryHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#uNameHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#stateHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#cityHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#addressHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#passHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+#zipHbox {
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+#otpHbox{
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+#cPassHbox{
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+#oPassHbox{
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
+
+
+#btnOpen{
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+#pane{
+    -fx-background-size: cover;
+}
+
