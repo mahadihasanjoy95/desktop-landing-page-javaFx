@@ -24,7 +24,7 @@ public class LoadViews {
         scene2.setRoot(root1);
 
 
-        final Stage stage = (Stage) scene2.getWindow();
+        final Stage stage = (Stage)node.getScene().getWindow();
         stage.setScene(scene2);
         stage.setMaximized(true);
         stage.setMinWidth(1200);
