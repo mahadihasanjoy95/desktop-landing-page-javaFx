@@ -171,7 +171,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         setIcons(list);
     }
 
-    private void removeBookmarks(Button favButton, ApplicationInfo applicationInfo) {
+    private void removeBookmarks(ApplicationInfo applicationInfo) {
 
         bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
@@ -186,6 +186,20 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         imageView3.setFitHeight(30);
         imageView3.setFitWidth(30);
         imageView3.setPreserveRatio(true);
+
+        Button favButton = null;
+        ObservableList<Node> vBoxChilds = gridpane.getChildren();
+        for (Node vBox : vBoxChilds)
+        {
+           if (vBox.getId().equals(applicationInfo.getApplicationName()))
+           {
+               VBox targetVBox = (VBox) vBox;
+               StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
+               favButton = (Button) stackPane.getChildren().get(1);
+           }
+        }
+
+
         favButton.setGraphic(imageView3);
         ObservableList<Node> btnChilds = gridpane1.getChildren();
         for (Node btn : btnChilds) {
@@ -263,7 +277,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             favButton.setOnAction((ActionEvent e) -> {
 
                 if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
-                    removeBookmarks(favButton, applicationInfo);
+                    removeBookmarks(applicationInfo);
                 } else {
                     /**
                      * This portion create a new bookmarks object and store bookmarks on local database
@@ -313,7 +327,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             vBox.getChildren().add(text);
             vBox.setAlignment(Pos.TOP_CENTER);
             vBox.setLayoutY(+700);
-            vBox.setId("vbox");
+            vBox.setId(applicationInfo.getApplicationName());
             gridpane.add(vBox, row, column);
             row++;
             if (row != 0 && row % 6 == 0) {
@@ -430,6 +444,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         cancelButton.setOnAction((ActionEvent e) -> {
             gridpane1.getChildren().remove(bookmarksStackPane);
+            removeBookmarks(applicationInfo);
 
         });
 

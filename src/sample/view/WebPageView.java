@@ -130,7 +130,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
         setIconsInNav();
         home.setOnAction(this);
-        fav.setOnAction(this);
+//        fav.setOnAction(this);
 
         btnProfile.setOnAction(this);
         btnSettings.setOnAction(this);
@@ -183,22 +183,22 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         home.setAlignment(Pos.BASELINE_LEFT);
         drawer.getChildren().add(home);
 
-        Image favLogo = null;
-        try {
-            favLogo = new Image(new FileInputStream("src/resources/imgs/fav_icon.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ImageView favImageView = new ImageView(favLogo);
-        favImageView.setFitHeight(40);
-        favImageView.setFitWidth(40);
-        fav.setGraphic(favImageView);
-        fav.setText("  Favourite");
-        fav.setStyle("-fx-background-color: #FFFFFF; ");
-        fav.setTextFill(Constants.Colors.color4);
-        fav.setMaxWidth(Double.MAX_VALUE);
-        fav.setAlignment(Pos.BASELINE_LEFT);
-        drawer.getChildren().add(fav);
+//        Image favLogo = null;
+//        try {
+//            favLogo = new Image(new FileInputStream("src/resources/imgs/fav_icon.png"));
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        ImageView favImageView = new ImageView(favLogo);
+//        favImageView.setFitHeight(40);
+//        favImageView.setFitWidth(40);
+//        fav.setGraphic(favImageView);
+//        fav.setText("  Favourite");
+//        fav.setStyle("-fx-background-color: #FFFFFF; ");
+//        fav.setTextFill(Constants.Colors.color4);
+//        fav.setMaxWidth(Double.MAX_VALUE);
+//        fav.setAlignment(Pos.BASELINE_LEFT);
+//        drawer.getChildren().add(fav);
 
         for (ApplicationInfo applicationInfo : SuperApplication.getInstance().getApplicationInfoList()) {
             Button button = new Button();
