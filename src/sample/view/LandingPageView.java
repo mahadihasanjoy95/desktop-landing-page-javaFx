@@ -189,7 +189,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         favButton.setGraphic(imageView3);
         ObservableList<Node> btnChilds = gridpane1.getChildren();
         for (Node btn : btnChilds) {
-            Button button = (Button) btn;
+            StackPane button = (StackPane) btn;
             if (button.getId().equals(applicationInfo.getId().toString())) {
                 gridpane1.getChildren().remove(btn);
             }
@@ -392,10 +392,46 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         imageView2.setFitWidth(50);
         imageView2.setPreserveRatio(true);
         btnBookMarks.setGraphic(imageView2);
-        btnBookMarks.setId(applicationInfo.getId().toString());
-        btnBookMarks.setMaxHeight(10);
-        btnBookMarks.setMaxWidth(10);
+//        btnBookMarks.setId(applicationInfo.getId().toString());
+        btnBookMarks.setMaxHeight(40);
+        btnBookMarks.setMaxWidth(40);
         btnBookMarks.setPadding(Insets.EMPTY);
+
+        Image cancelLogo = null;
+        try {
+            cancelLogo = new Image(new FileInputStream("src/resources/imgs/cancel.png"));
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        ImageView cancelImageView = new ImageView(cancelLogo);
+        cancelImageView.setCache(true);
+        cancelImageView.setFitHeight(20);
+        cancelImageView.setFitWidth(20);
+        cancelImageView.setPreserveRatio(true);
+        Button cancelButton = new Button();
+        cancelButton.setGraphic(cancelImageView);
+        cancelButton.setId("cancelButton");
+
+        StackPane bookmarksStackPane = new StackPane();
+        bookmarksStackPane.setMargin(btnBookMarks, new Insets(5, 3, 0, 0));
+        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, 35, 40));
+        bookmarksStackPane.getChildren().addAll(btnBookMarks, cancelButton);
+        bookmarksStackPane.setId(applicationInfo.getId().toString());
+
+
+        cancelButton.setVisible(false);
+
+        btnBookMarks.setOnMouseEntered(e -> {
+            cancelButton.setVisible(true);
+        });
+        bookmarksStackPane.setOnMouseExited(e -> {
+            cancelButton.setVisible(false);
+        });
+
+        cancelButton.setOnAction((ActionEvent e) -> {
+            gridpane1.getChildren().remove(bookmarksStackPane);
+
+        });
 
         /**
          * Checking already in bookmarks grid-pane or, not.
@@ -408,7 +444,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(btnBookMarks, bColumn, bRow);
+            gridpane1.add(bookmarksStackPane, bColumn, bRow);
             bColumn++;
         }
         /**

@@ -198,5 +198,9 @@
     -fx-background-color: transparent;
     -fx-opacity: 1;
 }
+#cancelButton{
+    -fx-background-color: transparent;
+    -fx-opacity: 1;
+}
 
 
