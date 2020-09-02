@@ -22,14 +22,6 @@ public class LoadViews {
         scene2.getStylesheets().clear();
         scene2.getStylesheets().add(css);
         scene2.setRoot(root1);
-
-
-        final Stage stage = (Stage)node.getScene().getWindow();
-        stage.setScene(scene2);
-        stage.setMaximized(true);
-        stage.setMinWidth(1200);
-        stage.setMinHeight(600);
-        stage.show();
     }
 }
 
