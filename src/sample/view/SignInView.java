@@ -10,21 +10,18 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Window;
 import sample.data.dto.LogInDto;
 import sample.data.model.LogInFailedResponse;
 import sample.data.model.LogInResponse;
-import sample.database.DatabaseManager;
 import sample.helper.Common;
 import sample.interfaces.LogInListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -55,10 +52,14 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     private ToolBar toolbar;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private HBox loginHbox;
     private ProgressIndicator pi;
+    private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        screenCal = new ScreenCal();
 
         pi = new ProgressIndicator();
 //        pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth())-10) /2);
@@ -69,6 +70,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
         stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         borderPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        screenCal.signInVBoxAllignment(signInVBox);
 
 //        parentVbox.setStyle(
 //                "-fx-background-image: url(" +
