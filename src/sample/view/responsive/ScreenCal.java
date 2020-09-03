@@ -51,6 +51,6 @@ public class ScreenCal {
     public void signInVBoxAllignment(VBox signInVBox)
     {
         signInVBox.setPrefWidth(rectangle2D.getWidth()/3);
-        signInVBox.setPrefHeight((rectangle2D.getHeight()*2)/3);
+        signInVBox.setPrefHeight((rectangle2D.getHeight())/2);
     }
 }
