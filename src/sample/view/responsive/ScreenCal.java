@@ -3,6 +3,7 @@ package sample.view.responsive;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -52,5 +53,14 @@ public class ScreenCal {
     {
         signInVBox.setPrefWidth(rectangle2D.getWidth()/3);
         signInVBox.setPrefHeight((rectangle2D.getHeight())/2);
+    }
+
+    public void signInSignUpBox(HBox hBox)
+    {
+        List<Node> nodes = hBox.getChildren();
+        Label label = (Label) nodes.get(0);
+        label.setPrefWidth(600/2);
+        Button button = (Button) nodes.get(1);
+        button.setPrefWidth(600/2);
     }
 }

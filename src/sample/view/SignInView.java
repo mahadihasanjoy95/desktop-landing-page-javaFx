@@ -54,6 +54,8 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     private BorderPane borderPane;
     @FXML
     private HBox loginHbox;
+    @FXML
+    private HBox signUpHBox;
     private ProgressIndicator pi;
     private ScreenCal screenCal;
 
@@ -71,6 +73,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         borderPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         screenCal.signInVBoxAllignment(signInVBox);
+//        screenCal.signInSignUpBox(signUpHBox);
 
 //        parentVbox.setStyle(
 //                "-fx-background-image: url(" +

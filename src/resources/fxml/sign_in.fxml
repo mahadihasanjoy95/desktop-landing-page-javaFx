@@ -60,12 +60,12 @@
                      <center>
                         <VBox alignment="CENTER" prefHeight="657.0" prefWidth="1276.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox alignment="CENTER">
+                              <HBox alignment="BOTTOM_CENTER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <children>
-                                    <ImageView fitHeight="320.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="259.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../imgs/business_man.png" />
                                        </image>
@@ -213,8 +213,8 @@
                                                 <Insets />
                                              </opaqueInsets>
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" opacity="0.48" prefHeight="38.0" prefWidth="160.0" text="You don't have an account?" wrapText="true" />
-                                                <Button fx:id="signUp" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="SIGN UP" textFill="#152f85" wrapText="true">
+                                                <Label alignment="CENTER_RIGHT" opacity="0.48" prefHeight="38.0" prefWidth="230.0" text="You don't have an account?" />
+                                                <Button fx:id="signUp" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: transparent;" text="SIGN UP" textFill="#152f85">
                                                    <font>
                                                       <Font name="System Bold" size="10.0" />
                                                    </font>
