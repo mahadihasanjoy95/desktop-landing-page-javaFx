@@ -97,7 +97,7 @@ public class ScreenCal {
     }
     public void setStarMargin(StackPane gridStackPane, Button button, Button favButton){
         gridStackPane.setMargin(button, new Insets(10, 0, 0, 0));
-        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/16));
+        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/15));
     }
 
 
