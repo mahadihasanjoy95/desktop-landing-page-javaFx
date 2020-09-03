@@ -213,8 +213,8 @@
                                                 <Insets />
                                              </opaqueInsets>
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" opacity="0.48" prefHeight="38.0" prefWidth="151.0" text="You don't have an account?" />
-                                                <Button fx:id="signUp" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: transparent;" text="SIGN UP" textFill="#152f85">
+                                                <Label alignment="CENTER_RIGHT" opacity="0.48" prefHeight="38.0" prefWidth="160.0" text="You don't have an account?" wrapText="true" />
+                                                <Button fx:id="signUp" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="SIGN UP" textFill="#152f85" wrapText="true">
                                                    <font>
                                                       <Font name="System Bold" size="10.0" />
                                                    </font>
@@ -241,7 +241,7 @@
                               </HBox>
                            </children>
                            <BorderPane.margin>
-                              <Insets bottom="30.0" />
+                              <Insets />
                            </BorderPane.margin>
                         </VBox>
                      </center>

@@ -44,12 +44,13 @@ public class ScreenCal {
 
     public void profileVBoxAllignment(VBox profileVBox)
     {
-        profileVBox.setPrefWidth(rectangle2D.getWidth()-400);
-        profileVBox.setPrefHeight(rectangle2D.getHeight()-400);
+        profileVBox.setPrefWidth((rectangle2D.getWidth()*2)/3);
+        profileVBox.setPrefHeight((rectangle2D.getHeight()*2)/3);
     }
 
     public void signInVBoxAllignment(VBox signInVBox)
     {
         signInVBox.setPrefWidth(rectangle2D.getWidth()/3);
+        signInVBox.setPrefHeight((rectangle2D.getHeight()*2)/3);
     }
 }
