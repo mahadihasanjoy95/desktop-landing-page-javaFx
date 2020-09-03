@@ -267,8 +267,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             }
             imageView1.setCache(true);
-            imageView1.setFitHeight(30);
-            imageView1.setFitWidth(30);
+            screenCal.starSize(imageView,imageView1);
             imageView1.setPreserveRatio(true);
             favButton.setGraphic(imageView1);
             favButton.setId("favButton");
@@ -303,8 +302,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                 }
             });
 
-            gridStackPane.setMargin(button, new Insets(10, 0, 0, 0));
-            gridStackPane.setMargin(favButton, new Insets(0, 0, 90, 90));
+           screenCal.setStarMargin(gridStackPane, button, favButton);
             gridStackPane.getChildren().addAll(button, favButton);
             vBox.getChildren().add(gridStackPane);
 

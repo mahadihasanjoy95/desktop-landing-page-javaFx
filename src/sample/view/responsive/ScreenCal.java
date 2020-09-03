@@ -1,7 +1,9 @@
 package sample.view.responsive;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.ImageView;
@@ -89,5 +91,14 @@ public class ScreenCal {
         imageView.setFitHeight(rectangle2D.getWidth()/13);
         imageView.setFitWidth(rectangle2D.getWidth()/13);
     }
+    public void starSize(ImageView appImage, ImageView starImage){
+        starImage.setFitHeight(appImage.getFitHeight()/4);
+        starImage.setFitWidth(appImage.getFitHeight()/4);
+    }
+    public void setStarMargin(StackPane gridStackPane, Button button, Button favButton){
+        gridStackPane.setMargin(button, new Insets(10, 0, 0, 0));
+        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/16));
+    }
+
 
 }
