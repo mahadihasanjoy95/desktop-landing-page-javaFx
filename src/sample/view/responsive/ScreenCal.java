@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
 
@@ -82,6 +83,11 @@ public class ScreenCal {
         scrollPane.setPrefHeight(rectangle2D.getHeight() - 10);
         rootVBox.setPrefWidth(rectangle2D.getWidth() - 3);
         rootVBox.setPrefHeight(rectangle2D.getHeight() - 10);
+    }
+
+    public void applicationSize(ImageView imageView){
+        imageView.setFitHeight(rectangle2D.getWidth()/13);
+        imageView.setFitWidth(rectangle2D.getWidth()/13);
     }
 
 }

@@ -236,8 +236,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             ImageView imageView = new ImageView(logo1);
             imageView.setCache(true);
-            imageView.setFitHeight(110);
-            imageView.setFitWidth(110);
+            screenCal.applicationSize(imageView);
             imageView.setPreserveRatio(true);
             button.setGraphic(imageView);
 
