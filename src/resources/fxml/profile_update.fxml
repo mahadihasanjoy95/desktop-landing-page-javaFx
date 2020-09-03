@@ -42,7 +42,7 @@
                      <center>
                         <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                            <children>
-                              <Text fx:id="barText" fill="WHITE" fontSmoothingType="LCD" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="User Profile" textAlignment="CENTER" wrappingWidth="143.66666626930237">
+                              <Text fx:id="barText" fill="WHITE" fontSmoothingType="LCD" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="User Profile" textAlignment="CENTER" wrappingWidth="208.66666626930237">
                                  <font>
                                     <Font name="System Bold" size="26.0" />
                                  </font>
@@ -91,7 +91,7 @@
                               <DropShadow />
                            </effect>
                            <children>
-                              <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1317.0" spacing="10.0">
+                              <HBox alignment="CENTER_RIGHT" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
