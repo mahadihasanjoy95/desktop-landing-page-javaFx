@@ -64,8 +64,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         screenCal = new ScreenCal();
 
         pi = new ProgressIndicator();
-//        pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth())-10) /2);
-//        pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight())-70) /2);
+
         pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
         pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
@@ -73,14 +72,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         borderPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         screenCal.signInVBoxAllignment(signInVBox);
-//        screenCal.signInSignUpBox(signUpHBox);
 
-//        parentVbox.setStyle(
-//                "-fx-background-image: url(" +
-//                        "'imgs/background_login.png'" +
-//                        "); " +
-//                        "-fx-background-size: cover;"
-//        );
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 
         Image logo1 = null;

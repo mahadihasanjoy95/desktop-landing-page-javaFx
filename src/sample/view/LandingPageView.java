@@ -22,7 +22,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Window;
 import sample.data.controller.ApplicationListController;
 import sample.data.controller.UserDetailsController;
@@ -38,6 +37,7 @@ import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -90,10 +90,12 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private UserDetails userDetails;
     private ProgressIndicator pi;
     private DatabaseManager databaseManager;
+    private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
         pi = new ProgressIndicator();
@@ -108,13 +110,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         cir.setStroke(Color.BLUE);
         cir.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
-        anchorpane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 149);
-        anchorpane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 50);
-        scrollPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 300);
-
-        gridpane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()));
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(borderPane);
+        screenCal.landingPageAllignment(anchorpane, scrollPane, gridpane);
 
         userDetails = new UserDetails();
         final int numCols = 6;
@@ -193,14 +191,12 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         Button favButton = null;
         ObservableList<Node> vBoxChilds = gridpane.getChildren();
-        for (Node vBox : vBoxChilds)
-        {
-           if (vBox.getId().equals(applicationInfo.getApplicationName()))
-           {
-               VBox targetVBox = (VBox) vBox;
-               StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
-               favButton = (Button) stackPane.getChildren().get(1);
-           }
+        for (Node vBox : vBoxChilds) {
+            if (vBox.getId().equals(applicationInfo.getApplicationName())) {
+                VBox targetVBox = (VBox) vBox;
+                StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
+                favButton = (Button) stackPane.getChildren().get(1);
+            }
         }
 
 
@@ -486,14 +482,13 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
     public void setProfilePic() {
         if (!userDetails.getPhoto().equals("")) {
-            try{
+            try {
                 Image image = new Image(userDetails.getPhoto());
                 if (Objects.nonNull(image)) {
                     cir.setFill(new ImagePattern(image));
                     cir.setCache(true);
                 }
-            }catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 System.err.println("Pro Pic Error");
             }
 
@@ -550,7 +545,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         } else if (event.getSource() == btnSearch) {
             stackPane.getChildren().add(pi);
             searchApps();
-        }else if (event.getSource() == btnLandingPage) {
+        } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }

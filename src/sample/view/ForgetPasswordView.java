@@ -24,6 +24,7 @@ import sample.interfaces.ForgotPasswordListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,19 +48,20 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
     @FXML
     private StackPane stackPane;
     private ProgressIndicator pi;
+    private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        screenCal = new ScreenCal();
 
         pi = new ProgressIndicator();
         pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
         pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 25);
-
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        screenCal.profileAllignement(pane,new StackPane());
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(borderPane);
+        screenCal.forgetPassVBoxAllignment(forgetPassUpVBox);
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 
         txtEmailAddress.focusedProperty().addListener((observable, oldValue, newValue) -> {

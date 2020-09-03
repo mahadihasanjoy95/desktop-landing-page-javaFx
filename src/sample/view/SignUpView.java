@@ -22,6 +22,7 @@ import sample.interfaces.SignUpListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,13 +72,13 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
     private TextField txtPassword1;
 
 
-
+    private ScreenCal screenCal;
     private CheckBox checkBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
+        screenCal = new ScreenCal();
         checkBox = new CheckBox();
         txtPassword1.setManaged(false);
         txtPassword1.setVisible(false);
@@ -90,13 +91,12 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
         txtPassword.visibleProperty().bind(checkBox.selectedProperty().not());
 
 
-
         pi = new ProgressIndicator();
-        pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth())-10) /2);
-        pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight())-70) /2);
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
+        pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
+        pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
+        screenCal.profileAllignement(pane, new StackPane());
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.signUpVBoxAllignment(signInVBox);
 
         Common.setCountryList(countryList);
         JMetro jMetro = new JMetro(JMetro.Style.LIGHT);
@@ -166,7 +166,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60,60);
+            pi.setMaxSize(60, 60);
             stackPane.setAlignment(Pos.CENTER);
             if (txtFirstName.getText().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
@@ -191,9 +191,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
                         Messages.EMPTY_EMAIL);
                 stackPane.getChildren().remove(pi);
                 return;
-            }
-            else if(!Common.emailValidator(txtEmailAddress.getText()))
-            {
+            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.INVALID_EMIL_FORMAT);
                 stackPane.getChildren().remove(pi);
@@ -215,7 +213,6 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             }
 
 
-
             String firstName = txtFirstName.getText();
             String lastName = txtLastName.getText();
             String userName = txtUserName.getText();
@@ -232,15 +229,12 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             new sample.data.controller.SignUpController(this).start(signUpDto);
         } else if (event.getSource() == login) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
-        }
-        else if (event.getSource()== btnShowPass)
-        {
+        } else if (event.getSource() == btnShowPass) {
 
-            if (checkBox.isSelected()){
+            if (checkBox.isSelected()) {
                 checkBox.setSelected(false);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
-            }
-            else {
+            } else {
                 checkBox.setSelected(true);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
             }

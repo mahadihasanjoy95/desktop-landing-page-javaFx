@@ -24,6 +24,7 @@ import sample.interfaces.PasswordResetListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,11 +60,16 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
     private TextField txtPassword1;
     @FXML
     private Button btnShowPass;
+    @FXML
+    private VBox forgetPassUpVBox;
+
     private ProgressIndicator pi;
     private CheckBox checkBox;
+    private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        screenCal = new ScreenCal();
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 
         checkBox = new CheckBox();
@@ -77,13 +83,15 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
         txtPassword.managedProperty().bind(checkBox.selectedProperty().not());
         txtPassword.visibleProperty().bind(checkBox.selectedProperty().not());
 
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         pi = new ProgressIndicator();
         pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
         pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 25);
+
+        screenCal.profileAllignement(pane, new StackPane());
+
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(borderPane);
+        screenCal.signInVBoxAllignment(forgetPassUpVBox);
 
         btnSubmit.setOnAction(this);
         btnSignIn.setOnAction(this);
@@ -155,15 +163,12 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
 
         } else if (event.getSource() == btnSignIn) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
-        }
-        else if (event.getSource()== btnShowPass)
-        {
+        } else if (event.getSource() == btnShowPass) {
 
-            if (checkBox.isSelected()){
+            if (checkBox.isSelected()) {
                 checkBox.setSelected(false);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
-            }
-            else {
+            } else {
                 checkBox.setSelected(true);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
             }

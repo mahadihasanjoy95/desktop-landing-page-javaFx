@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Screen;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
 import sample.data.controller.ChangePasswordController;
@@ -22,6 +21,7 @@ import sample.interfaces.ChangePasswordListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,9 +71,11 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private CheckBox checkBox1;
     private CheckBox checkBox2;
     private CheckBox checkBox3;
+    private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        screenCal = new ScreenCal();
         checkBox1 = new CheckBox();
         checkBox2 = new CheckBox();
         checkBox3 = new CheckBox();
@@ -114,11 +116,9 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             }
         });
         userDetails = new UserDetails();
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 25);
-
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(borderPane);
+        screenCal.profileAllignement(pane, new StackPane());
 
         btnDone.setOnAction(this);
         btnBack.setOnAction(this);
@@ -200,36 +200,27 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
 
         } else if (event.getSource() == btnBack) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
-        }
-        else if (event.getSource() == btnShowPass1)
-        {
-            if (checkBox1.isSelected()){
+        } else if (event.getSource() == btnShowPass1) {
+            if (checkBox1.isSelected()) {
                 checkBox1.setSelected(false);
                 txtPassword1.setPrefWidth(txtOldPassword.getPrefWidth());
-            }
-            else {
+            } else {
                 checkBox1.setSelected(true);
                 txtPassword1.setPrefWidth(txtOldPassword.getPrefWidth());
             }
-        }
-        else if (event.getSource() == btnShowPass2)
-        {
-            if (checkBox2.isSelected()){
+        } else if (event.getSource() == btnShowPass2) {
+            if (checkBox2.isSelected()) {
                 checkBox2.setSelected(false);
                 txtPassword2.setPrefWidth(txtNewPassword.getPrefWidth());
-            }
-            else {
+            } else {
                 checkBox2.setSelected(true);
                 txtPassword2.setPrefWidth(txtNewPassword.getPrefWidth());
             }
-        }
-        else if (event.getSource() == btnShowPass3)
-        {
-            if (checkBox3.isSelected()){
+        } else if (event.getSource() == btnShowPass3) {
+            if (checkBox3.isSelected()) {
                 checkBox3.setSelected(false);
                 txtPassword3.setPrefWidth(txtConfirmNewPassword.getPrefWidth());
-            }
-            else {
+            } else {
                 checkBox3.setSelected(true);
                 txtPassword3.setPrefWidth(txtConfirmNewPassword.getPrefWidth());
             }

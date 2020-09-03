@@ -3,8 +3,6 @@ package sample.view;
 import com.jfoenix.controls.JFXHamburger;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,7 +22,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Screen;
 import javafx.stage.Window;
 import javafx.util.Duration;
 import sample.data.controller.UserDetailsController;
@@ -38,6 +35,7 @@ import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -93,10 +91,12 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
     private Button fav = new Button();
     private ProgressIndicator pi;
     private Button prevButton;
+    private ScreenCal screenCal;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
         pi = new ProgressIndicator();
@@ -115,24 +115,18 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
             pane.getChildren().remove(pi);
         });
 
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 10);
-        scrollPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 10);
-        stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 10);
-        rootVBox.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        rootVBox.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 10);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        toolbar.setMinWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 3);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 15);
+
+        screenCal.profileAllignement(pane, stackPane);
+        screenCal.webViewAllignment(rootVBox, scrollPane);
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(borderPane);
         gridPane.setMargin(webview, new Insets(0, 0, 0, 316));
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-//        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         new UserDetailsController(this).start();
 
         setIconsInNav();
         home.setOnAction(this);
-//        fav.setOnAction(this);
 
         btnProfile.setOnAction(this);
         btnSettings.setOnAction(this);
@@ -148,12 +142,8 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         TranslateTransition openNav = new TranslateTransition(new Duration(350), scrollPane);
         openNav.setToX(0);
         TranslateTransition closeNav = new TranslateTransition(new Duration(350), scrollPane);
-//        HamburgerSlideCloseTransition transition = new HamburgerSlideCloseTransition(hamburger);
-//        transition.setRate(-1);
-        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-//            transition.setRate(transition.getRate() * -1);
-//            transition.play();
 
+        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
             if (scrollPane.getTranslateX() != 0) {
                 openNav.play();
                 gridPane.setMargin(webview, new Insets(0, 0, 0, drawer.getPrefWidth()));
@@ -185,23 +175,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         home.setMaxWidth(Double.MAX_VALUE);
         home.setAlignment(Pos.BASELINE_LEFT);
         drawer.getChildren().add(home);
-
-//        Image favLogo = null;
-//        try {
-//            favLogo = new Image(new FileInputStream("src/resources/imgs/fav_icon.png"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        ImageView favImageView = new ImageView(favLogo);
-//        favImageView.setFitHeight(40);
-//        favImageView.setFitWidth(40);
-//        fav.setGraphic(favImageView);
-//        fav.setText("  Favourite");
-//        fav.setStyle("-fx-background-color: #FFFFFF; ");
-//        fav.setTextFill(Constants.Colors.color4);
-//        fav.setMaxWidth(Double.MAX_VALUE);
-//        fav.setAlignment(Pos.BASELINE_LEFT);
-//        drawer.getChildren().add(fav);
 
         for (ApplicationInfo applicationInfo : SuperApplication.getInstance().getApplicationInfoList()) {
             Button button = new Button();
@@ -308,7 +281,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
-        }else if (event.getSource() == fav) {
+        } else if (event.getSource() == fav) {
             if (Objects.nonNull(prevButton)) {
                 prevButton.setTextFill(Constants.Colors.color4);
                 prevButton.setStyle("-fx-background-color: #FFFFFF; ");
@@ -316,12 +289,11 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
             fav.setTextFill(Color.WHITE);
             fav.setStyle("-fx-background-color: #0B33AD; ");
             gridPane.getChildren().clear();
-            for (Bookmarks bookmarks: bookmarksArrayList)
-            {
+            for (Bookmarks bookmarks : bookmarksArrayList) {
 
             }
             prevButton = fav;
-        }else if (event.getSource() == btnLandingPage) {
+        } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }

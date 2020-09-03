@@ -17,7 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import okhttp3.MediaType;
@@ -102,20 +101,15 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
         pi.setMaxSize(60, 60);
         stackPane.setAlignment(Pos.CENTER);
 
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
+        screenCal.profileAllignement(pane, stackPane);
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
         screenCal.profileVBoxAllignment(profileVBox);
 
-
-        stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         cir.setStroke(Color.BLUE);
         cir.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
 
         Common.setCountryList(countryList);
-
-
         new UserDetailsController(this).start();
 
         if (Objects.nonNull(userDetails.getCountry())) {
