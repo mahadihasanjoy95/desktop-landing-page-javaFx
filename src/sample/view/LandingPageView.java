@@ -84,6 +84,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private Button btnSearch;
     @FXML
     private TextField txtSearch;
+    @FXML
+    private Button btnLandingPage;
+
     private UserDetails userDetails;
     private ProgressIndicator pi;
     private DatabaseManager databaseManager;
@@ -137,6 +140,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         btnProfile.setOnAction(this);
         btnNotification.setOnAction(this);
         btnSearch.setOnAction(this);
+        btnLandingPage.setOnAction(this);
         cir.setOnMouseClicked(event -> {
             if (profileView.isShowing())
                 profileView.hide();
@@ -546,6 +550,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         } else if (event.getSource() == btnSearch) {
             stackPane.getChildren().add(pi);
             searchApps();
+        }else if (event.getSource() == btnLandingPage) {
+            LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
         }
     }
 }

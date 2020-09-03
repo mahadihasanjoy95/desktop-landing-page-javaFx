@@ -24,43 +24,36 @@
          <children>
             <ToolBar fx:id="toolbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
                <items>
-                  <StackPane>
-                     <children>
-                        <BorderPane fx:id="borderPane" prefHeight="50.0" prefWidth="995.0">
-                           <left>
-                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="317.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../imgs/logo.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="50.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </left>
-                           <center>
-                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <Text fx:id="barText" fill="WHITE" fontSmoothingType="LCD" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="User Profile" textAlignment="CENTER" wrappingWidth="630.6666662693024">
-                                       <font>
-                                          <Font name="System Bold" size="26.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                           </center>
-                           <StackPane.margin>
-                              <Insets left="2.0" right="2.0" />
-                           </StackPane.margin>
-                           <right>
-                              <HBox prefHeight="40.0" prefWidth="304.0" BorderPane.alignment="CENTER" />
-                           </right>
-                        </BorderPane>
-                     </children>
-                  </StackPane>
+                  <BorderPane fx:id="toolBarBorderPane" prefHeight="50.0" prefWidth="995.0">
+                     <left>
+                        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/logo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </left>
+                     <center>
+                        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                           <children>
+                              <Text fx:id="barText" fill="WHITE" fontSmoothingType="LCD" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="User Profile" textAlignment="CENTER" wrappingWidth="143.66666626930237">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </center>
+                     <right>
+                        <HBox BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
                </items>
             </ToolBar>
             <StackPane fx:id="stackPane" prefWidth="1276.0">
@@ -93,7 +86,7 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </StackPane>
-                        <VBox fx:id="signInVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="382.0" prefWidth="795.0" style="-fx-background-color: white;">
+                        <VBox fx:id="profileVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" style="-fx-background-color: white;">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -120,7 +113,7 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" layoutX="70.0" layoutY="115.0" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" layoutX="70.0" layoutY="115.0" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -146,7 +139,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -176,7 +169,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -214,7 +207,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -270,7 +263,7 @@
                                     <Insets bottom="10.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="15.0" prefWidth="689.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -296,7 +289,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -333,7 +326,7 @@
                                     <Insets bottom="7.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -359,7 +352,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -396,7 +389,7 @@
                                     <Insets bottom="7.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -422,7 +415,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1065.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>

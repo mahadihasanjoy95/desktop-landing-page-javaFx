@@ -177,3 +177,6 @@
     -fx-pref-height: 7;
     -fx-pref-width: 9;
 }
+#btnLandingPage{
+    -fx-background-color: transparent;
+}

@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -36,6 +37,7 @@ import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
+import sample.view.responsive.ScreenCal;
 
 import java.io.File;
 import java.net.URL;
@@ -77,27 +79,35 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     @FXML
     private Button btnUpdate;
     @FXML
-    private BorderPane borderPane;
+    private BorderPane toolBarBorderPane;
     @FXML
     private Circle cir;
     @FXML
     private ToolBar toolbar;
     @FXML
     private StackPane stackPane;
+    @FXML
+    private VBox profileVBox;
+
     private ProgressIndicator pi;
+    private ScreenCal screenCal;
 
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
 
+        screenCal = new ScreenCal();
         pi = new ProgressIndicator();
         stackPane.getChildren().add(pi);
         pi.setMaxSize(60, 60);
         stackPane.setAlignment(Pos.CENTER);
 
         pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
-        borderPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 25);
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
+        screenCal.profileVBoxAllignment(profileVBox);
+
+
         stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
         pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         cir.setStroke(Color.BLUE);

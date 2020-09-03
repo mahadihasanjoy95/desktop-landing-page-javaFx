@@ -51,7 +51,7 @@ public class Constants {
         public static final String SIGNUP_CSS ="/styles/signin.css";
         public static final String LANDING_PAGE_URL ="/fxml/landing_page.fxml";
         public static final String LANDING_PAGE_CSS ="/styles/landing_page.css";
-        public static final String WEBVIEW_URL ="/fxml/webview_nav_new.fxml";
+        public static final String WEBVIEW_URL = "/fxml/webview_nav.fxml";
         public static final String WEBVIEW_CSS ="/styles/webview_page.css";
         public static final String PASSWORD_CHANGE_URL ="/fxml/password_change.fxml";
         public static final String PASSWORD_CHANGE_CSS ="/styles/signin.css";

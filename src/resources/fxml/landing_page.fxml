@@ -28,14 +28,18 @@
                      <left>
                         <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ImageView fitHeight="44.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../imgs/logo.png" />
-                                 </image>
+                              <Button fx:id="btnLandingPage" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="44.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imgs/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                  <HBox.margin>
                                     <Insets left="90.0" />
                                  </HBox.margin>
-                              </ImageView>
+                              </Button>
                            </children>
                         </HBox>
                      </left>

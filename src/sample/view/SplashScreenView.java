@@ -1,22 +1,15 @@
 package sample.view;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.AmbientLight;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
-import javafx.util.Duration;
 import sample.database.DatabaseManager;
-import sample.utils.Constants;
+import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,6 +33,8 @@ public class SplashScreenView implements Initializable {
 //        System.out.println(databaseManager.getAllBookmarks().size());
 //        databaseManager.deleteBookmarks("67", Long.valueOf(73));
 //        System.out.println(databaseManager.getAllBookmarks().size());
+
+        ScreenCal.getScreenResulation();
         vBox.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
         vBox.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
 //        Circle circle = new Circle(100);
@@ -66,7 +61,7 @@ public class SplashScreenView implements Initializable {
             e.printStackTrace();
         }
         ImageView imageView = new ImageView(logo);
-        imageView.setX((((int) Screen.getPrimary().getBounds().getWidth()) - 10)/ 2);
+        imageView.setX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
         imageView.setY(((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2));
         imageView.setFitHeight(140);
         imageView.setFitWidth(140);
