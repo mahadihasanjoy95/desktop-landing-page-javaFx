@@ -20,6 +20,7 @@ import sample.helper.SuccessResponse;
 import sample.interfaces.ChangePasswordListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
+import sample.utils.Page;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
@@ -203,7 +204,14 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             new ChangePasswordController(this).start(changePasswordDto);
 
         } else if (event.getSource() == btnBack) {
-            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+            if (Constants.last_url == Page.LANDING_PAGE) {
+                LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
+            }
+            else if (Constants.last_url == Page.WEB_VIEW){
+                LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
+
+            }
         } else if (event.getSource() == btnShowPass1) {
             if (checkBox1.isSelected()) {
                 checkBox1.setSelected(false);

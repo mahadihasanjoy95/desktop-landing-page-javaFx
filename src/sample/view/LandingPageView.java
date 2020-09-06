@@ -35,6 +35,7 @@ import sample.interfaces.ApplicationListListener;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
+import sample.utils.Page;
 import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
@@ -533,8 +534,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             //TODO: Have to expired token here
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
         } else if (event.getSource() == btnProfile) {
+            Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
+            Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
         } else if (event.getSource() == btnNotification) {
             Window owner = gridpane.getScene().getWindow();

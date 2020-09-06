@@ -4,6 +4,9 @@ import javafx.scene.paint.Color;
 
 public class Constants {
 
+    public static Page last_url;
+    public static Page current_url;
+
     public static String CURRENT_URL = "";
     public static String CURRENT_APP_NAME = "SUPER APP";
     public static String EMAIL_FORGET_PASS = "";

@@ -33,6 +33,7 @@ import sample.helper.Common;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
+import sample.utils.Page;
 import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
@@ -194,6 +195,8 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
                             }
                         });
                 webengine.load(applicationInfo.getWebUrl());
+                Constants.CURRENT_URL = applicationInfo.getWebUrl();
+                Constants.CURRENT_APP_NAME = applicationInfo.getApplicationName();
                 barText.setText(applicationInfo.getApplicationName());
                 button.setTextFill(Color.WHITE);
                 button.setStyle("-fx-background-color: #0B33AD; ");
@@ -275,8 +278,10 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
                     Messages.SIGNOUT_SUCCESS);
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
         } else if (event.getSource() == btnProfile) {
+            Constants.last_url = Page.WEB_VIEW;
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
+            Constants.last_url = Page.WEB_VIEW;
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
         } else if (event.getSource() == fav) {
             if (Objects.nonNull(prevButton)) {

@@ -35,6 +35,7 @@ import sample.interfaces.ProfileUpdatingListener;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
+import sample.utils.Page;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
@@ -215,7 +216,14 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == btnBack1) {
-            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+            if (Constants.last_url == Page.LANDING_PAGE) {
+                LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
+            }
+            else if (Constants.last_url == Page.WEB_VIEW){
+                LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
+
+            }
         } else if (event.getSource() == btnOpen) {
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
