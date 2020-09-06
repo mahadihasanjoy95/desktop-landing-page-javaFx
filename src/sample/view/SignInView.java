@@ -70,6 +70,8 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
         screenCal.signInVBoxAllignment(signInVBox);
+        screenCal.signInBorderPane(borderPane);
+
 
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 

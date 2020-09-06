@@ -115,5 +115,11 @@ public class ScreenCal {
         imageView.setFitWidth(rectangle2D.getWidth()/9);
     }
 
+    public void signInBorderPane(BorderPane borderPane)
+    {
+        borderPane.setPrefWidth(rectangle2D.getWidth()-10);
+        borderPane.setPrefHeight(rectangle2D.getWidth()-70);
+    }
+
 
 }
