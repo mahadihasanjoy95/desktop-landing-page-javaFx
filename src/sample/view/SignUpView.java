@@ -65,8 +65,6 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
     private VBox signInVBox;
     @FXML
     private HBox passHbox;
-    @FXML
-    private ToolBar toolbar;
     private ProgressIndicator pi;
     @FXML
     private TextField txtPassword1;
@@ -95,7 +93,6 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
         pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
         pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
         screenCal.profileAllignement(pane, new StackPane());
-        screenCal.toolbarAllignment(toolbar);
         screenCal.signUpVBoxAllignment(signInVBox);
 
         Common.setCountryList(countryList);

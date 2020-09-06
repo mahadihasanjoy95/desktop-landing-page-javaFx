@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,11 +20,6 @@
    <children>
       <VBox fx:id="parentVbox" alignment="TOP_CENTER" layoutX="-9.0" layoutY="-17.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ToolBar fx:id="toolbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
-               <items>
-                  <BorderPane fx:id="toolBarBorderPane" prefHeight="200.0" prefWidth="200.0" />
-               </items>
-            </ToolBar>
             <StackPane fx:id="stackPane" prefHeight="611.0" prefWidth="1276.0">
                <effect>
                   <DropShadow />
@@ -57,8 +51,8 @@
                            </BorderPane.margin>
                         </VBox>
                      </top>
-                     <center>
-                        <VBox alignment="CENTER" prefHeight="657.0" prefWidth="1276.0" BorderPane.alignment="CENTER">
+                     <bottom>
+                        <VBox alignment="CENTER" prefHeight="504.0" prefWidth="1276.0" BorderPane.alignment="CENTER">
                            <children>
                               <HBox alignment="BOTTOM_CENTER">
                                  <VBox.margin>
@@ -244,7 +238,7 @@
                               <Insets />
                            </BorderPane.margin>
                         </VBox>
-                     </center>
+                     </bottom>
                   </BorderPane>
                </children>
             </StackPane>

@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.SplashScreenView">
    <children>
       <StackPane fx:id="stackPane" style="-fx-background-image: url('imgs/splash_screen.png');" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="650.0" prefWidth="1276.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ToolBar fx:id="toolbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
-               <items>
-                  <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
-               </items>
-               <VBox.margin>
-                  <!--<Insets bottom="200.0" />-->
-               </VBox.margin>
-            </ToolBar>
-         </children></VBox>
+      <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="650.0" prefWidth="1276.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

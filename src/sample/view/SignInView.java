@@ -48,11 +48,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     @FXML
     private VBox signInVBox;
     @FXML
-    private ToolBar toolbar;
-    @FXML
     private BorderPane borderPane;
-    @FXML
-    private BorderPane toolBarBorderPane;
     @FXML
     private HBox loginHbox;
     @FXML
@@ -67,8 +63,6 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         pi = new ProgressIndicator();
 
         screenCal.profileAllignement(pane, stackPane);
-        screenCal.toolbarAllignment(toolbar);
-        screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
         screenCal.signInVBoxAllignment(signInVBox);
         screenCal.signInBorderPane(borderPane);
 

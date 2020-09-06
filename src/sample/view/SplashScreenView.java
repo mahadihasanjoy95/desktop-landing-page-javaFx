@@ -22,8 +22,7 @@ public class SplashScreenView implements Initializable {
     private VBox vBox;
     @FXML
     private StackPane stackPane;
-    @FXML
-    private ToolBar toolbar;
+
 
     private ScreenCal screenCal;
 
@@ -32,7 +31,6 @@ public class SplashScreenView implements Initializable {
 
         screenCal = new ScreenCal();
         screenCal.splashScreenAllignment(vBox);
-        screenCal.toolbarAllignment(toolbar);
 
 
 
