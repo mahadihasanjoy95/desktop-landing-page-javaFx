@@ -3,6 +3,7 @@ package sample.view;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.AmbientLight;
+import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -21,6 +22,8 @@ public class SplashScreenView implements Initializable {
     private VBox vBox;
     @FXML
     private StackPane stackPane;
+    @FXML
+    private ToolBar toolbar;
 
     private ScreenCal screenCal;
 
@@ -29,6 +32,8 @@ public class SplashScreenView implements Initializable {
 
         screenCal = new ScreenCal();
         screenCal.splashScreenAllignment(vBox);
+        screenCal.toolbarAllignment(toolbar);
+
 
 
         Image logo = null;
@@ -38,10 +43,7 @@ public class SplashScreenView implements Initializable {
             e.printStackTrace();
         }
         ImageView imageView = new ImageView(logo);
-        imageView.setX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
-        imageView.setY(((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2));
-        imageView.setFitHeight(140);
-        imageView.setFitWidth(140);
+        screenCal.splashScreenImage(imageView);
         imageView.setPreserveRatio(true);
 
         AmbientLight ambient_light = new AmbientLight();

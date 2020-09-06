@@ -84,8 +84,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
     private GridPane gridPane;
     @FXML
     private BorderPane borderPane;
-    @FXML
-    private Button btnLandingPage;
 
     private Button home = new Button();
     private Button fav = new Button();
@@ -131,7 +129,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         btnProfile.setOnAction(this);
         btnSettings.setOnAction(this);
         btnLogout.setOnAction(this);
-        btnLandingPage.setOnAction(this);
         cir.setOnMouseClicked(event -> {
             if (profileView.isShowing())
                 profileView.hide();
@@ -293,9 +290,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
             }
             prevButton = fav;
-        } else if (event.getSource() == btnLandingPage) {
-            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
-
         }
     }
 }

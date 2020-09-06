@@ -23,7 +23,7 @@
          <children>
             <ToolBar fx:id="toolbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
                <items>
-                  <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
+                  <BorderPane fx:id="toolBarBorderPane" prefHeight="200.0" prefWidth="200.0" />
                </items>
             </ToolBar>
             <StackPane fx:id="stackPane" prefHeight="611.0" prefWidth="1276.0">

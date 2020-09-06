@@ -50,6 +50,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private HBox userNameHBox;
     @FXML
     private VBox signUpVBox;
+
     @FXML
     private StackPane stackPane;
     @FXML
@@ -64,6 +65,8 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private Button btnShowPass2;
     @FXML
     private Button btnShowPass3;
+    @FXML
+    private VBox forgetPassUpVBox;
 
 
     private UserDetails userDetails;
@@ -119,6 +122,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(borderPane);
         screenCal.profileAllignement(pane, new StackPane());
+        screenCal.changePassVbox(forgetPassUpVBox);
 
         btnDone.setOnAction(this);
         btnBack.setOnAction(this);

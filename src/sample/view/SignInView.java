@@ -11,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.stage.Screen;
 import javafx.stage.Window;
 import sample.data.dto.LogInDto;
 import sample.data.model.LogInFailedResponse;
@@ -53,6 +52,8 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     @FXML
     private BorderPane borderPane;
     @FXML
+    private BorderPane toolBarBorderPane;
+    @FXML
     private HBox loginHbox;
     @FXML
     private HBox signUpHBox;
@@ -65,12 +66,9 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
 
         pi = new ProgressIndicator();
 
-        pane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 10);
-        pane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
-        toolbar.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
-        stackPane.setPrefWidth(((int) Screen.getPrimary().getBounds().getWidth()) - 1);
-        stackPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
-        borderPane.setPrefHeight(((int) Screen.getPrimary().getBounds().getHeight()) - 70);
+        screenCal.profileAllignement(pane, stackPane);
+        screenCal.toolbarAllignment(toolbar);
+        screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
         screenCal.signInVBoxAllignment(signInVBox);
 
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load

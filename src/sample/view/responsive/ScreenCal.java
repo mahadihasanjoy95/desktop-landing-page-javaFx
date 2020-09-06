@@ -27,6 +27,7 @@ public class ScreenCal {
 
     public void toolbarAllignment(ToolBar toolBar) {
         toolBar.setPrefWidth(rectangle2D.getWidth());
+        toolBar.setPrefHeight((rectangle2D.getHeight()*7.5)/100);
     }
 
     public void toolBarBorderPaneAllignment(BorderPane borderPane) {
@@ -97,7 +98,21 @@ public class ScreenCal {
     }
     public void setStarMargin(StackPane gridStackPane, Button button, Button favButton){
         gridStackPane.setMargin(button, new Insets(10, 0, 0, 0));
-        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/15));
+        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/14));
+    }
+
+    public void changePassVbox(VBox vBox)
+    {
+        vBox.setPrefWidth(rectangle2D.getWidth()/3);
+        vBox.setPrefHeight(rectangle2D.getHeight()/2);
+    }
+
+    public void splashScreenImage(ImageView imageView)
+    {
+        imageView.setX((rectangle2D.getWidth()-10)/2);
+        imageView.setY((rectangle2D.getHeight() - 70) / 2);
+        imageView.setFitHeight(rectangle2D.getWidth()/9);
+        imageView.setFitWidth(rectangle2D.getWidth()/9);
     }
 
 
