@@ -71,6 +71,7 @@ public class Constants {
         public static Color color2 = Color.web("#020144",1.0);
         public static Color color3 = Color.web("#84A3FD",1.0);
         public static Color color4 = Color.web("#15369E",1.0);
+        public static Color color5 = Color.web("#ABABAB",1.0);
 
     }
 

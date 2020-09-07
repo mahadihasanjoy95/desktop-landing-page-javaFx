@@ -1,6 +1,6 @@
 .button{
     -fx-background-color: transparent;
-    -fx-opacity: .9;
+    -fx-opacity: .95;
     -fx-end-margin: 20;
 }
 .button:hover{
@@ -27,8 +27,7 @@
     linear-gradient(#fafdfe, #e8f5fc),
     linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
     -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 3, 2, 1;
-    -fx-padding: 10 30 10 30;
+    -fx-padding: 10 40 10 40;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: Bold;
@@ -41,8 +40,7 @@
     linear-gradient(#fafdfe, #e8f5fc),
     linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
     -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 3, 2, 1;
-    -fx-padding: 10 30 10 30;
+    -fx-padding: 10 40 10 40;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: Bold;
@@ -55,8 +53,7 @@
     linear-gradient(#fafdfe, #e8f5fc),
     linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
     -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 3, 2, 1;
-    -fx-padding: 10 30 10 30;
+    -fx-padding: 10 40 10 40;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: Bold;

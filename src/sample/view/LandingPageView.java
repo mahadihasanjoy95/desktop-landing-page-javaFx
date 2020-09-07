@@ -87,6 +87,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private TextField txtSearch;
     @FXML
     private Button btnLandingPage;
+    @FXML HBox miniHbox;
 
     private UserDetails userDetails;
     private ProgressIndicator pi;
@@ -109,8 +110,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         gScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         gScrollPane.setStyle("-fx-background: transparent; -fx-background-color: transparent; ");
 
-        cir.setStroke(Color.BLUE);
-        cir.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+        cir.setStroke(Constants.Colors.color5);
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(borderPane);
         screenCal.landingPageAllignment(anchorpane, scrollPane, gridpane);
@@ -177,6 +177,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private void removeBookmarks(ApplicationInfo applicationInfo) {
 
         bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
+        if (bookmarksArrayList.isEmpty())
+            miniHbox.setVisible(false);
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
         Image logo3 = null;
         try {
@@ -285,7 +287,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setUserId(userDetails.getUserId());
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
-
+                    miniHbox.setVisible(true);
                     Image logo3 = null;
                     try {
                         logo3 = new Image(new FileInputStream("src/resources/imgs/star.png"));
@@ -359,8 +361,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             contextMenu.getItems().addAll(menuItem1);
             button.setContextMenu(contextMenu);
             menuItem1.setOnAction((ActionEvent e) -> {
-                Common.showAlert(Alert.AlertType.INFORMATION, owner, Messages.FORM_SUCCESS,
-                        applicationInfo.getApplicationName() + "\n" + applicationInfo.getWebUrl() + "\n" + applicationInfo.getVersion());
+                Common.showAlert(Alert.AlertType.INFORMATION, owner, Messages.APP_INFO,
+                        "Name: "+applicationInfo.getApplicationName() + "\n" +"URL: "+ applicationInfo.getWebUrl() + "\n" +"Version: "+ applicationInfo.getVersion());
                 return;
             });
 
@@ -516,6 +518,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
          */
         Platform.runLater(() -> {
             bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
+            if (!bookmarksArrayList.isEmpty())
+                miniHbox.setVisible(true);
         });
 
         Platform.runLater(() -> setProfilePic());

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
@@ -31,14 +32,17 @@
                      <left>
                         <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../imgs/logo.png" />
-                                 </image>
+                              <Button fx:id="btnLandingPage" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imgs/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                  <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </ImageView>
+                                    <Insets left="60.0" />
+                                 </HBox.margin></Button>
                               <JFXHamburger fx:id="hamburger" prefHeight="72.0" prefWidth="55.0">
                                  <HBox.margin>
                                     <Insets left="20.0" />

@@ -107,8 +107,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
         screenCal.toolBarBorderPaneAllignment(toolBarBorderPane);
         screenCal.profileVBoxAllignment(profileVBox);
 
-        cir.setStroke(Color.BLUE);
-        cir.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+        cir.setStroke(Constants.Colors.color5);
 
         Common.setCountryList(countryList);
         new UserDetailsController(this).start();

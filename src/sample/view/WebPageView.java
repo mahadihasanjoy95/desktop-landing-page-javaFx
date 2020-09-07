@@ -85,6 +85,8 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
     private GridPane gridPane;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private Button btnLandingPage;
 
     private Button home = new Button();
     private Button fav = new Button();
@@ -101,8 +103,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         pi = new ProgressIndicator();
         userDetails = new UserDetails();
         drawerAction();
-        cir.setStroke(Color.BLUE);
-        cir.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+        cir.setStroke(Constants.Colors.color5);
 
     }
 
@@ -130,6 +131,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         btnProfile.setOnAction(this);
         btnSettings.setOnAction(this);
         btnLogout.setOnAction(this);
+        btnLandingPage.setOnAction(this);
         cir.setOnMouseClicked(event -> {
             if (profileView.isShowing())
                 profileView.hide();
@@ -167,6 +169,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         homeImageView.setFitHeight(40);
         homeImageView.setFitWidth(40);
         home.setGraphic(homeImageView);
+        home.setId("navButton");
         home.setText("  Home");
         home.setStyle("-fx-background-color: #FFFFFF; ");
         home.setTextFill(Constants.Colors.color4);
@@ -295,6 +298,10 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
             }
             prevButton = fav;
+        }
+        else if (event.getSource() == btnLandingPage) {
+            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
         }
     }
 }

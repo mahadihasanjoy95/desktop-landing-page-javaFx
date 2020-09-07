@@ -5,6 +5,7 @@ public class Messages {
 
     public static String FORM_ERROR = "Oops!";
     public static String FORM_SUCCESS = "Success";
+    public static String APP_INFO = "App Info.";
     public static String EMPTY_EMAIL = "Please enter your email id";
     public static String INVALID_EMIL_FORMAT = "Invalid email format";
     public static String EMPTY_FIRSTNAME = "Please enter first name";
