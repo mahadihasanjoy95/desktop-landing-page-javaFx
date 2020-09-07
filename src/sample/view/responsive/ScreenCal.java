@@ -53,13 +53,13 @@ public class ScreenCal {
     }
 
     public void forgetPassVBoxAllignment(VBox signInVBox) {
-        signInVBox.setPrefWidth(rectangle2D.getWidth() / 3);
+        signInVBox.setPrefWidth(rectangle2D.getWidth()*1.5 / 3);
         signInVBox.setPrefHeight((rectangle2D.getHeight()) / 3);
     }
 
     public void signUpVBoxAllignment(VBox signInVBox) {
         signInVBox.setPrefWidth((rectangle2D.getWidth() * 2) / 3);
-        signInVBox.setPrefHeight(((rectangle2D.getHeight()) * 2) / 3);
+        signInVBox.setPrefHeight(((rectangle2D.getHeight()) * 2.2) / 3);
     }
 
     public void profileAllignement(Pane pane, StackPane stackPane) {

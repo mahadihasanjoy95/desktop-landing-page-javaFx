@@ -84,8 +84,6 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
                 @Override
                 public void run() {
                     stackPane.getChildren().remove(pi);
-                    Common.showAlert(Alert.AlertType.INFORMATION, pane.getScene().getWindow(), Messages.FORM_SUCCESS,
-                            Messages.EMAIL_SENT);
                     LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.PASSWORD_RESET_URL, Constants.FxmlUrl.PASSWORD_RESET_CSS);
                 }
             });
