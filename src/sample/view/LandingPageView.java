@@ -11,7 +11,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -54,6 +53,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     int bColumn = 0;
     List<Bookmarks> bookmarksArrayList;
     @FXML
+    HBox miniHbox;
+    @FXML
     private AnchorPane anchorpane;
     @FXML
     private ToolBar toolbar;
@@ -79,15 +80,12 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private StackPane stackPane;
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private Button btnSearch;
     @FXML
     private TextField txtSearch;
     @FXML
     private Button btnLandingPage;
-    @FXML HBox miniHbox;
-
     private UserDetails userDetails;
     private ProgressIndicator pi;
     private DatabaseManager databaseManager;
@@ -178,12 +176,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         if (bookmarksArrayList.isEmpty())
             miniHbox.setVisible(false);
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
-        Image logo3 = null;
-        try {
-            logo3 = new Image(new FileInputStream("src/resources/imgs/star1.png"));
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
+        Image logo3 = new Image("/imgs/star1.png");
         ImageView imageView3 = new ImageView(logo3);
         imageView3.setCache(true);
         imageView3.setFitHeight(30);
@@ -224,17 +217,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             Button button = new Button();
 
 
-            Image logo1 = null;
-
-            try {
-                logo1 = new Image(new FileInputStream("src/resources/imgs/web_icon/default_icon.png"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (!applicationInfo.getAsset().isEmpty()) {
+            Image logo1 =  new Image("/imgs/default.png");
+            if (!applicationInfo.getAsset().isEmpty())
                 logo1 = new Image(applicationInfo.getAsset());
-            }
-
             ImageView imageView = new ImageView(logo1);
             imageView.setCache(true);
             screenCal.applicationSize(imageView);
@@ -248,27 +233,15 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
                 Platform.runLater(() -> setBookMarks(applicationInfo));
-
-                Image logo2 = null;
-                try {
-                    logo2 = new Image(new FileInputStream("src/resources/imgs/star.png"));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                Image logo2 =  new Image("/imgs/star.png");
                 imageView1 = new ImageView(logo2);
             } else {
-                Image logo2 = null;
-                try {
-                    logo2 = new Image(new FileInputStream("src/resources/imgs/star1.png"));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-
+                Image logo2 = new Image("/imgs/star1.png");
                 imageView1 = new ImageView(logo2);
 
             }
             imageView1.setCache(true);
-            screenCal.starSize(imageView,imageView1);
+            screenCal.starSize(imageView, imageView1);
             imageView1.setPreserveRatio(true);
             favButton.setGraphic(imageView1);
             favButton.setId("favButton");
@@ -286,12 +259,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
                     miniHbox.setVisible(true);
-                    Image logo3 = null;
-                    try {
-                        logo3 = new Image(new FileInputStream("src/resources/imgs/star.png"));
-                    } catch (FileNotFoundException ex) {
-                        ex.printStackTrace();
-                    }
+                    Image logo3 =  new Image("/imgs/star.png");
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
                     imageView3.setFitHeight(30);
@@ -303,7 +271,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                 }
             });
 
-           screenCal.setStarMargin(gridStackPane, button, favButton);
+            screenCal.setStarMargin(gridStackPane, button, favButton);
             gridStackPane.getChildren().addAll(button, favButton);
             vBox.getChildren().add(gridStackPane);
 
@@ -360,7 +328,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             button.setContextMenu(contextMenu);
             menuItem1.setOnAction((ActionEvent e) -> {
                 Common.showAlert(Alert.AlertType.INFORMATION, owner, Messages.APP_INFO,
-                        "Name: "+applicationInfo.getApplicationName() + "\n" +"URL: "+ applicationInfo.getWebUrl() + "\n" +"Version: "+ applicationInfo.getVersion());
+                        "Name: " + applicationInfo.getApplicationName() + "\n" + "URL: " + applicationInfo.getWebUrl() + "\n" + "Version: " + applicationInfo.getVersion());
                 return;
             });
 
@@ -389,15 +357,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
      */
     public void setBookMarks(ApplicationInfo applicationInfo) {
         Button btnBookMarks = new Button();
-        Image logo2 = null;
-        try {
-            logo2 = new Image(new FileInputStream("src/resources/imgs/web_icon/Group_495@2x.png"));
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
-        }
-        if (!applicationInfo.getAsset().isEmpty()) {
+        Image logo2 =  new Image("/imgs/default.png");
+        if (!applicationInfo.getAsset().isEmpty())
             logo2 = new Image(applicationInfo.getAsset());
-        }
         ImageView imageView2 = new ImageView(logo2);
         imageView2.setCache(true);
         imageView2.setFitHeight(50);
@@ -409,12 +371,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         btnBookMarks.setMaxWidth(40);
         btnBookMarks.setPadding(Insets.EMPTY);
 
-        Image cancelLogo = null;
-        try {
-            cancelLogo = new Image(new FileInputStream("src/resources/imgs/cancel.png"));
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
+        Image cancelLogo =  new Image("/imgs/cancel.png");
         ImageView cancelImageView = new ImageView(cancelLogo);
         cancelImageView.setCache(true);
         cancelImageView.setFitHeight(20);

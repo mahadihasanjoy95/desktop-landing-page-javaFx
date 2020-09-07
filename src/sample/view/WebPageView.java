@@ -36,8 +36,6 @@ import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -156,12 +154,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
     private void setIconsInNav() {
 
-        Image homeLogo = null;
-        try {
-            homeLogo = new Image(new FileInputStream("src/resources/imgs/home.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        Image homeLogo = new Image("/imgs/home.png");
 
         ImageView homeImageView = new ImageView(homeLogo);
         homeImageView.setFitHeight(40);
@@ -217,12 +210,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
     }
 
     private void setupImage(ApplicationInfo applicationInfo, Button btn, ImageView imageView) {
-        Image logo = null;
-        try {
-            logo = new Image(new FileInputStream("src/resources/imgs/web_icon/default_icon.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        Image logo = new Image("/imgs/default.png");
         if (!applicationInfo.getAsset().isEmpty()) {
             logo = new Image(applicationInfo.getAsset());
         }

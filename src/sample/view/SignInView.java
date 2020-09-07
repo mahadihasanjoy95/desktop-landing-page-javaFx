@@ -22,8 +22,6 @@ import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -72,12 +70,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
 
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 
-        Image logo1 = null;
-        try {
-            logo1 = new Image(new FileInputStream("src/resources/imgs/background_login.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        Image logo1 = new Image("/imgs/background_login.png");
 
         txtEmailAddress.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue && firstTime.get()) {
