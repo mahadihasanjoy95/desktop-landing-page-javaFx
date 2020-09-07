@@ -533,8 +533,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         if (event.getSource() == btnLogout) {
             Window owner = gridpane.getScene().getWindow();
 //            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
-            alert.setHeaderText("Do you want to logout?");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
+            alert.setHeaderText(null);
+            alert.setGraphic(null);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
