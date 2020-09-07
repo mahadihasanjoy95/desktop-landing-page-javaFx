@@ -115,7 +115,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" StackPane.alignment="CENTER">
                      <children>
-                        <ScrollPane fx:id="scrollPane">
+                        <ScrollPane fx:id="scrollPane" prefWidth="1276.0">
                            <content>
                               <GridPane fx:id="gridpane" alignment="CENTER" style="-fx-border-color: transparent;">
             </GridPane>
@@ -140,7 +140,7 @@
                               </ScrollPane>
                            </children>
                            <VBox.margin>
-                              <Insets bottom="30.0" left="500.0" right="500.0" top="30.0" />
+                              <Insets bottom="10.0" left="500.0" right="500.0" top="30.0" />
                            </VBox.margin>
                         </HBox>
                      </children>

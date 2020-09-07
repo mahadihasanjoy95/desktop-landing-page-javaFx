@@ -72,7 +72,7 @@ public class ScreenCal {
     public void landingPageAllignment(AnchorPane anchorPane, ScrollPane scrollPane, GridPane gridPane) {
         anchorPane.setPrefHeight(rectangle2D.getHeight() - 149);
         anchorPane.setPrefWidth(rectangle2D.getWidth() - 1);
-        scrollPane.setPrefHeight(rectangle2D.getHeight() - 300);
+        scrollPane.setPrefHeight(rectangle2D.getHeight() - 250);
         gridPane.setPrefWidth(rectangle2D.getWidth());
 
     }

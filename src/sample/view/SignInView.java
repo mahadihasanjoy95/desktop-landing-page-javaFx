@@ -83,7 +83,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
             }
         });
         txtEmailAddress.setText("raman@gmail.com");
-        txtPassword.setText("12345678");
+        txtPassword.setText("123456789");
 
         login.setOnAction(this);
         signUp.setOnAction(this);
