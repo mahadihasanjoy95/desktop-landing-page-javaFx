@@ -79,8 +79,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private StackPane stackPane;
     @FXML
     private BorderPane borderPane;
-    @FXML
-    private Button btnNotification;
+
     @FXML
     private Button btnSearch;
     @FXML
@@ -137,7 +136,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         btnLogout.setOnAction(this);
         btnSettings.setOnAction(this);
         btnProfile.setOnAction(this);
-        btnNotification.setOnAction(this);
         btnSearch.setOnAction(this);
         btnLandingPage.setOnAction(this);
         cir.setOnMouseClicked(event -> {
@@ -534,18 +532,23 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     public void handle(ActionEvent event) {
         if (event.getSource() == btnLogout) {
             Window owner = gridpane.getScene().getWindow();
-            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
-            //TODO: Have to expired token here
-            LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+//            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
+            alert.setHeaderText("Do you want to logout?");
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                //TODO: Have to expired token here
+                LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+            }
+
+
         } else if (event.getSource() == btnProfile) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
-        } else if (event.getSource() == btnNotification) {
-            Window owner = gridpane.getScene().getWindow();
-            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, "Under Development");
         } else if (event.getSource() == btnSearch) {
             stackPane.getChildren().add(pi);
             searchApps();

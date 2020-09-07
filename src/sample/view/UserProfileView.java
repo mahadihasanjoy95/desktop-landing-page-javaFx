@@ -88,6 +88,8 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     private StackPane stackPane;
     @FXML
     private VBox profileVBox;
+    @FXML
+    private Button btnLandingPage;
 
     private ProgressIndicator pi;
     private ScreenCal screenCal;
@@ -120,6 +122,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
         btnBack1.setOnAction(this);
         btnUpdate.setOnAction(this);
         btnOpen.setOnAction(this);
+        btnLandingPage.setOnAction(this);
     }
 
 
@@ -250,6 +253,9 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
 
             SignUpDto signUpDto = new SignUpDto(txtFirstName.getText(), txtLastName.getText(), txtUserName.getText(), txtEmailAddress.getText(), "123456789", txtPhoneNumber.getText(), countryList.getValue().toString(), txtAddress.getText(), txtCity.getText(), txtState.getText(), txtZipCode.getText());
             new ProfileUpdatingController(this).start(signUpDto);
+        }else if (event.getSource() == btnLandingPage) {
+            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
         }
     }
 }

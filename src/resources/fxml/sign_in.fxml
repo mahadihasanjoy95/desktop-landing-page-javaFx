@@ -29,31 +29,29 @@
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
-                     <top>
-                        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
-                           <children>
-                              <ImageView fitHeight="39.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../imgs/logo.png" />
-                                 </image>
-                              </ImageView>
-                              <Text fx:id="logoText" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPER APP" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Perpetua Bold" size="20.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
-                              </Text>
-                           </children>
-                           <BorderPane.margin>
-                              <Insets top="30.0" />
-                           </BorderPane.margin>
-                        </VBox>
-                     </top>
                      <bottom>
                         <VBox alignment="CENTER" prefHeight="504.0" prefWidth="1276.0" BorderPane.alignment="CENTER">
                            <children>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <ImageView fitHeight="39.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imgs/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fx:id="logoText" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPER APP" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Perpetua Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
                               <HBox alignment="BOTTOM_CENTER">
                                  <VBox.margin>
                                     <Insets />

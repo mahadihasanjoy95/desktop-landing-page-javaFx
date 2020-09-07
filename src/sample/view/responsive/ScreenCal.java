@@ -27,7 +27,7 @@ public class ScreenCal {
 
     public void toolbarAllignment(ToolBar toolBar) {
         toolBar.setPrefWidth(rectangle2D.getWidth());
-        toolBar.setPrefHeight((rectangle2D.getHeight()*7.5)/100);
+        toolBar.setPrefHeight((rectangle2D.getHeight() * 7.5) / 100);
     }
 
     public void toolBarBorderPaneAllignment(BorderPane borderPane) {
@@ -58,8 +58,8 @@ public class ScreenCal {
     }
 
     public void signUpVBoxAllignment(VBox signInVBox) {
-        signInVBox.setPrefWidth((rectangle2D.getWidth()*2) / 3);
-        signInVBox.setPrefHeight(((rectangle2D.getHeight())*2.2) / 3);
+        signInVBox.setPrefWidth((rectangle2D.getWidth() * 2) / 3);
+        signInVBox.setPrefHeight(((rectangle2D.getHeight()) * 2) / 3);
     }
 
     public void profileAllignement(Pane pane, StackPane stackPane) {
@@ -77,48 +77,47 @@ public class ScreenCal {
 
     }
 
-    public void splashScreenAllignment(VBox vBox)
-    {
+    public void splashScreenAllignment(VBox vBox) {
         vBox.setPrefWidth(rectangle2D.getWidth() - 10);
         vBox.setPrefHeight(rectangle2D.getHeight() - 70);
     }
-    public void webViewAllignment(VBox rootVBox, ScrollPane scrollPane){
+
+    public void webViewAllignment(VBox rootVBox, ScrollPane scrollPane) {
         scrollPane.setPrefHeight(rectangle2D.getHeight() - 10);
         rootVBox.setPrefWidth(rectangle2D.getWidth() - 3);
         rootVBox.setPrefHeight(rectangle2D.getHeight() - 10);
     }
 
-    public void applicationSize(ImageView imageView){
-        imageView.setFitHeight(rectangle2D.getWidth()/13);
-        imageView.setFitWidth(rectangle2D.getWidth()/13);
+    public void applicationSize(ImageView imageView) {
+        imageView.setFitHeight(rectangle2D.getWidth() / 13);
+        imageView.setFitWidth(rectangle2D.getWidth() / 13);
     }
-    public void starSize(ImageView appImage, ImageView starImage){
-        starImage.setFitHeight(appImage.getFitHeight()/4);
-        starImage.setFitWidth(appImage.getFitHeight()/4);
+
+    public void starSize(ImageView appImage, ImageView starImage) {
+        starImage.setFitHeight(appImage.getFitHeight() / 4);
+        starImage.setFitWidth(appImage.getFitHeight() / 4);
     }
-    public void setStarMargin(StackPane gridStackPane, Button button, Button favButton){
+
+    public void setStarMargin(StackPane gridStackPane, Button button, Button favButton) {
         gridStackPane.setMargin(button, new Insets(10, 0, 0, 0));
-        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth()/16, rectangle2D.getWidth()/14));
+        gridStackPane.setMargin(favButton, new Insets(0, 0, rectangle2D.getWidth() / 16, rectangle2D.getWidth() / 14));
     }
 
-    public void changePassVbox(VBox vBox)
-    {
-        vBox.setPrefWidth(rectangle2D.getWidth()/3);
-        vBox.setPrefHeight(rectangle2D.getHeight()/2);
+    public void changePassVbox(VBox vBox) {
+        vBox.setPrefWidth(rectangle2D.getWidth() / 3);
+        vBox.setPrefHeight(rectangle2D.getHeight() / 2);
     }
 
-    public void splashScreenImage(ImageView imageView)
-    {
-        imageView.setX((rectangle2D.getWidth()-10)/2);
+    public void splashScreenImage(ImageView imageView) {
+        imageView.setX((rectangle2D.getWidth() - 10) / 2);
         imageView.setY((rectangle2D.getHeight() - 70) / 2);
-        imageView.setFitHeight(rectangle2D.getWidth()/9);
-        imageView.setFitWidth(rectangle2D.getWidth()/9);
+        imageView.setFitHeight(rectangle2D.getWidth() / 9);
+        imageView.setFitWidth(rectangle2D.getWidth() / 9);
     }
 
-    public void signInBorderPane(BorderPane borderPane)
-    {
-        borderPane.setPrefWidth(rectangle2D.getWidth()-10);
-        borderPane.setPrefHeight(rectangle2D.getWidth()-70);
+    public void signInBorderPane(BorderPane borderPane) {
+        borderPane.setPrefWidth(rectangle2D.getWidth() - 10);
+        borderPane.setPrefHeight(rectangle2D.getWidth() - 70);
     }
 
 

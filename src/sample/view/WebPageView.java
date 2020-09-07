@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +31,6 @@ import sample.database.DatabaseManager;
 import sample.helper.Common;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
-import sample.utils.Messages;
 import sample.utils.Page;
 import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
@@ -276,10 +274,18 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         if (event.getSource() == home) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
         } else if (event.getSource() == btnLogout) {
-            Window owner = scrollPane.getScene().getWindow();
-            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS,
-                    Messages.SIGNOUT_SUCCESS);
-            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+            Window owner = pane.getScene().getWindow();
+//            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
+            alert.setHeaderText("Do you want to logout?");
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                //TODO: Have to expired token here
+                LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+            }
+
+
         } else if (event.getSource() == btnProfile) {
             Constants.last_url = Page.WEB_VIEW;
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
@@ -298,8 +304,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
             }
             prevButton = fav;
-        }
-        else if (event.getSource() == btnLandingPage) {
+        } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }

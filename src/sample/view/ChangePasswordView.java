@@ -68,6 +68,8 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private Button btnShowPass3;
     @FXML
     private VBox forgetPassUpVBox;
+    @FXML
+    private Button btnLandingPage;
 
 
     private UserDetails userDetails;
@@ -130,6 +132,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
         btnShowPass1.setOnAction(this);
         btnShowPass2.setOnAction(this);
         btnShowPass3.setOnAction(this);
+        btnLandingPage.setOnAction(this);
 
     }
 
@@ -236,6 +239,9 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
                 checkBox3.setSelected(true);
                 txtPassword3.setPrefWidth(txtConfirmNewPassword.getPrefWidth());
             }
+        }else if (event.getSource() == btnLandingPage) {
+            LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+
         }
     }
 }
