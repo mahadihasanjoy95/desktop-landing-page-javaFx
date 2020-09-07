@@ -3,12 +3,10 @@ package sample.view;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.AmbientLight;
-import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
@@ -33,14 +31,14 @@ public class SplashScreenView implements Initializable {
         screenCal.splashScreenAllignment(vBox);
 
 
-
-        Image logo = null;
+        /*Image logo = null;
         try {
             logo = new Image(new FileInputStream("src/resources/imgs/main_logo.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        ImageView imageView = new ImageView(logo);
+        }*/
+        Image image = new Image("/imgs/main_logo.png");
+        ImageView imageView = new ImageView(image);
         screenCal.splashScreenImage(imageView);
         imageView.setPreserveRatio(true);
 
