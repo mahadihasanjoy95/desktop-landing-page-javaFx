@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.SignInView">
    <children>
@@ -32,32 +31,24 @@
                      <bottom>
                         <VBox alignment="CENTER" prefHeight="504.0" prefWidth="1276.0" BorderPane.alignment="CENTER">
                            <children>
-                              <VBox alignment="TOP_CENTER">
+                              <VBox fx:id="logoVbox" alignment="TOP_CENTER">
                                  <children>
-                                    <ImageView fitHeight="39.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="85.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../imgs/logo.png" />
+                                          <Image url="@../imgs/superAppText.png" />
                                        </image>
                                     </ImageView>
-                                    <Text fx:id="logoText" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPER APP" textAlignment="CENTER">
-                                       <font>
-                                          <Font name="Perpetua Bold" size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets top="5.0" />
-                                       </VBox.margin>
-                                    </Text>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
                                  </VBox.margin>
                               </VBox>
-                              <HBox alignment="BOTTOM_CENTER">
+                              <HBox fx:id="hboxMiddle" alignment="BOTTOM_CENTER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <children>
-                                    <ImageView fitHeight="259.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="212.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../imgs/business_man.png" />
                                        </image>
@@ -65,7 +56,7 @@
                                           <Insets bottom="10.0" />
                                        </HBox.margin>
                                     </ImageView>
-                                    <VBox fx:id="signInVBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" style="-fx-background-color: white;">
+                                    <VBox fx:id="signInVBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="351.0" prefWidth="555.0" style="-fx-background-color: white;">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -221,7 +212,7 @@
                                           <Insets />
                                        </opaqueInsets>
                                     </VBox>
-                                    <ImageView fitHeight="320.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="289.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../imgs/tree.png" />
                                        </image>

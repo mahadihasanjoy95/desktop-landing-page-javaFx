@@ -53,6 +53,9 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     private HBox loginHbox;
     @FXML
     private HBox signUpHBox;
+    @FXML
+    private VBox logoVbox;
+
     private ProgressIndicator pi;
     private ScreenCal screenCal;
 
@@ -63,7 +66,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         pi = new ProgressIndicator();
 
         screenCal.profileAllignement(pane, stackPane);
-        screenCal.signInVBoxAllignment(signInVBox);
+        screenCal.signInVBoxAllignment(signInVBox, logoVbox);
         screenCal.signInBorderPane(borderPane);
 
 

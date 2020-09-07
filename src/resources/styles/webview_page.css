@@ -165,7 +165,6 @@
     -fx-opacity: .9;
     -fx-border-color: #84A3FD;
     -fx-border-width: 0 0 1 0;
-    -fx-border-radius: 0,0,0,0;
 }
 #navButton:hover{
     -fx-opacity: 1;

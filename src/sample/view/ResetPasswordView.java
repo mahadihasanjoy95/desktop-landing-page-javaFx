@@ -91,7 +91,7 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
 
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(borderPane);
-        screenCal.signInVBoxAllignment(forgetPassUpVBox);
+        screenCal.signInVBoxAllignment(forgetPassUpVBox, new VBox());
 
         btnSubmit.setOnAction(this);
         btnSignIn.setOnAction(this);
