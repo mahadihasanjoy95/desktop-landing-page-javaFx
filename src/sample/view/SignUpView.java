@@ -17,7 +17,7 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 import jfxtras.styles.jmetro8.JMetro;
 import sample.data.dto.SignUpDto;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.interfaces.SignUpListener;
 import sample.utils.Constants;
 import sample.utils.Messages;

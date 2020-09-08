@@ -15,13 +15,12 @@ public class DatabaseManager implements BookmarksCrud {
     private static final String DB_URL = "jdbc:h2:~/superapp_test1";
     private static final String DB_USERNAME = "test";
     private static final String DB_PASSWORD = "test";
-    private Connection connection;
-    private Statement stmt;
-
     private static final String CREATE_TABLE = "CREATE TABLE BOOKMARKS "
             + "(bookmarkId bigint auto_increment NOT NULL PRIMARY KEY, "
             + " userId VARCHAR(255), "
             + " applicationId INTEGER)";
+    private Connection connection;
+    private Statement stmt;
 
     public DatabaseManager() {
         openConnection();
@@ -43,25 +42,13 @@ public class DatabaseManager implements BookmarksCrud {
         /**
          * TODO: Before adding new bookmarks have to check that already added in database or not
          */
-//        int size = 0;
-//        try {
-//            String sql = "SELECT * FROM BOOKMARKS WHERE userId = '" + bookmarks.getUserId() + "' AND applicationId = " + bookmarks.getApplicationId() + "";
-//            ResultSet rs = stmt.executeQuery(sql);
-//            size = rs.getRow();
-//        }
-//        catch (SQLException ex) {
-//            Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        if (size == 0)
-//        {
-            try {
-                String sql = "INSERT INTO BOOKMARKS (userId, applicationId) VALUES ('" + bookmarks.getUserId() + "',"
-                        + " '" + bookmarks.getId() + "')";
-                stmt.execute(sql);
-            } catch (SQLException ex) {
-                Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-//        }
+        try {
+            String sql = "INSERT INTO BOOKMARKS (userId, applicationId) VALUES ('" + bookmarks.getUserId() + "',"
+                    + " '" + bookmarks.getId() + "')";
+            stmt.execute(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -76,7 +63,7 @@ public class DatabaseManager implements BookmarksCrud {
 
     @Override
     public ArrayList<Bookmarks> getAllBookmarks() {
-        ArrayList<Bookmarks> bookmarksArrayList  = new ArrayList<>();
+        ArrayList<Bookmarks> bookmarksArrayList = new ArrayList<>();
 
         try {
             String sql = "SELECT * FROM BOOKMARKS";
@@ -99,7 +86,7 @@ public class DatabaseManager implements BookmarksCrud {
 
     @Override
     public ArrayList<Bookmarks> getUserWiseBookmarks(String userId) {
-        ArrayList<Bookmarks> bookmarksArrayList  = new ArrayList<>();
+        ArrayList<Bookmarks> bookmarksArrayList = new ArrayList<>();
 
         try {
             String sql = "SELECT * FROM BOOKMARKS where userId =  '" + userId + "'";

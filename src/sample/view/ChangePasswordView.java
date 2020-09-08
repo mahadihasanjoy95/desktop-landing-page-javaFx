@@ -15,7 +15,7 @@ import okhttp3.ResponseBody;
 import sample.data.controller.ChangePasswordController;
 import sample.data.dto.ChangePasswordDto;
 import sample.data.model.UserDetails;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.helper.SuccessResponse;
 import sample.interfaces.ChangePasswordListener;
 import sample.utils.Constants;

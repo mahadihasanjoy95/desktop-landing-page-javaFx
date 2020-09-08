@@ -11,7 +11,6 @@ public class Constants {
     public static String CURRENT_APP_NAME = "SUPER APP";
     public static String EMAIL_FORGET_PASS = "";
 
-    //Added by Raman
     public static final int SUCCESS_RESPONSE_CODE_200 = 200;
     public static final int SUCCESS_RESPONSE_CODE_201 = 201;
     public static final int SUCCESS_RESPONSE_CODE_202 = 202;
@@ -75,5 +74,14 @@ public class Constants {
 
     }
 
+    public static class ImageUrl {
+        public static final String WHITE_STAR ="/imgs/star1.png";
+        public static final String YELLOW_STAR ="/imgs/star.png";
+        public static final String CANCEL_BOOKMARKS ="/imgs/cancel.png";
+        public static final String DEFAULT_ICON ="/imgs/default.png";
+        public static final String LOGIN_BACKGROUND ="/imgs/background_login.png";
+        public static final String MAIN_LOGO ="/imgs/main_logo.png";
+        public static final String HOME_ICON ="/imgs/home.png";
+    }
     public static final double DEFAULT_HEIGHT = 31.0 ;
 }

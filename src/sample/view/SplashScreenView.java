@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import sample.utils.Constants;
 import sample.view.responsive.ScreenCal;
 
 import java.io.FileInputStream;
@@ -37,7 +38,7 @@ public class SplashScreenView implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }*/
-        Image image = new Image("/imgs/main_logo.png");
+        Image image = new Image(Constants.ImageUrl.MAIN_LOGO);
         ImageView imageView = new ImageView(image);
         screenCal.splashScreenImage(imageView);
         imageView.setPreserveRatio(true);

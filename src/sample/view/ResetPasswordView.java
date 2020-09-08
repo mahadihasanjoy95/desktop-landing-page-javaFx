@@ -17,7 +17,7 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
 import sample.data.dto.PasswordResetDto;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.helper.ResponseMetadata;
 import sample.helper.SuccessResponse;
 import sample.interfaces.PasswordResetListener;

@@ -15,7 +15,7 @@ import javafx.stage.Window;
 import sample.data.dto.LogInDto;
 import sample.data.model.LogInFailedResponse;
 import sample.data.model.LogInResponse;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.interfaces.LogInListener;
 import sample.utils.Constants;
 import sample.utils.Messages;
@@ -70,7 +70,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
 
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
 
-        Image logo1 = new Image("/imgs/background_login.png");
+        Image logo1 = new Image(Constants.ImageUrl.LOGIN_BACKGROUND);
 
         txtEmailAddress.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue && firstTime.get()) {
