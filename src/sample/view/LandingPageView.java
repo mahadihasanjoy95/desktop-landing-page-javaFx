@@ -369,19 +369,15 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             logo2 = new Image(applicationInfo.getAsset());
         ImageView imageView2 = new ImageView(logo2);
         imageView2.setCache(true);
-        imageView2.setFitHeight(50);
-        imageView2.setFitWidth(50);
         imageView2.setPreserveRatio(true);
         btnBookMarks.setGraphic(imageView2);
-        btnBookMarks.setMaxHeight(40);
-        btnBookMarks.setMaxWidth(40);
+        screenCal.booKmarksImage(imageView2, btnBookMarks);
         btnBookMarks.setPadding(Insets.EMPTY);
 
         Image cancelLogo =  new Image(Constants.ImageUrl.CANCEL_BOOKMARKS);
         ImageView cancelImageView = new ImageView(cancelLogo);
         cancelImageView.setCache(true);
-        cancelImageView.setFitHeight(20);
-        cancelImageView.setFitWidth(20);
+        screenCal.booKmarksCancelImage(cancelImageView);
         cancelImageView.setPreserveRatio(true);
         Button cancelButton = new Button();
         cancelButton.setGraphic(cancelImageView);

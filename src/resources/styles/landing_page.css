@@ -121,8 +121,8 @@
     -fx-text-fill: black;
 }
 #miniHbox{
-    -fx-background-radius: 1em, 1em;
-    -fx-border-radius: 1em, 1em;
+    -fx-background-radius: 2em, 2em;
+    -fx-border-radius: 2em, 2em;
 }
 #gScrollPane{
     -fx-alignment: center;

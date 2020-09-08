@@ -82,7 +82,7 @@ public class ScreenCal {
     public void landingPageAllignment(AnchorPane anchorPane, ScrollPane scrollPane, GridPane gridPane) {
         anchorPane.setPrefHeight(rectangle2D.getHeight() - 149);
         anchorPane.setPrefWidth(rectangle2D.getWidth() - 1);
-        scrollPane.setPrefHeight(rectangle2D.getHeight() - 250);
+        scrollPane.setPrefHeight((rectangle2D.getHeight()*2)/3);
         gridPane.setPrefWidth(rectangle2D.getWidth());
 
     }
@@ -130,5 +130,17 @@ public class ScreenCal {
         borderPane.setPrefHeight(rectangle2D.getWidth() - 70);
     }
 
+    public void booKmarksImage(ImageView bookMarkImage, Button buttonBookmarks)
+    {
+        bookMarkImage.setFitHeight(rectangle2D.getWidth()/27);
+        bookMarkImage.setFitWidth(rectangle2D.getWidth()/27);
+        buttonBookmarks.setMaxHeight(rectangle2D.getWidth()/34);
+        buttonBookmarks.setMaxWidth(rectangle2D.getWidth()/34);
+    }
 
+    public void booKmarksCancelImage(ImageView cancelImageView)
+    {
+        cancelImageView.setFitHeight(rectangle2D.getWidth()/68);
+        cancelImageView.setFitWidth(rectangle2D.getWidth()/68);
+    }
 }
