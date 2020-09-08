@@ -186,8 +186,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
         ImageView imageView3 = new ImageView(logo3);
         imageView3.setCache(true);
-        imageView3.setFitHeight(30);
-        imageView3.setFitWidth(30);
+        screenCal.starSize(imageView3);
         imageView3.setPreserveRatio(true);
 
         Button favButton = null;
@@ -202,11 +201,18 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         favButton.setGraphic(imageView3);
         ObservableList<Node> btnChilds = gridpane1.getChildren();
-        for (Node btn : btnChilds) {
-            if (btn.getId().equals(applicationInfo.getId().toString())) {
-                gridpane1.getChildren().remove(btn);
+        try {
+            for (Node btn : btnChilds) {
+                if (btn.getId().equals(applicationInfo.getId().toString())) {
+                    gridpane1.getChildren().remove(btn);
+                    break;
+                }
             }
+        }catch (Exception ex)
+        {
+            System.out.println("Exception >>>>>>>>>>>>" + ex);
         }
+
     }
 
     private void loadWebView() {
@@ -246,7 +252,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             }
             imageView1.setCache(true);
-            screenCal.starSize(imageView, imageView1);
+            screenCal.starSize(imageView1);
             imageView1.setPreserveRatio(true);
             favButton.setGraphic(imageView1);
             favButton.setId("favButton");
@@ -267,8 +273,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     Image logo3 = new Image(Constants.ImageUrl.YELLOW_STAR);
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
-                    imageView3.setFitHeight(30);
-                    imageView3.setFitWidth(30);
+                    screenCal.starSize(imageView3);
                     imageView3.setPreserveRatio(true);
                     favButton.setGraphic(imageView3);
                     setBookMarks(applicationInfo);
@@ -416,7 +421,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size() + 1, 0);
+            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size(), 0);
         }
         /**
          * Bookmarks button action and load web-view page
