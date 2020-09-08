@@ -390,8 +390,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         cancelButton.setId("cancelButton");
 
         StackPane bookmarksStackPane = new StackPane();
-        bookmarksStackPane.setMargin(btnBookMarks, new Insets(5, 3, 0, 0));
-        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, 35, 40));
+        bookmarksStackPane.setMargin(btnBookMarks, new Insets(5, 0, 0, 0));
+        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, ScreenCal.getScreenResulation().getWidth()/36, ScreenCal.getScreenResulation().getWidth()/32));
         bookmarksStackPane.getChildren().addAll(btnBookMarks, cancelButton);
         bookmarksStackPane.setId(applicationInfo.getId().toString());
 
@@ -421,7 +421,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size(), 0);
+            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size()+1, 0);
         }
         /**
          * Bookmarks button action and load web-view page
