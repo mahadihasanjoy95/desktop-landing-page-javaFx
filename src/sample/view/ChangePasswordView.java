@@ -176,7 +176,8 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+
             stackPane.setAlignment(Pos.CENTER);
             if (txtOldPassword.getText().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,

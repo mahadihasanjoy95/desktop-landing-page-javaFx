@@ -215,7 +215,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 stackPane.getChildren().add(pi);
-                pi.setMaxSize(60, 60);
+                pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
                 stackPane.setAlignment(Pos.CENTER);
 
                 Image image1 = new Image(file.toURI().toString());
@@ -233,7 +233,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
             SignUpDto signUpDto = new SignUpDto(txtFirstName.getText(), txtLastName.getText(), txtUserName.getText(), txtEmailAddress.getText(), "123456789", txtPhoneNumber.getText(), countryList.getValue().toString(), txtAddress.getText(), txtCity.getText(), txtState.getText(), txtZipCode.getText());

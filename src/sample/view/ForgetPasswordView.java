@@ -117,7 +117,8 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
             Common.checkInternet(owner);
 
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+
             stackPane.setAlignment(Pos.CENTER);
 
             if (txtEmailAddress.getText().isEmpty()) {

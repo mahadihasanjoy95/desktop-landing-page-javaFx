@@ -28,13 +28,9 @@ import sample.data.model.ApplicationInfo;
 import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 import sample.database.DatabaseManager;
-import sample.utils.Common;
 import sample.interfaces.ApplicationListListener;
 import sample.interfaces.UserDetailsListener;
-import sample.utils.Constants;
-import sample.utils.Messages;
-import sample.utils.Page;
-import sample.utils.SuperApplication;
+import sample.utils.*;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
@@ -208,8 +204,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     break;
                 }
             }
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Exception >>>>>>>>>>>>" + ex);
         }
 
@@ -347,7 +342,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             pi = new ProgressIndicator();
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
             Window owner = anchorpane.getScene().getWindow();
@@ -391,24 +386,16 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         StackPane bookmarksStackPane = new StackPane();
         bookmarksStackPane.setMargin(btnBookMarks, new Insets(5, 0, 0, 0));
-        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, ScreenCal.getScreenResulation().getWidth()/36, ScreenCal.getScreenResulation().getWidth()/32));
+        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, ScreenCal.getScreenResulation().getWidth() / 36, ScreenCal.getScreenResulation().getWidth() / 32));
         bookmarksStackPane.getChildren().addAll(btnBookMarks, cancelButton);
         bookmarksStackPane.setId(applicationInfo.getId().toString());
 
 
         cancelButton.setVisible(false);
 
-        btnBookMarks.setOnMouseEntered(e -> {
-            cancelButton.setVisible(true);
-        });
-        bookmarksStackPane.setOnMouseExited(e -> {
-            cancelButton.setVisible(false);
-        });
-
-        cancelButton.setOnAction((ActionEvent e) -> {
-            removeBookmarks(applicationInfo);
-
-        });
+        btnBookMarks.setOnMouseEntered(e -> cancelButton.setVisible(true));
+        bookmarksStackPane.setOnMouseExited(e -> cancelButton.setVisible(false));
+        cancelButton.setOnAction((ActionEvent e) -> removeBookmarks(applicationInfo));
 
         /**
          * Checking already in bookmarks grid-pane or, not.
@@ -421,7 +408,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size()+1, 0);
+            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size() + 1, 0);
         }
         /**
          * Bookmarks button action and load web-view page
@@ -429,7 +416,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         btnBookMarks.setOnAction((ActionEvent bookMarksAction) -> {
             pi = new ProgressIndicator();
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
             Window owner4 = anchorpane.getScene().getWindow();

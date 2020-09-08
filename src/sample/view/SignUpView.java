@@ -163,7 +163,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(60, 60);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
             if (txtFirstName.getText().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
