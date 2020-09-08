@@ -26,7 +26,7 @@ import sample.data.controller.ProfileUpdatingController;
 import sample.data.controller.UserDetailsController;
 import sample.data.dto.SignUpDto;
 import sample.data.model.UserDetails;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.helper.SuccessResponse;
 import sample.interfaces.ProfilePicUploadingListener;
 import sample.interfaces.ProfileUpdatingListener;
@@ -128,7 +128,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     public void userDetailsCompleted(UserDetails userDetails) {
         this.userDetails = userDetails;
         Platform.runLater(() -> profileInfoUpdate());
-        Platform.runLater(() -> setPhotoInCircle());
+        Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
         Platform.runLater(() -> stackPane.getChildren().remove(pi));
     }
 
@@ -183,18 +183,6 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
                     message);
             return;
         });
-    }
-
-    public void setPhotoInCircle() {
-        if (!userDetails.getPhoto().equals("")) {
-
-            Image image = new Image(userDetails.getPhoto());
-            if (Objects.nonNull(image)) {
-                cir.setFill(new ImagePattern(image));
-                cir.setCache(true);
-            }
-        }
-
     }
 
     public void profileInfoUpdate() {

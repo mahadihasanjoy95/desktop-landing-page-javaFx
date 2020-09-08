@@ -12,6 +12,13 @@ import javafx.stage.Screen;
 
 import java.util.List;
 
+/**
+ * This class help to make responsive desktop component for all PC regulations.
+ *
+ * @author Mahadi Hasan Joy
+ * @version 1.0
+ * @since 02-09-2020
+ */
 public class ScreenCal {
 
     private Rectangle2D rectangle2D;
@@ -47,7 +54,7 @@ public class ScreenCal {
         profileVBox.setPrefHeight((rectangle2D.getHeight()) / 2);
     }
 
-    public void signInVBoxAllignment(VBox signInVBox,VBox logoVbox) {
+    public void signInVBoxAllignment(VBox signInVBox, VBox logoVbox) {
         signInVBox.setPrefWidth(rectangle2D.getWidth() / 3);
         signInVBox.setPrefHeight((rectangle2D.getHeight()) / 2);
         logoVbox.setPrefWidth(rectangle2D.getWidth());
@@ -56,7 +63,7 @@ public class ScreenCal {
     }
 
     public void forgetPassVBoxAllignment(VBox signInVBox) {
-        signInVBox.setPrefWidth(rectangle2D.getWidth()*1.5 / 3);
+        signInVBox.setPrefWidth(rectangle2D.getWidth() * 1.5 / 3);
         signInVBox.setPrefHeight((rectangle2D.getHeight()) / 3);
     }
 

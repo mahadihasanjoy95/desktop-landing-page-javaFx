@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
@@ -28,7 +27,7 @@ import sample.data.model.ApplicationInfo;
 import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 import sample.database.DatabaseManager;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
 import sample.utils.Page;
@@ -154,7 +153,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
     private void setIconsInNav() {
 
-        Image homeLogo = new Image("/imgs/home.png");
+        Image homeLogo = new Image(Constants.ImageUrl.HOME_ICON);
 
         ImageView homeImageView = new ImageView(homeLogo);
         homeImageView.setFitHeight(40);
@@ -210,7 +209,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
     }
 
     private void setupImage(ApplicationInfo applicationInfo, Button btn, ImageView imageView) {
-        Image logo = new Image("/imgs/default.png");
+        Image logo = new Image(Constants.ImageUrl.DEFAULT_ICON);
         if (!applicationInfo.getAsset().isEmpty()) {
             logo = new Image(applicationInfo.getAsset());
         }
@@ -237,7 +236,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         Platform.runLater(() -> {
             bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
         });
-        Platform.runLater(() -> setProfilePhoto());
+        Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
     }
 
     @Override
@@ -245,17 +244,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
     }
 
-    public void setProfilePhoto() {
-        if (!userDetails.getPhoto().equals("")) {
-            Image image = new Image(userDetails.getPhoto());
-            if (Objects.nonNull(image)) {
-                cir.setFill(new ImagePattern(image));
-                cir.setCache(true);
-            }
-        }
-        cir.setCache(true);
-        profileView.setStyle("-fx-background-color: transparent;");
-    }
 
     @Override
     public void handle(ActionEvent event) {
@@ -289,9 +277,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
             fav.setTextFill(Color.WHITE);
             fav.setStyle("-fx-background-color: #0B33AD; ");
             gridPane.getChildren().clear();
-            for (Bookmarks bookmarks : bookmarksArrayList) {
-
-            }
             prevButton = fav;
         } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);

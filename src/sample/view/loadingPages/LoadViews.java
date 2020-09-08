@@ -10,6 +10,16 @@ import java.io.IOException;
 public class LoadViews {
 
 
+    /**
+     * This is the method is responsible for loading/ switching pages
+     * @param node
+     * @param c
+     * @param fxml
+     * @param css
+     * @author Mahadi Hasan Joy
+     * @version 1.0
+     * @since 07-06-2020
+     */
     public static void loadPages(Node node, Class<?> c, String fxml, String css) {
         Parent root1 = null;
         try {

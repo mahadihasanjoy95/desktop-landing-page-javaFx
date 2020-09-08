@@ -18,7 +18,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
@@ -29,7 +28,7 @@ import sample.data.model.ApplicationInfo;
 import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 import sample.database.DatabaseManager;
-import sample.helper.Common;
+import sample.utils.Common;
 import sample.interfaces.ApplicationListListener;
 import sample.interfaces.UserDetailsListener;
 import sample.utils.Constants;
@@ -39,12 +38,9 @@ import sample.utils.SuperApplication;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
@@ -157,6 +153,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         });
     }
 
+    /**
+     * This method search target application from application list and set them on gridpane
+     */
     private void searchApps() {
         List<ApplicationInfo> list = new ArrayList<>();
 
@@ -170,13 +169,18 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         setIcons(list);
     }
 
+
+    /**
+     * When user want to remove any bookmarks this method is responsible for removing bookmarks from gridpane and bookmark stack both
+     * @param applicationInfo
+     */
     private void removeBookmarks(ApplicationInfo applicationInfo) {
 
         bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
         if (bookmarksArrayList.isEmpty())
             miniHbox.setVisible(false);
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
-        Image logo3 = new Image("/imgs/star1.png");
+        Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
         ImageView imageView3 = new ImageView(logo3);
         imageView3.setCache(true);
         imageView3.setFitHeight(30);
@@ -217,7 +221,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             Button button = new Button();
 
 
-            Image logo1 =  new Image("/imgs/default.png");
+            Image logo1 =  new Image(Constants.ImageUrl.DEFAULT_ICON);
             if (!applicationInfo.getAsset().isEmpty())
                 logo1 = new Image(applicationInfo.getAsset());
             ImageView imageView = new ImageView(logo1);
@@ -233,10 +237,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
                 Platform.runLater(() -> setBookMarks(applicationInfo));
-                Image logo2 =  new Image("/imgs/star.png");
+                Image logo2 =  new Image(Constants.ImageUrl.YELLOW_STAR);
                 imageView1 = new ImageView(logo2);
             } else {
-                Image logo2 = new Image("/imgs/star1.png");
+                Image logo2 = new Image(Constants.ImageUrl.WHITE_STAR);
                 imageView1 = new ImageView(logo2);
 
             }
@@ -259,7 +263,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
                     miniHbox.setVisible(true);
-                    Image logo3 =  new Image("/imgs/star.png");
+                    Image logo3 =  new Image(Constants.ImageUrl.YELLOW_STAR);
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
                     imageView3.setFitHeight(30);
@@ -354,10 +358,13 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
      * This method set every bookmarks & also store this on local database
      *
      * @param applicationInfo
+     * @author Mahadi Hasan Joy
+     * @version 1.0
+     * @since 02-09-2020
      */
     public void setBookMarks(ApplicationInfo applicationInfo) {
         Button btnBookMarks = new Button();
-        Image logo2 =  new Image("/imgs/default.png");
+        Image logo2 =  new Image(Constants.ImageUrl.DEFAULT_ICON);
         if (!applicationInfo.getAsset().isEmpty())
             logo2 = new Image(applicationInfo.getAsset());
         ImageView imageView2 = new ImageView(logo2);
@@ -366,12 +373,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         imageView2.setFitWidth(50);
         imageView2.setPreserveRatio(true);
         btnBookMarks.setGraphic(imageView2);
-//        btnBookMarks.setId(applicationInfo.getId().toString());
         btnBookMarks.setMaxHeight(40);
         btnBookMarks.setMaxWidth(40);
         btnBookMarks.setPadding(Insets.EMPTY);
 
-        Image cancelLogo =  new Image("/imgs/cancel.png");
+        Image cancelLogo =  new Image(Constants.ImageUrl.CANCEL_BOOKMARKS);
         ImageView cancelImageView = new ImageView(cancelLogo);
         cancelImageView.setCache(true);
         cancelImageView.setFitHeight(20);
@@ -435,23 +441,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
 
-    public void setProfilePic() {
-        if (!userDetails.getPhoto().equals("")) {
-            try {
-                Image image = new Image(userDetails.getPhoto());
-                if (Objects.nonNull(image)) {
-                    cir.setFill(new ImagePattern(image));
-                    cir.setCache(true);
-                }
-            } catch (Exception ex) {
-                System.err.println("Pro Pic Error");
-            }
-
-        }
-        cir.setCache(true);
-        profileView.setStyle("-fx-background-color: transparent;");
-    }
-
     @Override
     public void applicationListCompleted(List<ApplicationInfo> applicationInfoList) {
         SuperApplication.getInstance().setApplicationInfoList(applicationInfoList);
@@ -477,7 +466,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                 miniHbox.setVisible(true);
         });
 
-        Platform.runLater(() -> setProfilePic());
+        Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
     }
 
     @Override
