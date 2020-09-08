@@ -173,46 +173,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
 
-    /**
-     * When user want to remove any bookmarks this method is responsible for removing bookmarks from gridpane and bookmark stack both
-     * @param applicationInfo
-     */
-    private void removeBookmarks(ApplicationInfo applicationInfo) {
-
-        bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
-        if (bookmarksArrayList.isEmpty())
-        {
-            gScrollPane.setVisible(false);
-            bColumn = 0;
-        }
-        databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
-        Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
-        ImageView imageView3 = new ImageView(logo3);
-        imageView3.setCache(true);
-        imageView3.setFitHeight(30);
-        imageView3.setFitWidth(30);
-        imageView3.setPreserveRatio(true);
-
-        Button favButton = null;
-        ObservableList<Node> vBoxChilds = gridpane.getChildren();
-        for (Node vBox : vBoxChilds) {
-            if (vBox.getId().equals(applicationInfo.getApplicationName())) {
-                VBox targetVBox = (VBox) vBox;
-                StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
-                favButton = (Button) stackPane.getChildren().get(1);
-            }
-        }
-
-        favButton.setGraphic(imageView3);
-        ObservableList<Node> btnChilds = gridpane1.getChildren();
-        for (Node btn : btnChilds) {
-            if (btn.getId().equals(applicationInfo.getId().toString())) {
-                gridpane1.getChildren().remove(btn);
-
-            }
-        }
-    }
-
     private void loadWebView() {
         LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
     }
@@ -359,6 +319,47 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
 
+
+    /**
+     * When user want to remove any bookmarks this method is responsible for removing bookmarks from gridpane and bookmark stack both
+     * @param applicationInfo
+     */
+    private void removeBookmarks(ApplicationInfo applicationInfo) {
+
+        bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
+        if (bookmarksArrayList.isEmpty())
+        {
+            gScrollPane.setVisible(false);
+            gridpane1.getChildren().clear();
+        }
+        databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
+        Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
+        ImageView imageView3 = new ImageView(logo3);
+        imageView3.setCache(true);
+        imageView3.setFitHeight(30);
+        imageView3.setFitWidth(30);
+        imageView3.setPreserveRatio(true);
+
+        Button favButton = null;
+        ObservableList<Node> vBoxChilds = gridpane.getChildren();
+        for (Node vBox : vBoxChilds) {
+            if (vBox.getId().equals(applicationInfo.getApplicationName())) {
+                VBox targetVBox = (VBox) vBox;
+                StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
+                favButton = (Button) stackPane.getChildren().get(1);
+            }
+        }
+
+        favButton.setGraphic(imageView3);
+        ObservableList<Node> btnChilds = gridpane1.getChildren();
+        for (Node btn : btnChilds) {
+            if (btn.getId().equals(applicationInfo.getId().toString())) {
+                gridpane1.getChildren().remove(btn);
+            }
+        }
+    }
+
+
     /**
      * This method set every bookmarks & also store this on local database
      *
@@ -420,8 +421,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(bookmarksStackPane, bColumn, bRow);
-            bColumn++;
+            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size(),bRow);
 
         }
         /**
