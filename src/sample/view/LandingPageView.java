@@ -181,7 +181,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
         if (bookmarksArrayList.isEmpty())
+        {
             gScrollPane.setVisible(false);
+            bColumn = 0;
+        }
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
         Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
         ImageView imageView3 = new ImageView(logo3);
@@ -200,14 +203,12 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
 
-
         favButton.setGraphic(imageView3);
         ObservableList<Node> btnChilds = gridpane1.getChildren();
         for (Node btn : btnChilds) {
-            StackPane button = (StackPane) btn;
-            if (button.getId().equals(applicationInfo.getId().toString())) {
+            if (btn.getId().equals(applicationInfo.getId().toString())) {
                 gridpane1.getChildren().remove(btn);
-                bColumn--;
+
             }
         }
     }
@@ -404,7 +405,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         });
 
         cancelButton.setOnAction((ActionEvent e) -> {
-            gridpane1.getChildren().remove(bookmarksStackPane);
             removeBookmarks(applicationInfo);
 
         });
@@ -422,6 +422,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         if (!gridpane1.getChildren().contains(searchNode)) {
             gridpane1.add(bookmarksStackPane, bColumn, bRow);
             bColumn++;
+
         }
         /**
          * Bookmarks button action and load web-view page

@@ -68,7 +68,7 @@
                         </HBox>
                      </right>
                      <center>
-                        <HBox fx:id="searchHbox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="20.0" prefWidth="459.0" style="-fx-background-color: tranparent; -fx-border-color: #DDE3F3;" BorderPane.alignment="CENTER">
+                        <HBox fx:id="searchHbox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="20.0" prefWidth="459.0" style="-fx-background-color: transparent; -fx-border-color: #DDE3F3;" BorderPane.alignment="CENTER">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
