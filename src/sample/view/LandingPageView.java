@@ -48,8 +48,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     int bRow = 0;
     int bColumn = 0;
     List<Bookmarks> bookmarksArrayList;
+
     @FXML
-    HBox miniHbox;
+    private HBox miniHbox;
     @FXML
     private AnchorPane anchorpane;
     @FXML
@@ -101,7 +102,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setStyle("-fx-background: transparent; -fx-background-color: transparent; ");
         gScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        gScrollPane.setStyle("-fx-background: transparent; -fx-background-color: transparent; ");
+        gScrollPane.setStyle("-fx-background: transparent; -fx-background-color: #12286F; ");
+        scrollPane.setFitToHeight(true);
+        scrollPane.setFitToWidth(true);
 
         cir.setStroke(Constants.Colors.color5);
         screenCal.toolbarAllignment(toolbar);
@@ -178,7 +181,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
         bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
         if (bookmarksArrayList.isEmpty())
-            miniHbox.setVisible(false);
+            gScrollPane.setVisible(false);
         databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
         Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
         ImageView imageView3 = new ImageView(logo3);
@@ -204,6 +207,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             StackPane button = (StackPane) btn;
             if (button.getId().equals(applicationInfo.getId().toString())) {
                 gridpane1.getChildren().remove(btn);
+                bColumn--;
             }
         }
     }
@@ -262,7 +266,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setUserId(userDetails.getUserId());
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
-                    miniHbox.setVisible(true);
+                    gScrollPane.setVisible(true);
                     Image logo3 =  new Image(Constants.ImageUrl.YELLOW_STAR);
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
@@ -459,7 +463,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         Platform.runLater(() -> {
             bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
             if (!bookmarksArrayList.isEmpty())
-                miniHbox.setVisible(true);
+                gScrollPane.setVisible(true);
         });
 
         Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
