@@ -392,8 +392,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         cancelButton.setId("cancelButton");
 
         StackPane bookmarksStackPane = new StackPane();
-        bookmarksStackPane.setMargin(btnBookMarks, new Insets(5, 0, 0, 0));
-        bookmarksStackPane.setMargin(cancelButton, new Insets(0, 0, ScreenCal.getScreenResulation().getWidth() / 36, ScreenCal.getScreenResulation().getWidth() / 32));
+        bookmarksStackPane.setMargin(btnBookMarks, new Insets(15, 15, 15, 0));
+        bookmarksStackPane.setAlignment(cancelButton, Pos.TOP_RIGHT);
+
+
         bookmarksStackPane.getChildren().addAll(btnBookMarks, cancelButton);
         bookmarksStackPane.setId(applicationInfo.getId().toString());
 
