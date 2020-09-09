@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.LandingPageView">
+<AnchorPane fx:id="anchorpane" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.LandingPageView">
    <children>
       <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -115,7 +115,7 @@
                                  <content>
                                     <GridPane fx:id="gridpane1" alignment="CENTER">
                                        <padding>
-                                          <Insets left="15.0" />
+                                          <Insets left="12.0" />
                                        </padding>
                                     </GridPane>
                                  </content>

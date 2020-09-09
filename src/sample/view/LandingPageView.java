@@ -84,6 +84,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        gridpane1.setPadding(new Insets(0,0,0,ScreenCal.getScreenResulation().getWidth()/113));
         bookMarkList = new ArrayList<>();
         screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
@@ -392,7 +393,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         cancelButton.setId("cancelButton");
 
         StackPane bookmarksStackPane = new StackPane();
-        bookmarksStackPane.setMargin(btnBookMarks, new Insets(15, 15, 15, 0));
+        double bookMarkMargin = ScreenCal.getScreenResulation().getWidth()/113;
+        bookmarksStackPane.setMargin(btnBookMarks, new Insets(bookMarkMargin, bookMarkMargin, bookMarkMargin, 0));
         bookmarksStackPane.setAlignment(cancelButton, Pos.TOP_RIGHT);
 
 
