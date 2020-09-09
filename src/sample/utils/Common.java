@@ -1,12 +1,16 @@
 package sample.utils;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Window;
 import org.apache.commons.validator.routines.EmailValidator;
+import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
 import java.net.URLConnection;
@@ -64,6 +68,14 @@ public class Common {
             cir.setCache(true);
         }
         cir.setCache(true);
+    }
+
+    public static void progressIndicator(StackPane stackPane){
+
+        ProgressIndicator pi = new ProgressIndicator();
+        stackPane.getChildren().add(pi);
+        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+        stackPane.setAlignment(Pos.CENTER);
     }
 
 

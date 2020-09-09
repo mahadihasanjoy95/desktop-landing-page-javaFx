@@ -103,9 +103,9 @@ public class ScreenCal {
         imageView.setFitWidth(rectangle2D.getWidth() / 13);
     }
 
-    public void starSize(ImageView appImage, ImageView starImage) {
-        starImage.setFitHeight(appImage.getFitHeight() / 4);
-        starImage.setFitWidth(appImage.getFitHeight() / 4);
+    public void starSize(ImageView starImage) {
+        starImage.setFitHeight(rectangle2D.getWidth() / 54);
+        starImage.setFitWidth( rectangle2D.getWidth()/ 54);
     }
 
     public void setStarMargin(StackPane gridStackPane, Button button, Button favButton) {

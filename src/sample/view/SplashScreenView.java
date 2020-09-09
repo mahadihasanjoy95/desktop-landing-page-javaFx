@@ -31,13 +31,6 @@ public class SplashScreenView implements Initializable {
         screenCal = new ScreenCal();
         screenCal.splashScreenAllignment(vBox);
 
-
-        /*Image logo = null;
-        try {
-            logo = new Image(new FileInputStream("src/resources/imgs/main_logo.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }*/
         Image image = new Image(Constants.ImageUrl.MAIN_LOGO);
         ImageView imageView = new ImageView(image);
         screenCal.splashScreenImage(imageView);

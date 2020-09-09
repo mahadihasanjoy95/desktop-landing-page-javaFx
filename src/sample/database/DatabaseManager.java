@@ -33,7 +33,7 @@ public class DatabaseManager implements BookmarksCrud {
             stmt = connection.createStatement();
             stmt.execute(CREATE_TABLE);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.err.println("Database Error >>> "+ex);
         }
     }
 

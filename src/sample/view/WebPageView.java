@@ -27,8 +27,8 @@ import sample.data.model.ApplicationInfo;
 import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 import sample.database.DatabaseManager;
-import sample.utils.Common;
 import sample.interfaces.UserDetailsListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Page;
 import sample.utils.SuperApplication;
@@ -43,8 +43,6 @@ import java.util.ResourceBundle;
 
 public class WebPageView implements Initializable, UserDetailsListener, EventHandler<ActionEvent> {
 
-    int bRow = 0;
-    int bColumn = 0;
     List<Bookmarks> bookmarksArrayList;
     private DatabaseManager databaseManager;
     private UserDetails userDetails;
@@ -250,8 +248,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         if (event.getSource() == home) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
         } else if (event.getSource() == btnLogout) {
-            Window owner = pane.getScene().getWindow();
-//            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
