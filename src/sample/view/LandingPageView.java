@@ -45,9 +45,7 @@ import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
 
-    int bRow = 0;
-    int bColumn = 0;
-    List<Bookmarks> bookmarksArrayList;
+    private List<Bookmarks> bookmarksArrayList;
 
     @FXML
     private HBox miniHbox;
@@ -173,6 +171,44 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
 
+    /**
+     * When user want to remove any bookmarks this method is responsible for removing bookmarks from gridpane and bookmark stack both
+     *
+     * @param applicationInfo
+     */
+    private void removeBookmarks(ApplicationInfo applicationInfo) {
+
+        bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
+        if (bookmarksArrayList.isEmpty()) {
+            gScrollPane.setVisible(false);
+        }
+        databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
+        Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
+        ImageView imageView3 = new ImageView(logo3);
+        imageView3.setCache(true);
+        imageView3.setFitHeight(30);
+        imageView3.setFitWidth(30);
+        imageView3.setPreserveRatio(true);
+
+        Button favButton = null;
+        ObservableList<Node> vBoxChilds = gridpane.getChildren();
+        for (Node vBox : vBoxChilds) {
+            if (vBox.getId().equals(applicationInfo.getApplicationName())) {
+                VBox targetVBox = (VBox) vBox;
+                StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
+                favButton = (Button) stackPane.getChildren().get(1);
+            }
+        }
+
+        favButton.setGraphic(imageView3);
+        ObservableList<Node> btnChilds = gridpane1.getChildren();
+        for (Node btn : btnChilds) {
+            if (btn.getId().equals(applicationInfo.getId().toString())) {
+                gridpane1.getChildren().remove(btn);
+            }
+        }
+    }
+
     private void loadWebView() {
         LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
     }
@@ -186,7 +222,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             Button button = new Button();
 
 
-            Image logo1 =  new Image(Constants.ImageUrl.DEFAULT_ICON);
+            Image logo1 = new Image(Constants.ImageUrl.DEFAULT_ICON);
             if (!applicationInfo.getAsset().isEmpty())
                 logo1 = new Image(applicationInfo.getAsset());
             ImageView imageView = new ImageView(logo1);
@@ -202,7 +238,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
                 Platform.runLater(() -> setBookMarks(applicationInfo));
-                Image logo2 =  new Image(Constants.ImageUrl.YELLOW_STAR);
+                Image logo2 = new Image(Constants.ImageUrl.YELLOW_STAR);
                 imageView1 = new ImageView(logo2);
             } else {
                 Image logo2 = new Image(Constants.ImageUrl.WHITE_STAR);
@@ -228,7 +264,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
                     gScrollPane.setVisible(true);
-                    Image logo3 =  new Image(Constants.ImageUrl.YELLOW_STAR);
+                    Image logo3 = new Image(Constants.ImageUrl.YELLOW_STAR);
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
                     imageView3.setFitHeight(30);
@@ -319,47 +355,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
 
-
-    /**
-     * When user want to remove any bookmarks this method is responsible for removing bookmarks from gridpane and bookmark stack both
-     * @param applicationInfo
-     */
-    private void removeBookmarks(ApplicationInfo applicationInfo) {
-
-        bookmarksArrayList.removeIf(e -> e.getId().equals(applicationInfo.getId()));
-        if (bookmarksArrayList.isEmpty())
-        {
-            gScrollPane.setVisible(false);
-            gridpane1.getChildren().clear();
-        }
-        databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
-        Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
-        ImageView imageView3 = new ImageView(logo3);
-        imageView3.setCache(true);
-        imageView3.setFitHeight(30);
-        imageView3.setFitWidth(30);
-        imageView3.setPreserveRatio(true);
-
-        Button favButton = null;
-        ObservableList<Node> vBoxChilds = gridpane.getChildren();
-        for (Node vBox : vBoxChilds) {
-            if (vBox.getId().equals(applicationInfo.getApplicationName())) {
-                VBox targetVBox = (VBox) vBox;
-                StackPane stackPane = (StackPane) targetVBox.getChildren().get(0);
-                favButton = (Button) stackPane.getChildren().get(1);
-            }
-        }
-
-        favButton.setGraphic(imageView3);
-        ObservableList<Node> btnChilds = gridpane1.getChildren();
-        for (Node btn : btnChilds) {
-            if (btn.getId().equals(applicationInfo.getId().toString())) {
-                gridpane1.getChildren().remove(btn);
-            }
-        }
-    }
-
-
     /**
      * This method set every bookmarks & also store this on local database
      *
@@ -370,7 +365,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
      */
     public void setBookMarks(ApplicationInfo applicationInfo) {
         Button btnBookMarks = new Button();
-        Image logo2 =  new Image(Constants.ImageUrl.DEFAULT_ICON);
+        Image logo2 = new Image(Constants.ImageUrl.DEFAULT_ICON);
         if (!applicationInfo.getAsset().isEmpty())
             logo2 = new Image(applicationInfo.getAsset());
         ImageView imageView2 = new ImageView(logo2);
@@ -380,7 +375,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         screenCal.booKmarksImage(imageView2, btnBookMarks);
         btnBookMarks.setPadding(Insets.EMPTY);
 
-        Image cancelLogo =  new Image(Constants.ImageUrl.CANCEL_BOOKMARKS);
+        Image cancelLogo = new Image(Constants.ImageUrl.CANCEL_BOOKMARKS);
         ImageView cancelImageView = new ImageView(cancelLogo);
         cancelImageView.setCache(true);
         screenCal.booKmarksCancelImage(cancelImageView);
@@ -421,8 +416,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             }
         }
         if (!gridpane1.getChildren().contains(searchNode)) {
-            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size(),bRow);
-
+            gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size() + 1, 0);
         }
         /**
          * Bookmarks button action and load web-view page
