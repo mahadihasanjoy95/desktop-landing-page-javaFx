@@ -82,6 +82,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private DatabaseManager databaseManager;
     private ScreenCal screenCal;
 
+    private List<StackPane> bookMarkList = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -201,11 +203,18 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             for (Node btn : btnChilds) {
                 if (btn.getId().equals(applicationInfo.getId().toString())) {
                     gridpane1.getChildren().remove(btn);
+                    bookMarkList.remove(btn);
                     break;
                 }
             }
         } catch (Exception ex) {
             System.out.println("Exception >>>>>>>>>>>>" + ex);
+        }
+
+        gridpane1.getChildren().clear();
+
+        for(int i = 0; i < bookMarkList.size(); i++) {
+            gridpane1.add(bookMarkList.get(i), i, 0);
         }
 
     }
@@ -407,7 +416,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                 searchNode = btn;
             }
         }
-        if (!gridpane1.getChildren().contains(searchNode)) {
+        if (!gridpane1.getChildren().contains(searchNode) && !bookMarkList.contains(bookmarksStackPane)) {
+            bookMarkList.add(bookmarksStackPane);
             gridpane1.add(bookmarksStackPane, gridpane1.getChildren().size() + 1, 0);
         }
         /**
