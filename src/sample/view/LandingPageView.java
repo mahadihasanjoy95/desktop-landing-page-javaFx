@@ -241,7 +241,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             button.setGraphic(imageView);
 
             StackPane gridStackPane = new StackPane();
-            gridStackPane.setPrefHeight(gridpane.getPrefHeight() - 30);
+            gridStackPane.setPrefHeight(gridpane.getPrefHeight() - ScreenCal.getScreenResulation().getWidth()/45);
             Button favButton = new Button();
             ImageView imageView1 = null;
 
@@ -284,7 +284,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                 }
             });
 
-            screenCal.setStarMargin(gridStackPane, button, favButton);
+//            screenCal.setStarMargin(gridStackPane, button, favButton);
+            gridStackPane.setMargin(button, new Insets(ScreenCal.getScreenResulation().getWidth()/113,0,0,0));
+            gridStackPane.setAlignment(favButton,Pos.TOP_CENTER);
+            gridStackPane.setMargin(favButton,new Insets(0,0,0,ScreenCal.getScreenResulation().getWidth()/15));
             gridStackPane.getChildren().addAll(button, favButton);
             vBox.getChildren().add(gridStackPane);
 
