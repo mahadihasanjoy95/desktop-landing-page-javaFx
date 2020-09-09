@@ -63,7 +63,7 @@ public class ScreenCal {
     }
 
     public void forgetPassVBoxAllignment(VBox signInVBox) {
-        signInVBox.setPrefWidth(rectangle2D.getWidth() * 1.5 / 3);
+        signInVBox.setPrefWidth((rectangle2D.getWidth() * 1.3) / 3);
         signInVBox.setPrefHeight((rectangle2D.getHeight()) / 3);
     }
 
