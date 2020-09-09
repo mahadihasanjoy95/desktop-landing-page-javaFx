@@ -42,9 +42,12 @@ import java.util.ResourceBundle;
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
 
     private List<Bookmarks> bookmarksArrayList;
+    private UserDetails userDetails;
+    private ProgressIndicator pi;
+    private DatabaseManager databaseManager;
+    private ScreenCal screenCal;
+    private List<StackPane> bookMarkList;
 
-    @FXML
-    private HBox miniHbox;
     @FXML
     private AnchorPane anchorpane;
     @FXML
@@ -77,16 +80,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     private TextField txtSearch;
     @FXML
     private Button btnLandingPage;
-    private UserDetails userDetails;
-    private ProgressIndicator pi;
-    private DatabaseManager databaseManager;
-    private ScreenCal screenCal;
-
-    private List<StackPane> bookMarkList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        bookMarkList = new ArrayList<>();
         screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
@@ -212,11 +210,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         }
 
         gridpane1.getChildren().clear();
-
-        for(int i = 0; i < bookMarkList.size(); i++) {
-            gridpane1.add(bookMarkList.get(i), i, 0);
+        if (bookMarkList.size() != 0 && bookMarkList != null) {
+            for (int i = 0; i < bookMarkList.size(); i++) {
+                gridpane1.add(bookMarkList.get(i), i, 0);
+            }
         }
-
     }
 
     private void loadWebView() {
@@ -273,7 +271,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     bookmarks.setUserId(userDetails.getUserId());
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
-                    gScrollPane.setVisible(true);
                     Image logo3 = new Image(Constants.ImageUrl.YELLOW_STAR);
                     ImageView imageView3 = new ImageView(logo3);
                     imageView3.setCache(true);
@@ -282,6 +279,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                     favButton.setGraphic(imageView3);
                     setBookMarks(applicationInfo);
                     bookmarksArrayList.add(bookmarks);
+                    gScrollPane.setVisible(true);
                 }
             });
 
@@ -351,7 +349,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
             pi = new ProgressIndicator();
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
             stackPane.setAlignment(Pos.CENTER);
 
             Window owner = anchorpane.getScene().getWindow();
@@ -426,7 +424,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         btnBookMarks.setOnAction((ActionEvent bookMarksAction) -> {
             pi = new ProgressIndicator();
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
             stackPane.setAlignment(Pos.CENTER);
 
             Window owner4 = anchorpane.getScene().getWindow();
@@ -474,13 +472,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == btnLogout) {
-            Window owner = gridpane.getScene().getWindow();
-//            Common.showAlert(Alert.AlertType.WARNING, owner, Messages.FORM_SUCCESS, Messages.SIGNOUT_SUCCESS);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
             alert.showAndWait();
-
             if (alert.getResult() == ButtonType.YES) {
                 //TODO: Have to expired token here
                 LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);

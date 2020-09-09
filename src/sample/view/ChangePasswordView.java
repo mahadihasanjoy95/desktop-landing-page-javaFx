@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
@@ -23,7 +25,6 @@ import sample.utils.Messages;
 import sample.utils.Page;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,6 +79,8 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private CheckBox checkBox2;
     private CheckBox checkBox3;
     private ScreenCal screenCal;
+    private ImageView eyeSlash;
+    private ImageView eyeOpen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -220,25 +223,32 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             if (checkBox1.isSelected()) {
                 checkBox1.setSelected(false);
                 txtPassword1.setPrefWidth(txtOldPassword.getPrefWidth());
+                Common.eyeSlashImage(btnShowPass1);
             } else {
                 checkBox1.setSelected(true);
                 txtPassword1.setPrefWidth(txtOldPassword.getPrefWidth());
+                Common.eyeOpenImage(btnShowPass1);
             }
         } else if (event.getSource() == btnShowPass2) {
             if (checkBox2.isSelected()) {
                 checkBox2.setSelected(false);
                 txtPassword2.setPrefWidth(txtNewPassword.getPrefWidth());
+                Common.eyeSlashImage(btnShowPass2);
             } else {
                 checkBox2.setSelected(true);
                 txtPassword2.setPrefWidth(txtNewPassword.getPrefWidth());
+                Common.eyeOpenImage(btnShowPass2);
             }
         } else if (event.getSource() == btnShowPass3) {
             if (checkBox3.isSelected()) {
                 checkBox3.setSelected(false);
                 txtPassword3.setPrefWidth(txtConfirmNewPassword.getPrefWidth());
+                Common.eyeSlashImage(btnShowPass3);
             } else {
                 checkBox3.setSelected(true);
                 txtPassword3.setPrefWidth(txtConfirmNewPassword.getPrefWidth());
+                Common.eyeOpenImage(btnShowPass3);
+
             }
         }else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);

@@ -197,5 +197,12 @@
     -fx-background-color: transparent;
     -fx-opacity: 1;
 }
+/*#appIcon{*/
+    /*-fx-border-color: red;*/
+    /*-fx-pref-height: 100px;*/
+    /*-fx-pref-width: 100px;*/
+    /*-fx-border-width: 2;*/
+
+/*}*/
 
 

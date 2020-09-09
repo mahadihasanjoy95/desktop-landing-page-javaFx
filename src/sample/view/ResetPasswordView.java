@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -46,10 +48,6 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
 
     @FXML
     private PasswordField txtPassword;
-
-    @FXML
-    private VBox signUpVBox;
-
     @FXML
     private ToolBar toolbar;
     @FXML
@@ -66,6 +64,8 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
     private ProgressIndicator pi;
     private CheckBox checkBox;
     private ScreenCal screenCal;
+    private ImageView eyeSlash;
+    private ImageView eyeOpen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -169,9 +169,11 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
             if (checkBox.isSelected()) {
                 checkBox.setSelected(false);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
+                Common.eyeSlashImage(btnShowPass);
             } else {
                 checkBox.setSelected(true);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
+                Common.eyeOpenImage(btnShowPass);
             }
         }
     }

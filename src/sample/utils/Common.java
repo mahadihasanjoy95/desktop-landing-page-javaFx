@@ -2,9 +2,11 @@ package sample.utils;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -70,14 +72,27 @@ public class Common {
         cir.setCache(true);
     }
 
-    public static void progressIndicator(StackPane stackPane){
+    public static void progressIndicator(StackPane stackPane) {
 
         ProgressIndicator pi = new ProgressIndicator();
         stackPane.getChildren().add(pi);
-        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
         stackPane.setAlignment(Pos.CENTER);
     }
 
+    public static void eyeSlashImage(Button button) {
+        ImageView eyeSlash = new ImageView(new Image(Constants.ImageUrl.EYE_SLASH));
+        eyeSlash.setFitHeight(18.5);
+        eyeSlash.setFitWidth(25);
+        button.setGraphic(eyeSlash);
+    }
+
+    public static void eyeOpenImage(Button button) {
+        ImageView eyeOpen = new ImageView(new Image(Constants.ImageUrl.EYE_OPEN));
+        eyeOpen.setFitHeight(18.5);
+        eyeOpen.setFitWidth(25);
+        button.setGraphic(eyeOpen);
+    }
 
     public static void setCountryList(ComboBox comboBox) {
 

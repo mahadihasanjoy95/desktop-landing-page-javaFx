@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -17,8 +18,8 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 import jfxtras.styles.jmetro8.JMetro;
 import sample.data.dto.SignUpDto;
-import sample.utils.Common;
 import sample.interfaces.SignUpListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
@@ -68,6 +69,8 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
     private ProgressIndicator pi;
     @FXML
     private TextField txtPassword1;
+    private ImageView eyeSlash;
+    private ImageView eyeOpen;
 
 
     private ScreenCal screenCal;
@@ -163,7 +166,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
             stackPane.setAlignment(Pos.CENTER);
             if (txtFirstName.getText().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
@@ -231,9 +234,11 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             if (checkBox.isSelected()) {
                 checkBox.setSelected(false);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
+                Common.eyeSlashImage(btnShowPass);
             } else {
                 checkBox.setSelected(true);
                 txtPassword1.setPrefWidth(txtPassword.getPrefWidth());
+                Common.eyeOpenImage(btnShowPass);
             }
         }
     }

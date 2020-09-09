@@ -82,6 +82,8 @@ public class Constants {
         public static final String LOGIN_BACKGROUND ="/imgs/background_login.png";
         public static final String MAIN_LOGO ="/imgs/main_logo.png";
         public static final String HOME_ICON ="/imgs/home.png";
+        public static final String EYE_SLASH ="/imgs/eye_slash.png";
+        public static final String EYE_OPEN ="/imgs/eye_open.png";
     }
     public static final double DEFAULT_HEIGHT = 31.0 ;
 }

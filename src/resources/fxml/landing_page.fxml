@@ -113,14 +113,14 @@
                            <children>
                               <ScrollPane fx:id="gScrollPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" visible="false">
                                  <content>
-                                    <GridPane fx:id="gridpane1" alignment="CENTER" hgap="10.0" vgap="10.0">
+                                    <GridPane fx:id="gridpane1" alignment="CENTER" hgap="5.0" vgap="5.0">
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </GridPane>
                                  </content>
                                  <HBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="8.0" left="5.0" right="5.0" top="5.0" />
                                  </HBox.margin>
                                  <padding>
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
