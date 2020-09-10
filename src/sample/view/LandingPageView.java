@@ -325,6 +325,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             stackPane.getChildren().remove(pi);
 
         });
+        Platform.runLater(() -> {
+            if (!bookmarksArrayList.isEmpty())
+                gScrollPane.setVisible(true);
+        });
     }
 
     /**
@@ -464,8 +468,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
          */
         Platform.runLater(() -> {
             bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
-            if (!bookmarksArrayList.isEmpty())
-                gScrollPane.setVisible(true);
         });
 
         Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
