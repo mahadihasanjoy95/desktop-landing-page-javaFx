@@ -1,6 +1,7 @@
 package sample.utils;
 
 import sample.data.model.ApplicationInfo;
+import sample.data.model.UserDetails;
 
 import java.util.List;
 
@@ -12,6 +13,16 @@ public class SuperApplication {
 
     private static SuperApplication INSTANCE = null;
     private List<ApplicationInfo> applicationInfoList;
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+
+    private UserDetails userDetails;
 
     public List<ApplicationInfo> getApplicationInfoList() {
         return applicationInfoList;

@@ -24,30 +24,26 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import sample.data.controller.ProfilePicUploadingController;
 import sample.data.controller.ProfileUpdatingController;
-import sample.data.controller.UserDetailsController;
 import sample.data.dto.SignUpDto;
 import sample.data.model.UserDetails;
-import sample.utils.Common;
 import sample.helper.SuccessResponse;
 import sample.interfaces.ProfilePicUploadingListener;
 import sample.interfaces.ProfileUpdatingListener;
-import sample.interfaces.UserDetailsListener;
-import sample.utils.Constants;
-import sample.utils.Messages;
-import sample.utils.Page;
+import sample.utils.*;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class UserProfileView implements Initializable, UserDetailsListener, ProfileUpdatingListener, ProfilePicUploadingListener, EventHandler<ActionEvent> {
+public class UserProfileView implements Initializable, ProfileUpdatingListener, ProfilePicUploadingListener, EventHandler<ActionEvent> {
 
     private final Stage stage = new Stage();
     private final FileChooser fileChooser = new FileChooser();
-    UserDetails userDetails = new UserDetails();
+    private UserDetails userDetails = new UserDetails();
 
     @FXML
     private AnchorPane pane;
@@ -93,6 +89,8 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     private ProgressIndicator pi;
     private ScreenCal screenCal;
 
+    private String userPicURL = "";
+
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,7 +111,8 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
         cir.setStroke(Constants.Colors.color5);
 
         Common.setCountryList(countryList);
-        new UserDetailsController(this).start();
+
+        userDetails = SuperApplication.getInstance().getUserDetails();
 
         if (Objects.nonNull(userDetails.getCountry())) {
             countryList.setOpacity(1);
@@ -124,25 +123,28 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
         btnUpdate.setOnAction(this);
         btnOpen.setOnAction(this);
         btnLandingPage.setOnAction(this);
+
+        loadUserProfileInfo();
     }
 
-
-    @Override
-    public void userDetailsCompleted(UserDetails userDetails) {
-        this.userDetails = userDetails;
+    private void loadUserProfileInfo() {
         Platform.runLater(() -> profileInfoUpdate());
         Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
         Platform.runLater(() -> stackPane.getChildren().remove(pi));
     }
 
     @Override
-    public void userDetailsFailed(String message) {
-        System.out.println(message);
-    }
-
-    @Override
     public void uploadingProfilePicCompleted(SuccessResponse<ResponseBody> successResponse) {
         Window owner = pane.getScene().getWindow();
+
+        try {
+            userPicURL = successResponse.getResponseData().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        SuperApplication.getInstance().getUserDetails().setPhoto(userPicURL);
+
         Platform.runLater(() -> {
             stackPane.getChildren().remove(pi);
             Common.showAlert(Alert.AlertType.INFORMATION, owner, Messages.FORM_SUCCESS,
@@ -166,6 +168,8 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
     public void profileUpdatingCompleted(SuccessResponse<UserDetails> result) {
         Window owner = pane.getScene().getWindow();
         this.userDetails = result.getResponseData();
+        this.userDetails.setPhoto(userPicURL);
+        SuperApplication.getInstance().setUserDetails(this.userDetails);
 
         Platform.runLater(() -> {
             stackPane.getChildren().remove(pi);
@@ -218,7 +222,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 stackPane.getChildren().add(pi);
-                pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+                pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
                 stackPane.setAlignment(Pos.CENTER);
 
                 Image image1 = new Image(file.toURI().toString());
@@ -236,7 +240,7 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
             stackPane.setAlignment(Pos.CENTER);
 
             if (txtFirstName.getText().trim().isEmpty()) {

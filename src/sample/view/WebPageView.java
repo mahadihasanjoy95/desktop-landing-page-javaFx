@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class WebPageView implements Initializable, UserDetailsListener, EventHandler<ActionEvent> {
+public class WebPageView implements Initializable, EventHandler<ActionEvent> {
 
     List<Bookmarks> bookmarksArrayList;
     private DatabaseManager databaseManager;
@@ -90,7 +90,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        new UserDetailsController(this).start();
         screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
@@ -235,23 +234,6 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         btn.setText("  " + applicationInfo.getApplicationName());
         btn.setAlignment(Pos.BASELINE_LEFT);
         drawer.getChildren().add(btn);
-    }
-
-    @Override
-    public void userDetailsCompleted(UserDetails userDetails) {
-        this.userDetails = userDetails;
-        /**
-         * This method fetch all bookmarks by particular user form local database
-         */
-        Platform.runLater(() -> {
-            bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
-        });
-        Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
-    }
-
-    @Override
-    public void userDetailsFailed(String message) {
-
     }
 
 

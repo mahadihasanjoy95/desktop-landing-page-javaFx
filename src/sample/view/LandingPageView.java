@@ -128,7 +128,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
 
         new ApplicationListController(this).start(new ApplicationListDto("1", "-1", "hdpi"));
-        new UserDetailsController(this).start();
+        if(SuperApplication.getInstance().getUserDetails() == null)
+            new UserDetailsController(this).start();
 
         btnLogout.setOnAction(this);
         btnSettings.setOnAction(this);
@@ -486,6 +487,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     public void userDetailsCompleted(UserDetails userDetails) {
 
         this.userDetails = userDetails;
+        SuperApplication.getInstance().setUserDetails(userDetails);
 
         /**
          * This method fetch all bookmarks by particular user form local database
