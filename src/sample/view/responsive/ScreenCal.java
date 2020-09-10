@@ -51,12 +51,12 @@ public class ScreenCal {
 
     public void profileVBoxAllignment(VBox profileVBox) {
         profileVBox.setPrefWidth((rectangle2D.getWidth() * 2) / 3);
-        profileVBox.setPrefHeight((rectangle2D.getHeight()) / 2);
+        profileVBox.setPrefHeight((rectangle2D.getHeight())*1.1 / 2);
     }
 
     public void signInVBoxAllignment(VBox signInVBox, VBox logoVbox) {
         signInVBox.setPrefWidth(rectangle2D.getWidth() / 3);
-        signInVBox.setPrefHeight((rectangle2D.getHeight()) / 2);
+        signInVBox.setPrefHeight((rectangle2D.getHeight()) *1.1/ 2);
         logoVbox.setPrefWidth(rectangle2D.getWidth());
 
 
@@ -69,7 +69,7 @@ public class ScreenCal {
 
     public void signUpVBoxAllignment(VBox signInVBox) {
         signInVBox.setPrefWidth((rectangle2D.getWidth() * 2) / 3);
-        signInVBox.setPrefHeight(((rectangle2D.getHeight()) * 2.2) / 3);
+        signInVBox.setPrefHeight(((rectangle2D.getHeight()) * 2.1) / 3);
     }
 
     public void profileAllignement(Pane pane, StackPane stackPane) {
@@ -115,7 +115,7 @@ public class ScreenCal {
 
     public void changePassVbox(VBox vBox) {
         vBox.setPrefWidth(rectangle2D.getWidth() / 3);
-        vBox.setPrefHeight(rectangle2D.getHeight() / 2);
+        vBox.setPrefHeight(rectangle2D.getHeight()*1.1 / 2);
     }
 
     public void splashScreenImage(ImageView imageView) {

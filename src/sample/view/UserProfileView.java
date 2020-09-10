@@ -17,6 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import jfxtras.styles.jmetro8.JMetro;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -96,6 +97,8 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
 
     public void initialize(URL location, ResourceBundle resources) {
 
+        JMetro jMetro = new JMetro(JMetro.Style.LIGHT);
+        jMetro.applyTheme(countryList);
         screenCal = new ScreenCal();
         pi = new ProgressIndicator();
         stackPane.getChildren().add(pi);

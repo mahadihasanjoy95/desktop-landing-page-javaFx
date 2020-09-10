@@ -79,8 +79,6 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
     private CheckBox checkBox2;
     private CheckBox checkBox3;
     private ScreenCal screenCal;
-    private ImageView eyeSlash;
-    private ImageView eyeOpen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

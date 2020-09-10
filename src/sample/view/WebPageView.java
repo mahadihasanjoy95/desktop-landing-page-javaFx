@@ -90,6 +90,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        new UserDetailsController(this).start();
         screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
@@ -115,10 +116,21 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         screenCal.toolBarBorderPaneAllignment(borderPane);
         gridPane.setMargin(webview, new Insets(0, 0, 0, 316));
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        List<ApplicationInfo> bookMarkList = new ArrayList<>();
+        List<ApplicationInfo> applicationInfoList = SuperApplication.getInstance().getApplicationInfoList();
+        if (!bookmarksArrayList.isEmpty()) {
+            for (ApplicationInfo applicationInfo : applicationInfoList) {
+                if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
+                    bookMarkList.add(applicationInfo);
+                }
+            }
+        }
+        applicationInfoList.removeAll(bookMarkList);
+        if (!bookMarkList.isEmpty())
+            setIconsInNav(bookMarkList);
+        if (!applicationInfoList.isEmpty())
+            setIconsInNav(applicationInfoList);
 
-        new UserDetailsController(this).start();
-
-        setIconsInNav();
         home.setOnAction(this);
 
         btnProfile.setOnAction(this);
@@ -149,7 +161,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         });
     }
 
-    private void setIconsInNav() {
+    private void setIconsInNav(List<ApplicationInfo> applicationInfos) {
 
         Image homeLogo = new Image(Constants.ImageUrl.HOME_ICON);
 
@@ -165,7 +177,7 @@ public class WebPageView implements Initializable, UserDetailsListener, EventHan
         home.setAlignment(Pos.BASELINE_LEFT);
         drawer.getChildren().add(home);
 
-        for (ApplicationInfo applicationInfo : SuperApplication.getInstance().getApplicationInfoList()) {
+        for (ApplicationInfo applicationInfo : applicationInfos) {
             Button button = new Button();
             button.setId("navButton");
             button.setTextFill(Constants.Colors.color4);

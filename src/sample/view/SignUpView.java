@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -69,6 +70,8 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
     private ProgressIndicator pi;
     @FXML
     private TextField txtPassword1;
+    @FXML
+    private VBox parentVbox;
     private ImageView eyeSlash;
     private ImageView eyeOpen;
 
@@ -97,6 +100,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
         pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
         screenCal.profileAllignement(pane, new StackPane());
         screenCal.signUpVBoxAllignment(signInVBox);
+//        parentVbox.setMargin(signInVBox,new Insets(0,0,0,ScreenCal.getScreenResulation().getHeight()/5));
 
         Common.setCountryList(countryList);
         JMetro jMetro = new JMetro(JMetro.Style.LIGHT);

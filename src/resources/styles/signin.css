@@ -98,4 +98,8 @@
 #pane{
     -fx-background-size: cover;
 }
+#profileVBox{
+    -fx-background-radius: .5em, .5em;
+    -fx-border-radius: .5em, .5em;
+}
 
