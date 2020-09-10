@@ -61,9 +61,6 @@
     -fx-border-color: white;
     -fx-border-width: 0 0 1 0;
 }
-.menu-item .label {
-    -fx-text-fill: white;
-}
 
 .menu-item:focused {
     -fx-background-color: darkgray;
@@ -204,5 +201,9 @@
     /*-fx-border-width: 2;*/
 
 /*}*/
+#profileMenu .label {
+    -fx-text-fill: white;
+}
+
 
 

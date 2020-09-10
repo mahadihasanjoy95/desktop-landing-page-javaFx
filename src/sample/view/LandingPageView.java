@@ -87,6 +87,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        profileView.setId("profileMenu");
+
         gridpane1.setPadding(new Insets(0, 0, 0, ScreenCal.getScreenResulation().getWidth() / 113));
         bookMarkList = new ArrayList<>();
         screenCal = new ScreenCal();
@@ -143,20 +145,32 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         txtSearch.setOnKeyReleased(keyEvent -> {
             if (txtSearch.getText().isEmpty() && isEmpty) {
                 isEmpty = false;
+                if (!stackPane.getChildren().contains(pi))
+                {
+                    stackPane.getChildren().add(pi);
+                }
                 searchApps();
             }
         });
 
         txtSearch.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER && !txtSearch.getText().isEmpty() && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+            if (keyEvent.getCode() == KeyCode.ENTER  && !searchText.equalsIgnoreCase(txtSearch.getText())) {
                 searchText = txtSearch.getText();
                 stackPane.getChildren().add(pi);
 
                 searchApps();
-            } else if (keyEvent.getCode() == KeyCode.CUT) {
+            } else if (keyEvent.getCode() == KeyCode.CUT && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+                searchText = txtSearch.getText();
                 isEmpty = true;
-            } else if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
-                isEmpty = true;
+            } else if (keyEvent.getCode() == KeyCode.BACK_SPACE&&txtSearch.getText().length()<=1 && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+                if (txtSearch.getText().length()==1)
+                    isEmpty = true;
+                else
+                {
+                    searchText = txtSearch.getText();
+                    isEmpty = true;
+                }
+
             }
         });
     }
