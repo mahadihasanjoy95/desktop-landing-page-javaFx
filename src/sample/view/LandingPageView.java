@@ -81,10 +81,13 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @FXML
     private Button btnLandingPage;
 
+    private String searchText = "";
+    private boolean isEmpty;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        gridpane1.setPadding(new Insets(0,0,0,ScreenCal.getScreenResulation().getWidth()/113));
+        gridpane1.setPadding(new Insets(0, 0, 0, ScreenCal.getScreenResulation().getWidth() / 113));
         bookMarkList = new ArrayList<>();
         screenCal = new ScreenCal();
         bookmarksArrayList = new ArrayList<>();
@@ -138,15 +141,22 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         });
 
         txtSearch.setOnKeyReleased(keyEvent -> {
-            if (txtSearch.getText().isEmpty())
+            if (txtSearch.getText().isEmpty() && isEmpty) {
+                isEmpty = false;
                 searchApps();
+            }
         });
 
         txtSearch.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER && !txtSearch.getText().isEmpty()) {
+            if (keyEvent.getCode() == KeyCode.ENTER && !txtSearch.getText().isEmpty() && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+                searchText = txtSearch.getText();
                 stackPane.getChildren().add(pi);
 
                 searchApps();
+            } else if (keyEvent.getCode() == KeyCode.CUT) {
+                isEmpty = true;
+            } else if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                isEmpty = true;
             }
         });
     }
@@ -241,7 +251,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             button.setGraphic(imageView);
 
             StackPane gridStackPane = new StackPane();
-            gridStackPane.setPrefHeight(gridpane.getPrefHeight() - ScreenCal.getScreenResulation().getWidth()/45);
+            gridStackPane.setPrefHeight(gridpane.getPrefHeight() - ScreenCal.getScreenResulation().getWidth() / 45);
             Button favButton = new Button();
             ImageView imageView1 = null;
 
@@ -285,9 +295,9 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             });
 
 //            screenCal.setStarMargin(gridStackPane, button, favButton);
-            gridStackPane.setMargin(button, new Insets(ScreenCal.getScreenResulation().getWidth()/113,0,0,0));
-            gridStackPane.setAlignment(favButton,Pos.TOP_CENTER);
-            gridStackPane.setMargin(favButton,new Insets(0,0,0,ScreenCal.getScreenResulation().getWidth()/15));
+            gridStackPane.setMargin(button, new Insets(ScreenCal.getScreenResulation().getWidth() / 113, 0, 0, 0));
+            gridStackPane.setAlignment(favButton, Pos.TOP_CENTER);
+            gridStackPane.setMargin(favButton, new Insets(0, 0, 0, ScreenCal.getScreenResulation().getWidth() / 15));
             gridStackPane.getChildren().addAll(button, favButton);
             vBox.getChildren().add(gridStackPane);
 
@@ -400,7 +410,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         cancelButton.setId("cancelButton");
 
         StackPane bookmarksStackPane = new StackPane();
-        double bookMarkMargin = ScreenCal.getScreenResulation().getWidth()/113;
+        double bookMarkMargin = ScreenCal.getScreenResulation().getWidth() / 113;
         bookmarksStackPane.setMargin(btnBookMarks, new Insets(bookMarkMargin, bookMarkMargin, bookMarkMargin, 0));
         bookmarksStackPane.setAlignment(cancelButton, Pos.TOP_RIGHT);
 
