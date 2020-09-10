@@ -26,12 +26,12 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="657.0" prefWidth="1276.0">
                      <children>
-                        <VBox fx:id="signInVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;">
+                        <VBox fx:id="signInVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="500.0" style="-fx-background-color: white;">
                            <effect>
                               <DropShadow />
                            </effect>
                            <children>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1338.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -49,7 +49,7 @@
                                     <Insets left="60.0" right="60.0" top="20.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" layoutX="70.0" layoutY="115.0" maxWidth="-Infinity" prefHeight="22.0" prefWidth="1337.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" layoutX="70.0" layoutY="115.0" maxWidth="-Infinity" prefHeight="22.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -75,7 +75,7 @@
                                     <Insets left="60.0" right="60.0" top="10.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="37.0" prefWidth="1337.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="37.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -112,7 +112,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" prefWidth="1334.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -142,7 +142,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="42.0" prefWidth="1333.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="42.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -172,7 +172,7 @@
                                     <Insets bottom="10.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1020.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="23.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -210,7 +210,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="44.0" prefWidth="1335.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="44.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -266,7 +266,7 @@
                                     <Insets bottom="10.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" prefWidth="1338.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -292,7 +292,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1337.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -329,7 +329,7 @@
                                     <Insets bottom="10.0" left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" prefWidth="1336.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="22.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -355,7 +355,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="46.0" prefWidth="1333.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="46.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -406,7 +406,7 @@
                                     <Insets left="60.0" right="60.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="47.0" prefWidth="1335.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="47.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
