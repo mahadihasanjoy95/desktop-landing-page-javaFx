@@ -236,6 +236,43 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
+            if (txtFirstName.getText().isEmpty()) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.EMPTY_FIRSTNAME);
+                stackPane.getChildren().remove(pi);
+                return;
+            }
+            if (txtLastName.getText().isEmpty()) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.EMPTY_LASTNAME);
+                stackPane.getChildren().remove(pi);
+                return;
+            }
+            if (txtUserName.getText().isEmpty()) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.EMPTY_USERNAME);
+                stackPane.getChildren().remove(pi);
+                return;
+            }
+            if (txtEmailAddress.getText().isEmpty()) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.EMPTY_EMAIL);
+                stackPane.getChildren().remove(pi);
+                return;
+            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.INVALID_EMIL_FORMAT);
+                stackPane.getChildren().remove(pi);
+                return;
+            }
+
+            if (txtPhoneNumber.getText().isEmpty()) {
+                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                        Messages.EMPTY_PHONENUMBER);
+                stackPane.getChildren().remove(pi);
+                return;
+            }
+
             SignUpDto signUpDto = new SignUpDto(txtFirstName.getText(), txtLastName.getText(), txtUserName.getText(), txtEmailAddress.getText(), "123456789", txtPhoneNumber.getText(), countryList.getValue().toString(), txtAddress.getText(), txtCity.getText(), txtState.getText(), txtZipCode.getText());
             new ProfileUpdatingController(this).start(signUpDto);
         } else if (event.getSource() == btnLandingPage) {
