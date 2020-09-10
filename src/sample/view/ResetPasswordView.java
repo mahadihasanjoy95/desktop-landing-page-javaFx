@@ -140,13 +140,13 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
             pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
 
             stackPane.setAlignment(Pos.CENTER);
-            if (txtEmailAddress.getText().isEmpty()) {
+            if (txtEmailAddress.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_EMAIL);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtOtp.getText().isEmpty()) {
+            if (txtOtp.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_OTP);
                 stackPane.getChildren().remove(pi);
@@ -159,7 +159,7 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
                 return;
             }
 
-            PasswordResetDto passwordResetDto = new PasswordResetDto(txtEmailAddress.getText(), txtPassword.getText(), txtOtp.getText());
+            PasswordResetDto passwordResetDto = new PasswordResetDto(txtEmailAddress.getText().trim(), txtPassword.getText(), txtOtp.getText().trim());
             new sample.data.controller.PasswordResetController(this).start(passwordResetDto);
 
         } else if (event.getSource() == btnSignIn) {

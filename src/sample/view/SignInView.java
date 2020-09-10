@@ -140,12 +140,12 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
             pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
-            if (txtEmailAddress.getText().isEmpty()) {
+            if (txtEmailAddress.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_EMAIL);
                 stackPane.getChildren().remove(pi);
                 return;
-            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
+            } else if (!Common.emailValidator(txtEmailAddress.getText().trim())) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.INVALID_EMIL_FORMAT);
                 stackPane.getChildren().remove(pi);
@@ -160,7 +160,7 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
                 return;
             }
 
-            String emailAddress = txtEmailAddress.getText();
+            String emailAddress = txtEmailAddress.getText().trim();
             String password = txtPassword.getText();
 
             LogInDto logInDto = new LogInDto(emailAddress, password);

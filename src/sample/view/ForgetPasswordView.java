@@ -121,18 +121,18 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
 
             stackPane.setAlignment(Pos.CENTER);
 
-            if (txtEmailAddress.getText().isEmpty()) {
+            if (txtEmailAddress.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR, Messages.EMPTY_EMAIL);
                 stackPane.getChildren().remove(pi);
                 return;
-            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
+            } else if (!Common.emailValidator(txtEmailAddress.getText().trim())) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.INVALID_EMIL_FORMAT);
                 stackPane.getChildren().remove(pi);
                 return;
             }
             Constants.EMAIL_FORGET_PASS = txtEmailAddress.getText();
-            SendOtpDto sendOtpDto = new SendOtpDto(txtEmailAddress.getText());
+            SendOtpDto sendOtpDto = new SendOtpDto(txtEmailAddress.getText().trim());
             new sample.data.controller.ForgotPasswordController(this).start(sendOtpDto);
 
         } else if (event.getSource() == btnSignIn) {

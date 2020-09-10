@@ -168,30 +168,30 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             stackPane.getChildren().add(pi);
             pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
             stackPane.setAlignment(Pos.CENTER);
-            if (txtFirstName.getText().isEmpty()) {
+            if (txtFirstName.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_FIRSTNAME);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtLastName.getText().isEmpty()) {
+            if (txtLastName.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_LASTNAME);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtUserName.getText().isEmpty()) {
+            if (txtUserName.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_USERNAME);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtEmailAddress.getText().isEmpty()) {
+            if (txtEmailAddress.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_EMAIL);
                 stackPane.getChildren().remove(pi);
                 return;
-            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
+            } else if (!Common.emailValidator(txtEmailAddress.getText().trim())) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.INVALID_EMIL_FORMAT);
                 stackPane.getChildren().remove(pi);
@@ -205,7 +205,7 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
                 return;
             }
 
-            if (txtPhoneNumber.getText().isEmpty()) {
+            if (txtPhoneNumber.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_PHONENUMBER);
                 stackPane.getChildren().remove(pi);
@@ -213,17 +213,17 @@ public class SignUpView implements Initializable, SignUpListener, EventHandler<A
             }
 
 
-            String firstName = txtFirstName.getText();
-            String lastName = txtLastName.getText();
-            String userName = txtUserName.getText();
-            String emailAddress = txtEmailAddress.getText();
+            String firstName = txtFirstName.getText().trim();
+            String lastName = txtLastName.getText().trim();
+            String userName = txtUserName.getText().trim();
+            String emailAddress = txtEmailAddress.getText().trim();
             String password = txtPassword.getText();
-            String phoneNumber = txtPhoneNumber.getText();
-            String address = txtAddress.getText();
-            String zipCode = txtZipCode.getText();
+            String phoneNumber = txtPhoneNumber.getText().trim();
+            String address = txtAddress.getText().trim();
+            String zipCode = txtZipCode.getText().trim();
             String country = (String) countryList.getValue();
-            String state = txtState.getText();
-            String city = txtCity.getText();
+            String state = txtState.getText().trim();
+            String city = txtCity.getText().trim();
 
             SignUpDto signUpDto = new SignUpDto(firstName, lastName, userName, emailAddress, password, phoneNumber, country, address, city, state, zipCode);
             new sample.data.controller.SignUpController(this).start(signUpDto);

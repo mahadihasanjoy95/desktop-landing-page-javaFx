@@ -236,44 +236,26 @@ public class UserProfileView implements Initializable, UserDetailsListener, Prof
             pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
             stackPane.setAlignment(Pos.CENTER);
 
-            if (txtFirstName.getText().isEmpty()) {
+            if (txtFirstName.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_FIRSTNAME);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtLastName.getText().isEmpty()) {
+            if (txtLastName.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_LASTNAME);
                 stackPane.getChildren().remove(pi);
                 return;
             }
-            if (txtUserName.getText().isEmpty()) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.EMPTY_USERNAME);
-                stackPane.getChildren().remove(pi);
-                return;
-            }
-            if (txtEmailAddress.getText().isEmpty()) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.EMPTY_EMAIL);
-                stackPane.getChildren().remove(pi);
-                return;
-            } else if (!Common.emailValidator(txtEmailAddress.getText())) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.INVALID_EMIL_FORMAT);
-                stackPane.getChildren().remove(pi);
-                return;
-            }
-
-            if (txtPhoneNumber.getText().isEmpty()) {
+            if (txtPhoneNumber.getText().trim().isEmpty()) {
                 Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
                         Messages.EMPTY_PHONENUMBER);
                 stackPane.getChildren().remove(pi);
                 return;
             }
 
-            SignUpDto signUpDto = new SignUpDto(txtFirstName.getText(), txtLastName.getText(), txtUserName.getText(), txtEmailAddress.getText(), "123456789", txtPhoneNumber.getText(), countryList.getValue().toString(), txtAddress.getText(), txtCity.getText(), txtState.getText(), txtZipCode.getText());
+            SignUpDto signUpDto = new SignUpDto(txtFirstName.getText().trim(), txtLastName.getText().trim(), txtUserName.getText().trim(), txtEmailAddress.getText().trim(), "123456789", txtPhoneNumber.getText().trim(), countryList.getValue().toString(), txtAddress.getText().trim(), txtCity.getText().trim(), txtState.getText().trim(), txtZipCode.getText().trim());
             new ProfileUpdatingController(this).start(signUpDto);
         } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
