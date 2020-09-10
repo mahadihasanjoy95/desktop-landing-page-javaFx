@@ -173,7 +173,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="2.0" prefWidth="1050.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
