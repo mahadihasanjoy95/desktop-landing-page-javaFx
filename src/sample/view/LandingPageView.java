@@ -521,7 +521,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         } else if (event.getSource() == btnSettings) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
-        } else if (event.getSource() == btnSearch) {
+        } else if (event.getSource() == btnSearch&& !txtSearch.getText().isEmpty()&&!searchText.equalsIgnoreCase(txtSearch.getText())) {
             stackPane.getChildren().add(pi);
             searchApps();
         } else if (event.getSource() == btnLandingPage) {
