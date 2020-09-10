@@ -143,7 +143,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         });
 
         txtSearch.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (keyEvent.getCode() == KeyCode.ENTER && !txtSearch.getText().isEmpty()) {
                 stackPane.getChildren().add(pi);
 
                 searchApps();
