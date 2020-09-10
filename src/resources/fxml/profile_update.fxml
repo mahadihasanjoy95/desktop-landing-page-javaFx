@@ -127,7 +127,7 @@
                                           <Insets bottom="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="First Name" />
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="First Name" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="470.0">
@@ -173,7 +173,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="2.0" prefWidth="1050.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="2.0" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -183,19 +183,19 @@
                                           <Insets bottom="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <Label alignment="BOTTOM_LEFT" prefHeight="7.0" prefWidth="336.0" text="Last Name" />
+                                          <Label prefHeight="7.0" prefWidth="336.0" text="Last Name" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="470.0">
                                        <children>
                                           <HBox prefHeight="23.0" prefWidth="428.0">
                                              <children>
-                                                <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="State" />
+                                                <Label prefHeight="34.0" prefWidth="417.0" text="State" />
                                              </children>
                                           </HBox>
                                           <HBox>
                                              <children>
-                                                <Label alignment="TOP_LEFT" prefHeight="34.0" prefWidth="417.0" text="City" />
+                                                <Label prefHeight="34.0" prefWidth="417.0" text="City" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="30.0" />
@@ -277,12 +277,12 @@
                                           <Insets bottom="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="User Name" />
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="User Name" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="470.0">
                                        <children>
-                                          <Label alignment="TOP_LEFT" prefHeight="23.0" prefWidth="462.0" text="Address" />
+                                          <Label prefHeight="23.0" prefWidth="462.0" text="Address" />
                                        </children>
                                        <HBox.margin>
                                           <Insets left="100.0" />
@@ -340,12 +340,12 @@
                                           <Insets bottom="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="Email Address" />
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="Email Address" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="470.0">
                                        <children>
-                                          <Label alignment="TOP_LEFT" prefHeight="23.0" prefWidth="462.0" text="Zip Code" />
+                                          <Label prefHeight="23.0" prefWidth="462.0" text="Zip Code" />
                                        </children>
                                        <HBox.margin>
                                           <Insets left="100.0" />
@@ -403,7 +403,7 @@
                                           <Insets bottom="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <Label alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="556.0" text="Mobile No" />
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="Mobile No" />
                                        </children>
                                     </HBox>
                                     <HBox prefWidth="470.0">

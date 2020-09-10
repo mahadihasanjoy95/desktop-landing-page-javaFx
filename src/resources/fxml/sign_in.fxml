@@ -61,12 +61,12 @@
                                           <DropShadow />
                                        </effect>
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="42.0" prefWidth="579.0" spacing="10.0">
+                                          <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1147.0" spacing="10.0">
                                              <opaqueInsets>
                                                 <Insets />
                                              </opaqueInsets>
                                              <children>
-                                                <Label prefHeight="55.0" prefWidth="181.0" text="Login" textFill="#172c78">
+                                                <Label text="Login" textFill="#172c78">
                                                    <HBox.margin>
                                                       <Insets />
                                                    </HBox.margin>
@@ -176,7 +176,7 @@
                                                 </Button>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="loginHbox" alignment="TOP_RIGHT" prefHeight="42.0" spacing="10.0">
+                                          <HBox fx:id="loginHbox" alignment="TOP_RIGHT" spacing="10.0">
                                              <opaqueInsets>
                                                 <Insets />
                                              </opaqueInsets>
@@ -191,7 +191,7 @@
                                                 <Insets left="60.0" right="60.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox alignment="CENTER">
+                                          <HBox alignment="CENTER" maxWidth="-Infinity">
                                              <opaqueInsets>
                                                 <Insets />
                                              </opaqueInsets>
