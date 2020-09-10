@@ -31,19 +31,31 @@
                               <DropShadow />
                            </effect>
                            <children>
-                              <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1466.0" spacing="10.0">
+                              <HBox alignment="BOTTOM_LEFT" maxWidth="-Infinity" spacing="10.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
                                  <children>
-                                    <Label text="SIGNUP" textFill="#172c78">
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="18.0" prefWidth="470.0">
                                        <HBox.margin>
-                                          <Insets />
+                                          <Insets bottom="5.0" />
                                        </HBox.margin>
-                                       <font>
-                                          <Font name="System Bold" size="30.0" />
-                                       </font>
-                                    </Label>
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="556.0" text="SIGNUP" textFill="#172c78">
+                                             <font>
+                                                <Font name="System Bold" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefWidth="470.0">
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="417.0" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="100.0" />
+                                       </HBox.margin>
+                                    </HBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets left="60.0" right="60.0" top="20.0" />
