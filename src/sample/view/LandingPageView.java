@@ -130,6 +130,14 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         new ApplicationListController(this).start(new ApplicationListDto("1", "-1", "hdpi"));
         if(SuperApplication.getInstance().getUserDetails() == null)
             new UserDetailsController(this).start();
+        else
+        {
+            Platform.runLater(() -> {
+                bookmarksArrayList = databaseManager.getUserWiseBookmarks(SuperApplication.getInstance().getUserDetails().getUserId());
+            });
+
+            Platform.runLater(() -> Common.setProfilePic(cir, SuperApplication.getInstance().getUserDetails().getPhoto()));
+        }
 
         btnLogout.setOnAction(this);
         btnSettings.setOnAction(this);

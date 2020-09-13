@@ -43,7 +43,7 @@ import java.util.ResourceBundle;
 
 public class WebPageView implements Initializable, EventHandler<ActionEvent> {
 
-    List<Bookmarks> bookmarksArrayList;
+    private List<Bookmarks> bookmarksArrayList;
     private DatabaseManager databaseManager;
     private UserDetails userDetails;
     @FXML
@@ -94,10 +94,10 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
         bookmarksArrayList = new ArrayList<>();
         databaseManager = new DatabaseManager();
         pi = new ProgressIndicator();
-        userDetails = new UserDetails();
+        userDetails = SuperApplication.getInstance().getUserDetails();
         drawerAction();
         cir.setStroke(Constants.Colors.color5);
-
+        Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
     }
 
     private void drawerAction() {
@@ -115,6 +115,21 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
         screenCal.toolBarBorderPaneAllignment(borderPane);
         gridPane.setMargin(webview, new Insets(0, 0, 0, 316));
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        Image homeLogo = new Image(Constants.ImageUrl.HOME_ICON);
+
+        ImageView homeImageView = new ImageView(homeLogo);
+        homeImageView.setFitHeight(40);
+        homeImageView.setFitWidth(40);
+        home.setGraphic(homeImageView);
+        home.setId("navButton");
+        home.setText("  Home");
+        home.setStyle("-fx-background-color: #FFFFFF; ");
+        home.setTextFill(Constants.Colors.color4);
+        home.setMaxWidth(Double.MAX_VALUE);
+        home.setAlignment(Pos.BASELINE_LEFT);
+        drawer.getChildren().add(home);
+        bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
         List<ApplicationInfo> bookMarkList = new ArrayList<>();
         List<ApplicationInfo> applicationInfoList = SuperApplication.getInstance().getApplicationInfoList();
         if (!bookmarksArrayList.isEmpty()) {
@@ -124,11 +139,11 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
                 }
             }
         }
+
         applicationInfoList.removeAll(bookMarkList);
-        if (!bookMarkList.isEmpty())
-            setIconsInNav(bookMarkList);
-        if (!applicationInfoList.isEmpty())
-            setIconsInNav(applicationInfoList);
+        applicationInfoList.addAll(0, bookMarkList);
+        setIconsInNav(applicationInfoList);
+
 
         home.setOnAction(this);
 
@@ -161,20 +176,6 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
     }
 
     private void setIconsInNav(List<ApplicationInfo> applicationInfos) {
-
-        Image homeLogo = new Image(Constants.ImageUrl.HOME_ICON);
-
-        ImageView homeImageView = new ImageView(homeLogo);
-        homeImageView.setFitHeight(40);
-        homeImageView.setFitWidth(40);
-        home.setGraphic(homeImageView);
-        home.setId("navButton");
-        home.setText("  Home");
-        home.setStyle("-fx-background-color: #FFFFFF; ");
-        home.setTextFill(Constants.Colors.color4);
-        home.setMaxWidth(Double.MAX_VALUE);
-        home.setAlignment(Pos.BASELINE_LEFT);
-        drawer.getChildren().add(home);
 
         for (ApplicationInfo applicationInfo : applicationInfos) {
             Button button = new Button();
