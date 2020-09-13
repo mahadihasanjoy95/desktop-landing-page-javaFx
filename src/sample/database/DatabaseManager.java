@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class DatabaseManager implements BookmarksCrud {
 
     private static final String JDBC_DRIVER = "org.h2.Driver";
-    private static final String DB_URL = "jdbc:h2:~/superapp_test1";
+    private static final String DB_URL = "jdbc:h2:~/super_app_test";
     private static final String DB_USERNAME = "test";
     private static final String DB_PASSWORD = "test";
     private static final String CREATE_TABLE = "CREATE TABLE BOOKMARKS "

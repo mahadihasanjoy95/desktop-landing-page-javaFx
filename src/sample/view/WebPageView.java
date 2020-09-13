@@ -129,9 +129,9 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
         home.setMaxWidth(Double.MAX_VALUE);
         home.setAlignment(Pos.BASELINE_LEFT);
         drawer.getChildren().add(home);
-        bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
+        bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId().toString());
         List<ApplicationInfo> bookMarkList = new ArrayList<>();
-        List<ApplicationInfo> applicationInfoList = SuperApplication.getInstance().getApplicationInfoList();
+        List<ApplicationInfo> applicationInfoList = new ArrayList<>(SuperApplication.getInstance().getApplicationInfoList());
         if (!bookmarksArrayList.isEmpty()) {
             for (ApplicationInfo applicationInfo : applicationInfoList) {
                 if (bookmarksArrayList.contains(new Bookmarks(applicationInfo.getId()))) {
@@ -243,6 +243,8 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
         if (event.getSource() == home) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
         } else if (event.getSource() == btnLogout) {
+            SuperApplication.getInstance().setUserDetails(null);
+            SuperApplication.getInstance().setApplicationInfoList(null);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);

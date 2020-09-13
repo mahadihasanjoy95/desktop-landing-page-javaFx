@@ -1,6 +1,7 @@
 package sample.utils;
 
 import sample.data.model.ApplicationInfo;
+import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 
 import java.util.List;

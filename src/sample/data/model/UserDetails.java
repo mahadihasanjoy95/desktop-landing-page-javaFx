@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDetails {
-    public String userId;
+    public Long userId;
     public String userName;
     public String firstName;
     public String lastName;

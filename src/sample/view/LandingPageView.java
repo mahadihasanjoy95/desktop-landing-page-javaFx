@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
-
     private List<Bookmarks> bookmarksArrayList;
     private UserDetails userDetails;
     private ProgressIndicator pi;
@@ -86,7 +85,6 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         profileView.setId("profileMenu");
 
         gridpane1.setPadding(new Insets(0, 0, 0, ScreenCal.getScreenResulation().getWidth() / 113));
@@ -126,15 +124,15 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             gridpane.getRowConstraints().add(rowConst);
         }
 
-
-        new ApplicationListController(this).start(new ApplicationListDto("1", "-1", "hdpi"));
-        if(SuperApplication.getInstance().getUserDetails() == null)
+        if (SuperApplication.getInstance().getApplicationInfoList() == null)
+            new ApplicationListController(this).start(new ApplicationListDto("1", "-1", "hdpi"));
+        else {
+            Platform.runLater(() -> setIcons(SuperApplication.getInstance().getApplicationInfoList()));
+        }
+        if (SuperApplication.getInstance().getUserDetails() == null)
             new UserDetailsController(this).start();
-        else
-        {
-            Platform.runLater(() -> {
-                bookmarksArrayList = databaseManager.getUserWiseBookmarks(SuperApplication.getInstance().getUserDetails().getUserId());
-            });
+        else {
+            bookmarksArrayList = databaseManager.getUserWiseBookmarks(SuperApplication.getInstance().getUserDetails().getUserId().toString());
 
             Platform.runLater(() -> Common.setProfilePic(cir, SuperApplication.getInstance().getUserDetails().getPhoto()));
         }
@@ -154,8 +152,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         txtSearch.setOnKeyReleased(keyEvent -> {
             if (txtSearch.getText().isEmpty() && isEmpty) {
                 isEmpty = false;
-                if (!stackPane.getChildren().contains(pi))
-                {
+                if (!stackPane.getChildren().contains(pi)) {
                     stackPane.getChildren().add(pi);
                 }
                 searchApps();
@@ -163,7 +160,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         });
 
         txtSearch.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER  && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+            if (keyEvent.getCode() == KeyCode.ENTER && !searchText.equalsIgnoreCase(txtSearch.getText())) {
                 searchText = txtSearch.getText();
                 stackPane.getChildren().add(pi);
 
@@ -171,11 +168,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             } else if (keyEvent.getCode() == KeyCode.CUT && !searchText.equalsIgnoreCase(txtSearch.getText())) {
                 searchText = txtSearch.getText();
                 isEmpty = true;
-            } else if (keyEvent.getCode() == KeyCode.BACK_SPACE&&txtSearch.getText().length()<=1 && !searchText.equalsIgnoreCase(txtSearch.getText())) {
-                if (txtSearch.getText().length()==1)
+            } else if (keyEvent.getCode() == KeyCode.BACK_SPACE && txtSearch.getText().length() <= 1 && !searchText.equalsIgnoreCase(txtSearch.getText())) {
+                if (txtSearch.getText().length() == 1)
                     isEmpty = true;
-                else
-                {
+                else {
                     searchText = txtSearch.getText();
                     isEmpty = true;
                 }
@@ -212,7 +208,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         if (bookmarksArrayList.isEmpty()) {
             gScrollPane.setVisible(false);
         }
-        databaseManager.deleteBookmarks(userDetails.getUserId(), applicationInfo.getId());
+        databaseManager.deleteBookmarks(SuperApplication.getInstance().getUserDetails().getUserId().toString(), applicationInfo.getId());
         Image logo3 = new Image(Constants.ImageUrl.WHITE_STAR);
         ImageView imageView3 = new ImageView(logo3);
         imageView3.setCache(true);
@@ -302,7 +298,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
                      * This portion create a new bookmarks object and store bookmarks on local database
                      */
                     Bookmarks bookmarks = new Bookmarks();
-                    bookmarks.setUserId(userDetails.getUserId());
+                    bookmarks.setUserId(SuperApplication.getInstance().getUserDetails().getUserId().toString());
                     bookmarks.setId(applicationInfo.getId());
                     databaseManager.addBookmarks(bookmarks);
                     Image logo3 = new Image(Constants.ImageUrl.YELLOW_STAR);
@@ -500,9 +496,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         /**
          * This method fetch all bookmarks by particular user form local database
          */
-        Platform.runLater(() -> {
-            bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId());
-        });
+        bookmarksArrayList = databaseManager.getUserWiseBookmarks(userDetails.getUserId().toString());
 
         Platform.runLater(() -> Common.setProfilePic(cir, userDetails.getPhoto()));
     }
@@ -515,6 +509,8 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == btnLogout) {
+            SuperApplication.getInstance().setUserDetails(null);
+            SuperApplication.getInstance().setApplicationInfoList(null);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
@@ -531,10 +527,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         } else if (event.getSource() == btnSettings) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
-        } else if (event.getSource() == btnSearch&& !txtSearch.getText().isEmpty()&&!searchText.equalsIgnoreCase(txtSearch.getText())) {
+        } else if (event.getSource() == btnSearch && !txtSearch.getText().isEmpty() && !searchText.equalsIgnoreCase(txtSearch.getText())) {
             stackPane.getChildren().add(pi);
             searchApps();
         } else if (event.getSource() == btnLandingPage) {
+            SuperApplication.getInstance().setApplicationInfoList(null);
             LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }

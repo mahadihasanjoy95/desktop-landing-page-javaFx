@@ -193,6 +193,7 @@ public class UserProfileView implements Initializable, ProfileUpdatingListener, 
     }
 
     public void profileInfoUpdate() {
+        userPicURL = userDetails.getPhoto();
         txtFirstName.setText(userDetails.getFirstName());
         txtLastName.setText(userDetails.getLastName());
         txtUserName.setText(userDetails.getUserName());
@@ -231,7 +232,7 @@ public class UserProfileView implements Initializable, ProfileUpdatingListener, 
 
                 final MediaType MEDIA_TYPE_PNG = file.getAbsolutePath().endsWith("JPG") ? MediaType.parse("image/jpeg") : MediaType.parse("image/png");
 
-                RequestBody req = new MultipartBody.Builder().setType(MultipartBody.FORM).addFormDataPart("userId", userDetails.getUserId())
+                RequestBody req = new MultipartBody.Builder().setType(MultipartBody.FORM).addFormDataPart("userId", userDetails.getUserId().toString())
                         .addFormDataPart("photo", "profile_pic", RequestBody.create(MEDIA_TYPE_PNG, file)).build();
                 new ProfilePicUploadingController(this).start(req);
 
