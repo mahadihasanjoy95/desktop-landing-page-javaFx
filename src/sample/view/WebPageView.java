@@ -36,10 +36,7 @@ import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class WebPageView implements Initializable, EventHandler<ActionEvent> {
 
@@ -248,11 +245,14 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
-            alert.showAndWait();
 
-            if (alert.getResult() == ButtonType.YES) {
+            final Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.YES) {
                 //TODO: Have to expired token here
                 LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+            } else if (result.get() == ButtonType.NO) {
+                //TODO: Have to expired token here
+                event.consume();
             }
 
 

@@ -33,14 +33,10 @@ import sample.interfaces.UserDetailsListener;
 import sample.utils.*;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Alert;
-
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
@@ -141,7 +137,12 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             Platform.runLater(() -> Common.setProfilePic(cir, SuperApplication.getInstance().getUserDetails().getPhoto()));
         }
 
-        btnLogout.setOnAction(this);
+
+        btnLogout.setOnAction(action -> {
+            SuperApplication.getInstance().setUserDetails(null);
+            SuperApplication.getInstance().setApplicationInfoList(null);
+            showAlert("This is JavaFX alert type Confirmation", Alert.AlertType.CONFIRMATION);
+        });
         btnSettings.setOnAction(this);
         btnProfile.setOnAction(this);
         btnSearch.setOnAction(this);
@@ -510,27 +511,10 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
     }
 
+
     @Override
     public void handle(ActionEvent event) {
-        if (event.getSource() == btnLogout) {
-            SuperApplication.getInstance().setUserDetails(null);
-            SuperApplication.getInstance().setApplicationInfoList(null);
-
-
-            Alert alert = new Alert(AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
-            alert.setHeaderText(null);
-            alert.setGraphic(null);
-
-            final Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.YES) {
-                //TODO: Have to expired token here
-                LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
-            } else if (result.get() == ButtonType.NO) {
-                //TODO: Have to expired token here
-                event.consume();
-            }
-
-        } else if (event.getSource() == btnProfile) {
+        if (event.getSource() == btnProfile) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
@@ -544,5 +528,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }
+    }
+
+    private void showAlert(String alertMessage, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setContentText(alertMessage);
+        alert.show();
     }
 }
