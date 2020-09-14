@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import sample.database.DatabaseManager;
 import sample.utils.Constants;
 import sample.view.responsive.ScreenCal;
 
@@ -22,12 +23,14 @@ public class SplashScreenView implements Initializable {
     @FXML
     private StackPane stackPane;
 
-
+    private DatabaseManager databaseManager;
     private ScreenCal screenCal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        databaseManager = new DatabaseManager();
+        databaseManager.createTable();
         screenCal = new ScreenCal();
         screenCal.splashScreenAllignment(vBox);
 

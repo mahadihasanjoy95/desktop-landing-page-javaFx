@@ -248,7 +248,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     }
 
     private void loadWebView() {
-        LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
+        LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
     }
 
     public void setIcons(List<ApplicationInfo> list) {
@@ -511,28 +511,28 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
         if (event.getSource() == btnLogout) {
             SuperApplication.getInstance().setUserDetails(null);
             SuperApplication.getInstance().setApplicationInfoList(null);
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 //TODO: Have to expired token here
-                LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+                LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
             }
-
 
         } else if (event.getSource() == btnProfile) {
             Constants.last_url = Page.LANDING_PAGE;
-            LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
+            LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
             Constants.last_url = Page.LANDING_PAGE;
-            LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
+            LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.PASSWORD_CHANGE_URL, Constants.FxmlUrl.PASSWORD_CHANGE_CSS);
         } else if (event.getSource() == btnSearch && !txtSearch.getText().isEmpty() && !searchText.equalsIgnoreCase(txtSearch.getText())) {
             stackPane.getChildren().add(pi);
             searchApps();
         } else if (event.getSource() == btnLandingPage) {
             SuperApplication.getInstance().setApplicationInfoList(null);
-            LoadViews.loadPages(anchorpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
+            LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }
     }
