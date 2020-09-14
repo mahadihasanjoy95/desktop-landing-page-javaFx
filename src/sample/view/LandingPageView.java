@@ -37,6 +37,7 @@ import sample.view.responsive.ScreenCal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
@@ -137,12 +138,7 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             Platform.runLater(() -> Common.setProfilePic(cir, SuperApplication.getInstance().getUserDetails().getPhoto()));
         }
 
-
-        btnLogout.setOnAction(action -> {
-            SuperApplication.getInstance().setUserDetails(null);
-            SuperApplication.getInstance().setApplicationInfoList(null);
-            showAlert("This is JavaFX alert type Confirmation", Alert.AlertType.CONFIRMATION);
-        });
+        btnLogout.setOnAction(this);
         btnSettings.setOnAction(this);
         btnProfile.setOnAction(this);
         btnSearch.setOnAction(this);
@@ -514,7 +510,23 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
 
     @Override
     public void handle(ActionEvent event) {
-        if (event.getSource() == btnProfile) {
+        if (event.getSource() == btnLogout) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setGraphic(null);
+            ButtonType buttonTypeOne = new ButtonType("Yes");
+            ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeOne) {
+                SuperApplication.getInstance().setUserDetails(null);
+                SuperApplication.getInstance().setApplicationInfoList(null);
+                //TODO: Have to expired token here
+                LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
+            }
+
+
+        } else if (event.getSource() == btnProfile) {
             Constants.last_url = Page.LANDING_PAGE;
             LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.USER_PROFILE_URL, Constants.FxmlUrl.USER_PROFILE_CSS);
         } else if (event.getSource() == btnSettings) {
@@ -528,11 +540,5 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
             LoadViews.loadPages(gridpane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }
-    }
-
-    private void showAlert(String alertMessage, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setContentText(alertMessage);
-        alert.show();
     }
 }

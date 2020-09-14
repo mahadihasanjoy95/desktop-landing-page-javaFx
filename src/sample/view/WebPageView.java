@@ -240,19 +240,18 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
         if (event.getSource() == home) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
         } else if (event.getSource() == btnLogout) {
-            SuperApplication.getInstance().setUserDetails(null);
-            SuperApplication.getInstance().setApplicationInfoList(null);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to logout?", ButtonType.YES, ButtonType.NO);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
             alert.setGraphic(null);
-
-            final Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.YES) {
+            ButtonType buttonTypeOne = new ButtonType("Yes");
+            ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeOne) {
+                SuperApplication.getInstance().setUserDetails(null);
+                SuperApplication.getInstance().setApplicationInfoList(null);
                 //TODO: Have to expired token here
                 LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LOGIN_URL, Constants.FxmlUrl.LOGIN_CSS);
-            } else if (result.get() == ButtonType.NO) {
-                //TODO: Have to expired token here
-                event.consume();
             }
 
 
