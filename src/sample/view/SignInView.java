@@ -79,9 +79,6 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
                 firstTime.setValue(false); // Variable value changed for future references
             }
         });
-        txtEmailAddress.setText("raman@gmail.com");
-        txtPassword.setText("123456789");
-
         login.setOnAction(this);
         signUp.setOnAction(this);
         btnForgetPassword.setOnAction(this);
