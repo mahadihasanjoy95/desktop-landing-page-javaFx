@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Window;
 import sample.data.dto.LogInDto;
@@ -84,6 +85,21 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         login.setOnAction(this);
         signUp.setOnAction(this);
         btnForgetPassword.setOnAction(this);
+        txtPassword.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                login();
+            }
+        });
+        pane.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                login();
+            }
+        });
+        txtEmailAddress.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                login();
+            }
+        });
     }
 
     @Override
@@ -134,44 +150,47 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == login) {
-            Window owner = pane.getScene().getWindow();
-            Common.checkInternet(owner);
-            stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
-            stackPane.setAlignment(Pos.CENTER);
-
-            if (txtEmailAddress.getText().trim().isEmpty()) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.EMPTY_EMAIL);
-                stackPane.getChildren().remove(pi);
-                return;
-            } else if (!Common.emailValidator(txtEmailAddress.getText().trim())) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.INVALID_EMIL_FORMAT);
-                stackPane.getChildren().remove(pi);
-                return;
-            }
-
-
-            if (txtPassword.getText().isEmpty()) {
-                Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
-                        Messages.EMPTY_PASSWORD);
-                stackPane.getChildren().remove(pi);
-                return;
-            }
-
-            String emailAddress = txtEmailAddress.getText().trim();
-            String password = txtPassword.getText();
-
-            LogInDto logInDto = new LogInDto(emailAddress, password);
-            new sample.data.controller.LogInController(this).start(logInDto);
+            login();
         } else if (event.getSource() == signUp) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.SIGNUP_URL, Constants.FxmlUrl.SIGNUP_CSS);
         } else if (event.getSource() == btnForgetPassword) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.FORGET_PASSWORD_URL, Constants.FxmlUrl.FORGET_PASSWORD_CSS);
         }
+    }
+
+    private void login()
+    {
+        Window owner = pane.getScene().getWindow();
+        Common.checkInternet(owner);
+        stackPane.getChildren().add(pi);
+        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+        stackPane.setAlignment(Pos.CENTER);
+
+        if (txtEmailAddress.getText().trim().isEmpty()) {
+            Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                    Messages.EMPTY_EMAIL);
+            stackPane.getChildren().remove(pi);
+            return;
+        } else if (!Common.emailValidator(txtEmailAddress.getText().trim())) {
+            Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                    Messages.INVALID_EMIL_FORMAT);
+            stackPane.getChildren().remove(pi);
+            return;
+        }
 
 
+        if (txtPassword.getText().isEmpty()) {
+            Common.showAlert(Alert.AlertType.ERROR, owner, Messages.FORM_ERROR,
+                    Messages.EMPTY_PASSWORD);
+            stackPane.getChildren().remove(pi);
+            return;
+        }
+
+        String emailAddress = txtEmailAddress.getText().trim();
+        String password = txtPassword.getText();
+
+        LogInDto logInDto = new LogInDto(emailAddress, password);
+        new sample.data.controller.LogInController(this).start(logInDto);
     }
 
 

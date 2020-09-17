@@ -263,8 +263,17 @@ public class UserProfileView implements Initializable, ProfileUpdatingListener, 
                 return;
             }
 
+
             SignUpDto signUpDto = new SignUpDto(txtFirstName.getText().trim(), txtLastName.getText().trim(), txtUserName.getText().trim(), txtEmailAddress.getText().trim(), "123456789", txtPhoneNumber.getText().trim(), countryList.getValue().toString(), txtAddress.getText().trim(), txtCity.getText().trim(), txtState.getText().trim(), txtZipCode.getText().trim());
-            new ProfileUpdatingController(this).start(signUpDto);
+            SignUpDto checkSignUpDto = new SignUpDto(userDetails.firstName, userDetails.getLastName(), userDetails.userName, userDetails.getEmailAddress(), "123456789", userDetails.getPhoneNumber(), userDetails.getCountry(), userDetails.getAddress(), userDetails.getCity(), userDetails.getState(), userDetails.getZipCode());
+            if (!signUpDto.equals(checkSignUpDto))
+                new ProfileUpdatingController(this).start(signUpDto);
+            else {
+                Common.showAlert(Alert.AlertType.WARNING, owner, "No Changes",
+                        "No Changes Detected");
+                stackPane.getChildren().remove(pi);
+                return;
+            }
         } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 

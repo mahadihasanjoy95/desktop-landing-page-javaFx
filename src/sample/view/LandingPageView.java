@@ -511,14 +511,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == btnLogout) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert =new Alert(Alert.AlertType.CONFIRMATION, "Do you want to Logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
-            ButtonType buttonTypeOne = new ButtonType("Yes");
-            ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == buttonTypeOne) {
+            alert.showAndWait();
+            if (alert.getResult() ==ButtonType.YES) {
                 SuperApplication.getInstance().setUserDetails(null);
                 SuperApplication.getInstance().setApplicationInfoList(null);
                 //TODO: Have to expired token here

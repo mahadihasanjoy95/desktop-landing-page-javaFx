@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -58,6 +59,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, ((int) Screen.getPrimary().getBounds().getWidth()) - 10, ((int) Screen.getPrimary().getBounds().getHeight()) - 70);
         scene.getStylesheets().add(Constants.FxmlUrl.SPLASH_SCREEN_CSS);
         primaryStage.setTitle("Super Application");
+        primaryStage.getIcons().add(new Image(Constants.ImageUrl.MAIN_LOGO));
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setMinWidth(1270);
