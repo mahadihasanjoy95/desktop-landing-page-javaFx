@@ -1,10 +1,6 @@
 package sample.helper;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import sample.data.controller.BaseController;
 
 @Getter

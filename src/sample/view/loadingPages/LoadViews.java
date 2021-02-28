@@ -12,6 +12,7 @@ public class LoadViews {
 
     /**
      * This is the method is responsible for loading/ switching pages
+     *
      * @param node
      * @param c
      * @param fxml

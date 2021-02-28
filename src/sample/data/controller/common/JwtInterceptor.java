@@ -1,12 +1,12 @@
 package sample.data.controller.common;
 
-import java.io.IOException;
-
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.http.HttpHeaders;
 import sample.utils.Constants;
+
+import java.io.IOException;
 
 public class JwtInterceptor implements Interceptor {
 

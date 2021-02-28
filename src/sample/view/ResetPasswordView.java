@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -19,10 +18,10 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
 import sample.data.dto.PasswordResetDto;
-import sample.utils.Common;
 import sample.helper.ResponseMetadata;
 import sample.helper.SuccessResponse;
 import sample.interfaces.PasswordResetListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
@@ -137,7 +136,7 @@ public class ResetPasswordView implements Initializable, PasswordResetListener, 
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
 
             stackPane.setAlignment(Pos.CENTER);
             if (txtEmailAddress.getText().trim().isEmpty()) {

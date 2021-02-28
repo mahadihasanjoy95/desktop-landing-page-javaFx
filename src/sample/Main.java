@@ -76,6 +76,7 @@ public class Main extends Application {
         delay.play();
 
     }
+
     /**
      * This method load next scene after a pause transition
      *

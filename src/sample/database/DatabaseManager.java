@@ -22,22 +22,21 @@ public class DatabaseManager implements BookmarksCrud {
     private Connection connection;
     private Statement stmt;
 
-    public DatabaseManager(){
+    public DatabaseManager() {
         try {
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             stmt = connection.createStatement();
         } catch (Exception ex) {
-            System.err.println("Database Error >>> "+ex);
+            System.err.println("Database Error >>> " + ex);
         }
     }
-    public void createTable()
-    {
+
+    public void createTable() {
         try {
             stmt.execute(CREATE_TABLE);
-        }catch (Exception ex)
-        {
-            System.err.println("Database Error >>> "+ex);
+        } catch (Exception ex) {
+            System.err.println("Database Error >>> " + ex);
         }
     }
 

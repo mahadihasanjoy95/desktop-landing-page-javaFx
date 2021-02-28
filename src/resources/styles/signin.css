@@ -77,28 +77,33 @@
     -fx-background-radius: .5em, .5em;
     -fx-border-radius: .5em, .5em;
 }
-#otpHbox{
+
+#otpHbox {
     -fx-background-radius: .5em, .5em;
     -fx-border-radius: .5em, .5em;
 }
-#cPassHbox{
+
+#cPassHbox {
     -fx-background-radius: .5em, .5em;
     -fx-border-radius: .5em, .5em;
 }
-#oPassHbox{
+
+#oPassHbox {
     -fx-background-radius: .5em, .5em;
     -fx-border-radius: .5em, .5em;
 }
 
 
-#btnOpen{
+#btnOpen {
     -fx-border-radius: 50;
     -fx-background-radius: 50;
 }
-#pane{
+
+#pane {
     -fx-background-size: cover;
 }
-#profileVBox{
+
+#profileVBox {
     -fx-background-radius: .5em, .5em;
     -fx-border-radius: .5em, .5em;
 }

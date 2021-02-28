@@ -5,7 +5,7 @@
 
 }
 
-#profileView{
+#profileView {
     -fx-border-color: transparent;
 }
 
@@ -35,7 +35,11 @@
     -fx-text-fill: navajowhite;
     -fx-font-size: 14px;
 }
-.jfx-hamburger StackPane { -fx-background-color: #FFFFFF; }
+
+.jfx-hamburger StackPane {
+    -fx-background-color: #FFFFFF;
+}
+
 .VBox {
     -fx-background-color: #3c7fb1,
     linear-gradient(#fafdfe, #e8f5fc),
@@ -51,11 +55,13 @@
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
 }
-.button:hover{
+
+.button:hover {
     -fx-cursor: hand;
     -fx-fill: black;
 }
-#stackPane{
+
+#stackPane {
     -fx-background-size: cover;
 }
 

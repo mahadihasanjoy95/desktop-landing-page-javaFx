@@ -11,5 +11,5 @@ public interface BookmarksCrud {
 
     public ArrayList<Bookmarks> getAllBookmarks();
 
-   public ArrayList<Bookmarks> getUserWiseBookmarks(String userId);
+    public ArrayList<Bookmarks> getUserWiseBookmarks(String userId);
 }

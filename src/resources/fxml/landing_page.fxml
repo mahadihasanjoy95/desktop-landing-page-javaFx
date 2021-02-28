@@ -1,144 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="anchorpane" prefHeight="650.0" prefWidth="1276.0" style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.LandingPageView">
-   <children>
-      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ToolBar fx:id="toolbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="72.0" prefWidth="1276.0" style="-fx-background-color: #243D89;">
-               <items>
-                  <BorderPane fx:id="borderPane" prefHeight="70.0" prefWidth="1259.0">
-                     <left>
-                        <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="400.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button fx:id="btnLandingPage" mnemonicParsing="false" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../imgs/logo.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets left="60.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </left>
-                     <right>
-                        <HBox fx:id="hBox3" alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="400.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Circle fx:id="cir" fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </Circle>
-                              <MenuButton fx:id="profileView" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="17.0" style="-fx-background-color: transparent;">
-                                 <items>
-                                    <MenuItem fx:id="btnProfile" mnemonicParsing="false" text="Profile" />
-                                    <MenuItem fx:id="btnSettings" mnemonicParsing="false" text="Change Password" />
-                                    <MenuItem fx:id="btnLogout" mnemonicParsing="false" text="Logout" />
-                                 </items>
-                                 <padding>
-                                    <Insets left="-20.0" />
-                                 </padding>
-                                 <HBox.margin>
-                                    <Insets right="40.0" />
-                                 </HBox.margin>
-                              </MenuButton>
-                           </children>
-                        </HBox>
-                     </right>
-                     <center>
-                        <HBox fx:id="searchHbox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="20.0" prefWidth="459.0" style="-fx-background-color: transparent; -fx-border-color: #DDE3F3;" BorderPane.alignment="CENTER">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <children>
-                              <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="28.0" prefWidth="40.0" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../imgs/search.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <TextField fx:id="txtSearch" prefHeight="20.0" prefWidth="400.0" promptText="Search Application" style="-fx-background-color: transparent;">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                           <BorderPane.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </BorderPane.margin>
-                        </HBox>
-                     </center>
-                  </BorderPane>
-               </items>
-            </ToolBar>
-            <StackPane fx:id="stackPane">
-               <children>
-                  <VBox alignment="TOP_CENTER" StackPane.alignment="CENTER">
-                     <children>
-                        <ScrollPane fx:id="scrollPane" prefWidth="1276.0">
-                           <content>
-                              <GridPane fx:id="gridpane" alignment="CENTER" style="-fx-border-color: transparent;">
-            </GridPane>
-                           </content>
-                        </ScrollPane>
-                        <HBox fx:id="miniHbox" alignment="CENTER" spacing="5.0" style="-fx-background-color: transparent;">
-                           <children>
-                              <ScrollPane fx:id="gScrollPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" visible="false">
-                                 <content>
-                                    <GridPane fx:id="gridpane1" alignment="CENTER">
-                                       <padding>
-                                          <Insets left="12.0" />
-                                       </padding>
-                                    </GridPane>
-                                 </content>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                 </padding>
-                              </ScrollPane>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </StackPane>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane fx:id="anchorpane" prefHeight="650.0" prefWidth="1276.0"
+            style="-fx-background-image: url('imgs/background_login.png');" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.LandingPageView">
+    <children>
+        <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ToolBar fx:id="toolbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                         minWidth="-Infinity" prefHeight="72.0" prefWidth="1276.0"
+                         style="-fx-background-color: #243D89;">
+                    <items>
+                        <BorderPane fx:id="borderPane" prefHeight="70.0" prefWidth="1259.0">
+                            <left>
+                                <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="400.0"
+                                      BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Button fx:id="btnLandingPage" mnemonicParsing="false"
+                                                style="-fx-background-color: transparent;">
+                                            <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../imgs/logo.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <HBox.margin>
+                                                <Insets left="60.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </left>
+                            <right>
+                                <HBox fx:id="hBox3" alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="400.0"
+                                      BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Circle fx:id="cir" fill="DODGERBLUE" radius="22.0" stroke="BLACK"
+                                                strokeType="INSIDE">
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                        </Circle>
+                                        <MenuButton fx:id="profileView" alignment="CENTER" contentDisplay="CENTER"
+                                                    mnemonicParsing="false" prefHeight="73.0" prefWidth="17.0"
+                                                    style="-fx-background-color: transparent;">
+                                            <items>
+                                                <MenuItem fx:id="btnProfile" mnemonicParsing="false" text="Profile"/>
+                                                <MenuItem fx:id="btnSettings" mnemonicParsing="false"
+                                                          text="Change Password"/>
+                                                <MenuItem fx:id="btnLogout" mnemonicParsing="false" text="Logout"/>
+                                            </items>
+                                            <padding>
+                                                <Insets left="-20.0"/>
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets right="40.0"/>
+                                            </HBox.margin>
+                                        </MenuButton>
+                                    </children>
+                                </HBox>
+                            </right>
+                            <center>
+                                <HBox fx:id="searchHbox" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="20.0"
+                                      prefWidth="459.0"
+                                      style="-fx-background-color: transparent; -fx-border-color: #DDE3F3;"
+                                      BorderPane.alignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                    <children>
+                                        <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="28.0"
+                                                prefWidth="40.0" style="-fx-background-color: transparent;">
+                                            <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../imgs/search.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                        <TextField fx:id="txtSearch" prefHeight="20.0" prefWidth="400.0"
+                                                   promptText="Search Application"
+                                                   style="-fx-background-color: transparent;">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </padding>
+                                    <BorderPane.margin>
+                                        <Insets bottom="15.0" top="15.0"/>
+                                    </BorderPane.margin>
+                                </HBox>
+                            </center>
+                        </BorderPane>
+                    </items>
+                </ToolBar>
+                <StackPane fx:id="stackPane">
+                    <children>
+                        <VBox alignment="TOP_CENTER" StackPane.alignment="CENTER">
+                            <children>
+                                <ScrollPane fx:id="scrollPane" prefWidth="1276.0">
+                                    <content>
+                                        <GridPane fx:id="gridpane" alignment="CENTER"
+                                                  style="-fx-border-color: transparent;">
+                                        </GridPane>
+                                    </content>
+                                </ScrollPane>
+                                <HBox fx:id="miniHbox" alignment="CENTER" spacing="5.0"
+                                      style="-fx-background-color: transparent;">
+                                    <children>
+                                        <ScrollPane fx:id="gScrollPane" fitToHeight="true" fitToWidth="true"
+                                                    style="-fx-background-color: transparent;" visible="false">
+                                            <content>
+                                                <GridPane fx:id="gridpane1" alignment="CENTER">
+                                                    <padding>
+                                                        <Insets left="12.0"/>
+                                                    </padding>
+                                                </GridPane>
+                                            </content>
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                                            </padding>
+                                        </ScrollPane>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

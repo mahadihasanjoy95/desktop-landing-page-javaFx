@@ -16,8 +16,8 @@ import javafx.stage.Window;
 import sample.data.dto.LogInDto;
 import sample.data.model.LogInFailedResponse;
 import sample.data.model.LogInResponse;
-import sample.utils.Common;
 import sample.interfaces.LogInListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
@@ -155,12 +155,11 @@ public class SignInView implements Initializable, LogInListener, EventHandler<Ac
         }
     }
 
-    private void login()
-    {
+    private void login() {
         Window owner = pane.getScene().getWindow();
         Common.checkInternet(owner);
         stackPane.getChildren().add(pi);
-        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+        pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
         stackPane.setAlignment(Pos.CENTER);
 
         if (txtEmailAddress.getText().trim().isEmpty()) {

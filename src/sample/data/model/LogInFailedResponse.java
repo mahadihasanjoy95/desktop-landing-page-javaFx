@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LogInFailedResponse {
-	public String message;
+    public String message;
 }

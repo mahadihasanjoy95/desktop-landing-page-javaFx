@@ -37,5 +37,4 @@ public class Messages {
     public static String FAILED_TO_RESET_PASSWORD = "Failed to reset password";
 
 
-
 }

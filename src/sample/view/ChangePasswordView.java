@@ -9,22 +9,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
 import sample.data.controller.ChangePasswordController;
 import sample.data.dto.ChangePasswordDto;
 import sample.data.model.UserDetails;
-import sample.utils.Common;
 import sample.helper.SuccessResponse;
 import sample.interfaces.ChangePasswordListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.utils.Page;
 import sample.view.loadingPages.LoadViews;
 import sample.view.responsive.ScreenCal;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -177,7 +176,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             Window owner = pane.getScene().getWindow();
             Common.checkInternet(owner);
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
 
             stackPane.setAlignment(Pos.CENTER);
             if (txtOldPassword.getText().isEmpty()) {
@@ -212,8 +211,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
             if (Constants.last_url == Page.LANDING_PAGE) {
                 LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
-            }
-            else if (Constants.last_url == Page.WEB_VIEW){
+            } else if (Constants.last_url == Page.WEB_VIEW) {
                 LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.WEBVIEW_URL, Constants.FxmlUrl.WEBVIEW_CSS);
 
             }
@@ -248,7 +246,7 @@ public class ChangePasswordView implements Initializable, ChangePasswordListener
                 Common.eyeOpenImage(btnShowPass3);
 
             }
-        }else if (event.getSource() == btnLandingPage) {
+        } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
 
         }

@@ -3,7 +3,7 @@
     -fx-font-family: "gothic";
 }
 
-#profileView{
+#profileView {
     -fx-border-color: transparent;
 }
 
@@ -12,11 +12,12 @@
     -fx-padding: 10 10 10 10;
     -fx-font-size: 14px;
     -fx-font-weight: Bold;
-
-
 }
 
-.jfx-hamburger StackPane { -fx-background-color: #D6DBE9; }
+.jfx-hamburger StackPane {
+    -fx-background-color: #D6DBE9;
+}
+
 .VBox {
     -fx-background-color: #3c7fb1,
     linear-gradient(#fafdfe, #e8f5fc),
@@ -27,40 +28,13 @@
     -fx-font-size: 14px;
 }
 
-.button:hover{
+.button:hover {
     -fx-cursor: hand;
     -fx-fill: black;
 }
 
 
-#btnProfile{
-
-    -fx-background-color: #3c7fb1,
-    linear-gradient(#fafdfe, #e8f5fc),
-    linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
-    -fx-background-insets: 0, 1, 2;
-    -fx-padding: 10 40 10 40;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: Bold;
-    /*-fx-border-style: none none none none;*/
-    -fx-border-color: white;
-    -fx-border-width: 0 0 1 0;
-}
-#btnSettings{
-    -fx-background-color: #3c7fb1,
-    linear-gradient(#fafdfe, #e8f5fc),
-    linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
-    -fx-background-insets: 0, 1, 2;
-    -fx-padding: 10 40 10 40;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: Bold;
-    /*-fx-border-style: none none none none;*/
-    -fx-border-color: white;
-    -fx-border-width: 0 0 1 0;
-}
-#btnLogout{
+#btnProfile {
     -fx-background-color: #3c7fb1,
     linear-gradient(#fafdfe, #e8f5fc),
     linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
@@ -74,98 +48,134 @@
     -fx-border-width: 0 0 1 0;
 }
 
-.menu-item .label {
+#btnSettings {
+    -fx-background-color: #3c7fb1,
+    linear-gradient(#fafdfe, #e8f5fc),
+    linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0, 1, 2;
+    -fx-padding: 10 40 10 40;
     -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: Bold;
+    /*-fx-border-style: none none none none;*/
+    -fx-border-color: white;
+    -fx-border-width: 0 0 1 0;
 }
 
-.menu-item:focused {
+#btnLogout {
+    -fx-background-color: #3c7fb1,
+    linear-gradient(#fafdfe, #e8f5fc),
+    linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0, 1, 2;
+    -fx-padding: 10 40 10 40;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: Bold;
+    /*-fx-border-style: none none none none;*/
+    -fx-border-color: white;
+    -fx-border-width: 0 0 1 0;
+}
+
+/*.menu-item .label {*/
+/*    -fx-text-fill: black;*/
+/*}*/
+
+/*.menu-item:focused {
     -fx-background-color: darkgray;
 }
 
 .menu-item:focused .label {
     -fx-text-fill: darkgray;
-}
-#btnLogout{
-    -fx-background-color:  #223A83;
+}*/
+
+#btnLogout {
+    -fx-background-color: #223A83;
     -fx-cursor: hand;
 }
-#btnProfile{
-    -fx-background-color:  #223A83;
+
+#btnProfile {
+    -fx-background-color: #223A83;
     -fx-cursor: hand;
 }
-#btnSettings{
-    -fx-background-color:  #223A83;
+
+#btnSettings {
+    -fx-background-color: #223A83;
     -fx-cursor: hand;
 }
-#profileView{
+
+#profileView {
     -fx-cursor: hand;
 }
-#hamburger{
+
+#hamburger {
     -fx-cursor: hand;
 }
+
 #cir {
     -fx-cursor: hand;
 }
+
 .scroll-bar:horizontal .track,
-.scroll-bar:vertical .track{
-    -fx-background-color :transparent;
-    -fx-border-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-border-radius :1.0em;
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-border-radius: 1.0em;
 }
 
 
-.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .increment-button,
 .scroll-bar:horizontal .decrement-button {
-    -fx-background-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-padding :0.0 0.0 5.0 0.0;
-
+    -fx-background-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-padding: 0.0 0.0 5.0 0.0;
 }
 
-.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .increment-button,
 .scroll-bar:vertical .decrement-button {
-    -fx-background-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-padding :0.0 5.0 0.0 0.0;
-
+    -fx-background-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-padding: 0.0 5.0 0.0 0.0;
 }
 
 .scroll-bar .increment-arrow,
-.scroll-bar .decrement-arrow{
-    -fx-shape : " ";
-    -fx-padding :0.15em 0.0;
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.15em 0.0;
 }
 
 .scroll-bar:vertical .increment-arrow,
-.scroll-bar:vertical .decrement-arrow{
-    -fx-shape : " ";
-    -fx-padding :0.0 0.15em;
+.scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.0 0.15em;
 }
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-    -fx-background-color :derive(black,90.0%);
-    -fx-background-insets : 1.0, 0.0, 0.0;
-    -fx-background-radius : 1.0em;
+    -fx-background-color: derive(black, 90.0%);
+    -fx-background-insets: 1.0, 0.0, 0.0;
+    -fx-background-radius: 1.0em;
 }
 
 .scroll-bar:horizontal .thumb:hover,
 .scroll-bar:vertical .thumb:hover {
-    -fx-background-color :derive(#4D4C4F,10.0%);
-    -fx-background-insets : 1.0, 0.0, 0.0;
-    -fx-background-radius : 1.0em;
+    -fx-background-color: derive(#4D4C4F, 10.0%);
+    -fx-background-insets: 1.0, 0.0, 0.0;
+    -fx-background-radius: 1.0em;
 }
+
 .menu-button > .arrow-button > .arrow {
     -fx-background-color: white;
     -fx-pref-height: 7;
     -fx-pref-width: 9;
 }
-#navButton{
+
+#navButton {
     -fx-opacity: .9;
     -fx-border-color: #84A3FD;
     -fx-border-width: 0 0 1 0;
 }
-#navButton:hover{
+
+#navButton:hover {
     -fx-opacity: 1;
 }

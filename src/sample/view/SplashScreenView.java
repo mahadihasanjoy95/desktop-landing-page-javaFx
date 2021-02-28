@@ -11,8 +11,6 @@ import sample.database.DatabaseManager;
 import sample.utils.Constants;
 import sample.view.responsive.ScreenCal;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

@@ -17,10 +17,10 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 import okhttp3.ResponseBody;
 import sample.data.dto.SendOtpDto;
-import sample.utils.Common;
 import sample.helper.ResponseMetadata;
 import sample.helper.SuccessResponse;
 import sample.interfaces.ForgotPasswordListener;
+import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Messages;
 import sample.view.loadingPages.LoadViews;
@@ -58,7 +58,7 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
         pi = new ProgressIndicator();
         pi.setLayoutX((((int) Screen.getPrimary().getBounds().getWidth()) - 10) / 2);
         pi.setLayoutY((((int) Screen.getPrimary().getBounds().getHeight()) - 70) / 2);
-        screenCal.profileAllignement(pane,new StackPane());
+        screenCal.profileAllignement(pane, new StackPane());
         screenCal.toolbarAllignment(toolbar);
         screenCal.toolBarBorderPaneAllignment(borderPane);
         screenCal.forgetPassVBoxAllignment(forgetPassUpVBox);
@@ -117,7 +117,7 @@ public class ForgetPasswordView implements Initializable, ForgotPasswordListener
             Common.checkInternet(owner);
 
             stackPane.getChildren().add(pi);
-            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth()/21, ScreenCal.getScreenResulation().getWidth()/21);
+            pi.setMaxSize(ScreenCal.getScreenResulation().getWidth() / 21, ScreenCal.getScreenResulation().getWidth() / 21);
 
             stackPane.setAlignment(Pos.CENTER);
 

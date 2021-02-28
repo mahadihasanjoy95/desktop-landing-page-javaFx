@@ -22,12 +22,10 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Window;
 import javafx.util.Duration;
-import sample.data.controller.UserDetailsController;
 import sample.data.model.ApplicationInfo;
 import sample.data.model.Bookmarks;
 import sample.data.model.UserDetails;
 import sample.database.DatabaseManager;
-import sample.interfaces.UserDetailsListener;
 import sample.utils.Common;
 import sample.utils.Constants;
 import sample.utils.Page;
@@ -84,7 +82,6 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
     private Button prevButton;
     private ScreenCal screenCal;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         screenCal = new ScreenCal();
@@ -100,11 +97,12 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
     private void drawerAction() {
 
         Platform.runLater(() -> {
+            webview.setContextMenuEnabled(false);
+            webview.getEngine().setJavaScriptEnabled(true);
             webview.getEngine().load(Constants.CURRENT_URL);
             barText.setText(Constants.CURRENT_APP_NAME);
             pane.getChildren().remove(pi);
         });
-
 
         screenCal.profileAllignement(pane, stackPane);
         screenCal.webViewAllignment(rootVBox, scrollPane);
@@ -272,7 +270,6 @@ public class WebPageView implements Initializable, EventHandler<ActionEvent> {
             prevButton = fav;
         } else if (event.getSource() == btnLandingPage) {
             LoadViews.loadPages(pane, this.getClass(), Constants.FxmlUrl.LANDING_PAGE_URL, Constants.FxmlUrl.LANDING_PAGE_CSS);
-
         }
     }
 }

@@ -37,7 +37,6 @@ import sample.view.responsive.ScreenCal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LandingPageView implements Initializable, ApplicationListListener, UserDetailsListener, EventHandler<ActionEvent> {
@@ -511,11 +510,11 @@ public class LandingPageView implements Initializable, ApplicationListListener, 
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == btnLogout) {
-            Alert alert =new Alert(Alert.AlertType.CONFIRMATION, "Do you want to Logout?", ButtonType.YES, ButtonType.NO);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to Logout?", ButtonType.YES, ButtonType.NO);
             alert.setHeaderText(null);
             alert.setGraphic(null);
             alert.showAndWait();
-            if (alert.getResult() ==ButtonType.YES) {
+            if (alert.getResult() == ButtonType.YES) {
                 SuperApplication.getInstance().setUserDetails(null);
                 SuperApplication.getInstance().setApplicationInfoList(null);
                 //TODO: Have to expired token here

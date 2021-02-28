@@ -1,11 +1,11 @@
 package sample.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +14,7 @@ public class ApplicationInfo {
 
     private String applicationName;
     private String version;
-    private String asset ;
+    private String asset;
     private boolean status;
     private String webUrl;
 

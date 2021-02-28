@@ -30,7 +30,7 @@ public class ProfileUpdatingController extends BaseController implements Callbac
 
     @Override
     public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
-        if(response.isSuccessful()) {
+        if (response.isSuccessful()) {
             SuccessResponse<UserDetails> userDetailsSuccessResponse = createSuccessResponse(response);
             if (listener != null) listener.profileUpdatingCompleted(userDetailsSuccessResponse);
         } else {
